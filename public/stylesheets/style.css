@@ -1,8 +1,51 @@
+:root {
+    --grey-1: white;
+    --grey-2: black;
+}
+
 body {
-  padding: 50px;
+  padding: 0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+h1, h2, p {
+    margin: 0;
+}
+
+nav, 
+div#home-main-section {
+    background: var(--grey-2);
+}
+
+nav *,
+div#home-main-section *{
+    color: var(--grey-1);
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+nav ul * {
+  text-decoration: none;
+  /* color: white; */
+}
+
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+a#home-main-projects-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    border: 1px solid var(--grey-1);
 }
