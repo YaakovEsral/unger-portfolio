@@ -6,22 +6,23 @@ const pool = require('../connectionAsync');
 
 /* GET portfolio page */
 router.get('/', async (req, res, next) => {
-    let data;
     try {
-        data = await pool.query('SELECT * FROM projects');
+        const data = await pool.query('SELECT * FROM projects');
+        // console.log(data[0]);
+        // console.log(data[0][0]);
+        res.render('portfolio', { data: data[0] });
     }
     // catching a network/db error. And throughout
     catch (err) {
         console.error(err);
-
+        next(err);
     }
-    // console.log(data[0]);
-    // console.log(data[0][0]);
-    res.render('portfolio', { data: data[0] });
+
+
 
 })
 
-/* GET portfolio page */
+/* GET specific project page */
 router.get('/:slug', async (req, res, next) => {
     // console.log(req.params.slug);
 
@@ -30,7 +31,7 @@ router.get('/:slug', async (req, res, next) => {
         // console.log(data[0]);
 
         // If no data, create an error message and forward to the error handler
-        if(!data[0].length) {
+        if (!data[0].length) {
             const error = new Error();
             error.status = 404;
             error.message = 'No such page.'
