@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  p ERROR
+  h1= message
+  h2= error.status
+
+  a(href='/') Return to Home
+//-   pre #{error.stack}

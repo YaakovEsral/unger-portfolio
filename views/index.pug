@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    script(type='text/javascript').
+        var data = !{JSON.stringify(data)}
+        console.log(data);
+
+    nav
+        ul 
+            a(href='./portfolio')
+                li Work
+            a(href='./about')
+                li About
+            a(href='./contact')
+                li Contact
+
+    h1= title
+    p Welcome to Meir Unger's Portfolio Site
+
+    div 
+        each project in data
+            a(href=`./portfolio/${project.slug}`)
+                div
+                    h1= project.client_name
+                    h2= project.project_name
+
+    a(href='./portfolio') Work
+
+//- script(id="__bs_script__")
+//-     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.27.7'><\/script>".replace("HOST", location.hostname));

@@ -1,0 +1,17 @@
+extends layout 
+
+block content
+    - // current method for getting object data from res.locals
+
+    script(type='text/javascript').
+        var data = !{JSON.stringify(data)}
+        console.log(data);
+
+    h1 All portfolio projects
+
+    div 
+        each project in data
+            a(href=`./portfolio/${project.slug}`)
+                div
+                    h1= project.client_name
+                    h2= project.project_name

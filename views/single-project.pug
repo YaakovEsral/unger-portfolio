@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    script(type='text/javascript').
+        var data = !{JSON.stringify(data)}
+        console.log(data);
+
+
+    h1=data.project_name 
+    h2=data.client_name 
+
+    p=data.description
