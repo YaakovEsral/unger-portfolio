@@ -1,6 +1,16 @@
 :root {
-    --grey-1: white;
-    --grey-2: black;
+  --grey-1: #f4f4f4;
+  --grey-2: #2e2d2c;
+  --grey-3: #ffffff;
+}
+
+* {
+  font-family: "VisbyCF-DemiBold", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+}
+
+.hidden {
+  display: none;
 }
 
 body {
@@ -9,43 +19,221 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-h1, h2, p {
-    margin: 0;
+h1,
+h2,
+p {
+  margin: 0;
 }
 
-nav, 
+nav,
 div#home-main-section {
-    background: var(--grey-2);
+  background: var(--grey-2);
 }
 
 nav *,
-div#home-main-section *{
-    color: var(--grey-1);
+div#home-main-section * {
+  color: var(--grey-1);
 }
 
+nav {
+  height: 64.04px;
+  /* border-bottom: 1px solid white; */
+  position: relative;
+  padding-bottom: 54.73px;
+    /* z-index is very important for the mobile menu. The nav's z-index should be set so that the later sibling elements which are positioned don't end up higher than the nav. It only works to set the nav (as opposed to the mobile-options-container), since the child element's z-index is only as great as its parent's. See this article for explanation: https://www.freecodecamp.org/news/css-z-index-not-working/ */
+  z-index: 1;
+}
+
+nav img#nav-svg-dots {
+  position: absolute;
+  left: 10.26px;
+  top: 11.92px;
+}
+
+nav img#nav-mobile-menu-icon {
+  position: absolute;
+  left: 23px;
+  top: 30.32px;
+}
+
+div#nav-mobile-options-container {
+  /* display: none; */
+  width: 100vw;
+  height: 100vh;
+  background: var(--grey-3);
+  z-index: 1;
+  position: fixed; /* *** Need to see if he likes this behavior, or if we should find a way to disable scrolling when menu is open. */
+  --mobile-menu-left-margin: 24.54px;
+}
+
+div#nav-mobile-options-container * {
+  color: var(--grey-2);
+}
+
+span#nav-mobile-exit-icon {
+  font-size: 22.536px;
+  position: absolute;
+  top: 36px;
+  left: var(--mobile-menu-left-margin);
+}
+
+div#nav-mobile-options-container ul {
+  display: flex;
+  flex-direction: column;
+  padding-top: 149.31px;
+  margin-left: var(--mobile-menu-left-margin);
+}
+
+div#nav-mobile-options-container li {
+  margin-bottom: 38.33px;
+}
+
+a.nav-mobile-option-single {
+  font-weight: 600;
+  font-size: 60px;
+}
+
+nav img#nav-logo {
+  width: 84px;
+  position: absolute;
+  right: 25.71px;
+  top: 33.84px;
+}
+
+nav img#nav-logo.logo-active {
+    /* Since we are embedding svg in an img tag, we need to use a filter to make control it.
+        See https://medium.com/@union_io/swapping-fill-color-on-image-tag-svgs-using-css-filters-fa4818bf7ec6 for details.
+        I used the following converter generator: https://angel-rs.github.io/css-color-filter-generator/.
+        Hopefully it works okay.
+    */
+  filter: brightness(0) saturate(100%) invert(13%) sepia(7%) saturate(251%)
+    hue-rotate(349deg) brightness(92%) contrast(86%);
+}
+
+/* FOR LARGER SCREENS */
 nav ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  width: 200px;
+  width: 200px; */
 }
 
 nav ul * {
   text-decoration: none;
-  /* color: white; */
 }
 
 a {
-  color: #00b7ff;
+  text-decoration: none;
 }
 
-a#home-main-projects-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 30px;
-    border: 1px solid var(--grey-1);
+div#home-main-section {
+  position: relative; /* This line is just so the button's positioned parent is this section and not the html container, which ruins the z-index in mobile menu. */
+  /* z-index: -1; Hopefully this doesn't mess us up, once again. */
+}
+
+div#home-main-content-container {
+}
+
+div#home-main-content-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 23px;
+}
+
+h1#home-main-info-header {
+  font-size: 75px;
+  font-weight: 600;
+  line-height: 65.62px;
+  margin-bottom: 44px; /* ******* not sure if this is perfectly accurate */
+}
+
+p#home-main-info-tagline {
+  font-size: 15px;
+  width: 79%; /* make sure this is correct throughout */
+  line-height: 23.4px;
+  margin-bottom: 49.09px;
+}
+
+a#home-main-info-button {
+  font-size: 17.5px;
+  width: 80.26px;
+  height: 37.27px;
+  border: 1px solid var(--grey-1);
+  margin-bottom: 59.59px;
+  position: relative;
+}
+
+a#home-main-info-button span {
+  position: absolute;
+  top: 10.33px;
+  left: 21.68px;
+}
+
+div#home-projects-section {
+  background: var(--grey-1);
+  padding: 42.02px 29.5px 68.93px;
+}
+
+div#home-projects-section * {
+  color: var(--grey-2);
+}
+
+h3#home-projects-section-header {
+  margin: 0;
+  font-weight: 600;
+  font-size: 25.1229px;
+  margin-bottom: 40.49px;
+}
+
+div.home-projects-single.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 41.62px;
+}
+
+h4.home-projects-single-header {
+  text-decoration: none;
+  font-size: 12.48px;
+  font-weight: 700;
+  font-family: "VisbyCF-Bold";
+  height: 21.39px;
+  margin: 0;
+}
+
+footer {
+  background-color: var(--grey-2);
+  padding: 30.59px 21.58px 19.83px 23px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 12.19px;
+}
+
+footer * {
+  color: var(--grey-1);
+  font-weight: 100;
+}
+
+img#footer-logo {
+  width: 84px;
+  grid-row: 1 / 2;
+  grid-column: 1 /2;
+}
+
+div#footer-contact-container {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+div#footer-copyright-container {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+  text-align: center;
+  padding: 0 52px;
+  line-height: 19px;
 }

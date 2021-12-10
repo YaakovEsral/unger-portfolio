@@ -1,7 +1,36 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        link(rel='stylesheet' href='/stylesheets/style.css')
+        link(rel='stylesheet' href='/stylesheets/font.css')
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+
+    body
+        script(src='/javascripts/mobile-nav.js' defer)
+        nav
+            img#nav-svg-dots(src="/svg/nav-dots.svg")
+            
+            img#nav-mobile-menu-icon(src="/svg/nav-mobile-icon.svg")
+            img#nav-logo(src="/svg/logo.svg")
+            div#nav-mobile-options-container.hidden
+                span#nav-mobile-exit-icon &#10006;
+                ul
+                    li 
+                        a.nav-mobile-option-single(href="./portfolio") Work
+                    li 
+                        a.nav-mobile-option-single(href="./about") About
+                    li 
+                        a.nav-mobile-option-single(href="./contact") Contact
+
+
+            //- ul 
+            //-     - // render first link differently depending on if we are on homepage or not
+            //-     a(href=`${path === '/' ? './portfolio' : '/'}`)
+            //-         li= path === '/' ? 'Work' : 'Home'
+            //-     a(href='./about')
+            //-         li About
+            //-     - const classes=['a', 'b', 'c']
+            //-     a(href='./contact' class=classes)
+            //-         li Contact
+        block content

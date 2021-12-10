@@ -5,29 +5,38 @@ block content
         var data = !{JSON.stringify(data)}
         //- console.log(data);
 
-    nav
-        ul 
-            a(href='./portfolio')
-                li Work
-            a(href='./about')
-                li About
-            a(href='./contact')
-                li Contact
-    div(id="home-main-section")
 
-        h1(id="home-main-header") Meir Unger
-        p(id="home-main-tagline") I visualize your message through a range of communicative media, using a touch of drama.
+    div#home-main-section
 
-        a(id="home-main-projects-button") See it
+        div#home-main-content-container
+            div#home-main-content-info
 
-    div 
+                h1#home-main-info-header
+                    | Meir 
+                    br
+                    | Unger
+                p#home-main-info-tagline I visualize your message through a range of communicative media, using a touch of drama.
+
+                a#home-main-info-button(href="./portfolio")
+                    span See it
+
+    div#home-projects-section 
+
+        h3#home-projects-section-header Trending Projects 
+
         each project in data
             a(href=`./portfolio/${project.slug}`)
-                div
-                    h1= project.client_name
-                    h2= project.project_name
+                div.home-projects-single.container
+                    h4.home-projects-single-header= project.project_name
+                    img.home-projects-single-image(src="/images/voyage-resources.png")
 
-    a(href='./portfolio') Work
+    footer
+        img#footer-logo(src="/svg/logo.svg")
+
+        div#footer-contact-container
+            div#footer-contact-phone 347-664-0203
+            div#footer-contact-email meir@meirunger.com
+        div#footer-copyright-container &copy; 2022 Meir Unger &#183; Built by D7mtg &#183; All Rights Reserved
 
 //- script(id="__bs_script__")
 //-     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.27.7'><\/script>".replace("HOST", location.hostname));

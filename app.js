@@ -23,6 +23,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+    res.locals.path = req.path;
+    console.log('foo', res.locals.path);
+    next();
+})
+
 app.use('/', indexRouter);
 app.use('/portfolio', portfolioRouter);
 app.use('/admin', adminRouter)
