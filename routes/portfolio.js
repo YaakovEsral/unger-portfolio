@@ -7,10 +7,10 @@ const pool = require('../connectionAsync');
 /* GET portfolio page */
 router.get('/', async (req, res, next) => {
     try {
-        const data = await pool.query('SELECT * FROM projects');
+        const data = await pool.query('SELECT * FROM projects ORDER BY sequence_num ASC');
         // console.log(data[0]);
         // console.log(data[0][0]);
-        res.render('portfolio', { data: data[0] });
+        res.render('portfolio', { data: JSON.stringify(data[0]) });
     }
     // catching a network/db error. And throughout
     catch (err) {

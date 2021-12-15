@@ -1,7 +1,7 @@
 :root {
-  --grey-1: #f4f4f4;
-  --grey-2: #2e2d2c;
-  --grey-3: #ffffff;
+  --white-1: #f4f4f4;
+  --white-2: #ffffff;
+  --black-1: #2e2d2c;
 }
 
 * {
@@ -16,7 +16,6 @@
 body {
   padding: 0;
   margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 h1,
@@ -27,12 +26,12 @@ p {
 
 nav,
 div#home-main-section {
-  background: var(--grey-2);
+  background: var(--black-1);
 }
 
 nav *,
 div#home-main-section * {
-  color: var(--grey-1);
+  color: var(--white-1);
 }
 
 nav {
@@ -60,14 +59,14 @@ div#nav-mobile-options-container {
   /* display: none; */
   width: 100vw;
   height: 100vh;
-  background: var(--grey-3);
+  background: var(--white-2);
   z-index: 1;
   position: fixed; /* *** Need to see if he likes this behavior, or if we should find a way to disable scrolling when menu is open. */
   --mobile-menu-left-margin: 24.54px;
 }
 
 div#nav-mobile-options-container * {
-  color: var(--grey-2);
+  color: var(--black-1);
 }
 
 span#nav-mobile-exit-icon {
@@ -160,7 +159,7 @@ a#home-main-info-button {
   font-size: 17.5px;
   width: 80.26px;
   height: 37.27px;
-  border: 1px solid var(--grey-1);
+  border: 1px solid var(--white-1);
   margin-bottom: 59.59px;
   position: relative;
 }
@@ -172,12 +171,12 @@ a#home-main-info-button span {
 }
 
 div#home-projects-section {
-  background: var(--grey-1);
+  background: var(--white-1);
   padding: 42.02px 29.5px 68.93px;
 }
 
 div#home-projects-section * {
-  color: var(--grey-2);
+  color: var(--black-1);
 }
 
 h3#home-projects-section-header {
@@ -203,7 +202,7 @@ h4.home-projects-single-header {
 }
 
 footer {
-  background-color: var(--grey-2);
+  background-color: var(--black-1);
   padding: 30.59px 21.58px 19.83px 23px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -212,7 +211,7 @@ footer {
 }
 
 footer * {
-  color: var(--grey-1);
+  color: var(--white-1);
   font-weight: 100;
 }
 

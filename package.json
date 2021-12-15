@@ -13,7 +13,8 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "mysql2": "^2.3.3",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "sortablejs": "^1.14.0"
   },
   "devDependencies": {
     "browser-sync": "^2.27.7",

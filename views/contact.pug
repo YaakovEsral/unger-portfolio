@@ -1,4 +1,17 @@
 extends layout 
 
 block content 
-    h1 This is Contact
+    link(rel='stylesheet' href='/stylesheets/contact.css')
+
+    div#contact-section
+
+        h2#contact-header Contact
+
+        form#contact-form
+            div#contact-form-inputs
+                input(type='text' name='firstName' id='firstName' placeholder='First Name')
+                input(type='text' name='lastName' id='lastName' placeholder='Last Name')
+                input(type='text' name='subject' id='subject' placeholder='Subject')
+                textarea(name='message' id='message' placeholder='Message' )
+
+            button Submit

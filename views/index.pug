@@ -1,9 +1,8 @@
 extends layout
 
 block content
-    script(type='text/javascript').
-        var data = !{JSON.stringify(data)}
-        //- console.log(data);
+    //- See commment in index.js. Here we are parsing the data that was passed from the server. If we would try to display this as an object, Pug would render it [Object object]. But instead we are accessing each piece of data on its own inside our for each loop, which produces the desired result.
+    - const parsedData = JSON.parse(data)
 
 
     div#home-main-section
@@ -24,19 +23,13 @@ block content
 
         h3#home-projects-section-header Trending Projects 
 
-        each project in data
+        each project in parsedData
             a(href=`./portfolio/${project.slug}`)
                 div.home-projects-single.container
                     h4.home-projects-single-header= project.project_name
                     img.home-projects-single-image(src="/images/voyage-resources.png")
 
-    footer
-        img#footer-logo(src="/svg/logo.svg")
-
-        div#footer-contact-container
-            div#footer-contact-phone 347-664-0203
-            div#footer-contact-email meir@meirunger.com
-        div#footer-copyright-container &copy; 2022 Meir Unger &#183; Built by D7mtg &#183; All Rights Reserved
+    
 
 //- script(id="__bs_script__")
 //-     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.27.7'><\/script>".replace("HOST", location.hostname));

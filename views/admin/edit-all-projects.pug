@@ -1,0 +1,21 @@
+extends admin-layout 
+
+block content
+    //- SWITCH TO PROPER INTERNAL URL
+    script(src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js")
+    script(src='/javascripts/sortable.js' type="module" defer)
+    
+    - const parsedData = JSON.parse(data);
+    
+    div#all-projects-page-container
+        h1=title 
+
+        ul#all-projects-container
+            each project in parsedData
+                li
+                    a(href=`./portfolio/${project.slug}`)
+                        div
+                            h1= project.client_name
+                            h2= project.project_name
+                            //- h3= project.project_id
+                            //- p= project.sequence_num

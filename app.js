@@ -25,7 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
     res.locals.path = req.path;
-    console.log('foo', res.locals.path);
     next();
 })
 
