@@ -1,9 +1,9 @@
-extends admin-layout 
+extends index 
 
 block content
-    //- SWITCH TO PROPER INTERNAL URL
-    script(src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js")
-    script(src='/javascripts/sortable.js' type="module" defer)
+    //- script(src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js")
+    script(src='/sortablejs/Sortable.js' defer)
+    script(src='/javascripts/sortable.js' defer)
     
     - const parsedData = JSON.parse(data);
     

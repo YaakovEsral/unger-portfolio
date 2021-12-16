@@ -1,12 +1,8 @@
 const element = document.getElementById('all-projects-container');
-const sortable = Sortable.create(element, { onEnd, onSort, dragoverBubble: true });
-
-function onEnd(e) {
-    console.log('ended');
-}
+const sortable = Sortable.create(element, { onSort, dragoverBubble: true });
 
 async function onSort(e) {
-    console.log(e);
+    // console.log(e);
     const data = {
         newIndex: e.newIndex,
         oldIndex: e.oldIndex

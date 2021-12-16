@@ -1,0 +1,131 @@
+form#add-project-form {
+    --red: rgb(236, 83, 83);
+}
+
+h1#add-project-heading,
+form#add-project-form {
+    min-width: 300px;
+    max-width: 400px;
+    
+    margin-left: 35px; /* can't get margin auto working */
+}
+
+div.add-project-input-section {
+    background-color: rgb(161, 214, 231);
+    margin-bottom: 5px;
+    padding: 10px 20px;
+    width: 80%;
+    border-radius: 4px;
+}
+
+h3#input-section-header {
+    margin: 0 0 10px;
+}
+
+div.add-project-input-section input[type=text] {
+    font-size: 18px;
+    padding: 3px;
+    border-radius: 4px;
+    border-color: transparent;
+}
+
+div#default-slug {
+    margin-bottom: 5px;
+}
+
+div.single-credits {
+    display: flex;
+    justify-content: space-between;
+}
+
+span.credits-delete {
+    display: flex;
+    background: var(--red);
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+}
+
+div.single-credits input[type=text] {
+    font-size: 14px;
+    width: 40%;
+}
+
+div.credit-divider,
+div.inside-media-divider {
+    width: 100%;
+    height: 3px;
+    background: #333;
+    margin: 10px 0;
+}
+
+div.more-credits-div,
+div.more-media-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.more-credits-div div,
+div.more-media-div div{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+input#more-credits-input,
+button#more-credits-button,
+input#more-media-input,
+button#more-media-button {
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+input#more-credits-input,
+input#more-media-input {
+    width: 30px;
+}
+
+textarea#project-description {
+    /* **** annoying that it's outside of padding */
+    width: 100%;
+    resize: none;
+    padding: 5px;
+}
+
+div#desktop-cover-photo-div,
+div#mobile-cover-photo-div {
+    display: flex;
+    flex-direction: column;
+}
+
+img#desktop-cover-photo-preview,
+img#mobile-cover-photo-preview,
+img.inside-media-preview {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+div.single-inside-media {
+    display: flex;
+    flex-direction: column;
+}
+
+span.inside-media-delete {
+    width: 200px;
+    text-align: center;
+    margin-bottom: 5px;
+    background: var(--red);
+    padding: 3px 6px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button#add-project-submit-button {
+    font-size: 18px;
+    margin: 10px 20px;
+}

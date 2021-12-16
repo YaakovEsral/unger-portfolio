@@ -20,6 +20,32 @@ form#admin-login-form * {
   padding: 5px 10px;
 }
 
+nav#admin-nav {
+    padding: 10px 20px;
+
+}
+
+nav#admin-nav ul{
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.nav-divider {
+    height: 30px;
+    width: 3px;
+    background: rgb(6, 6, 87);
+}
+
+nav#admin-nav a{
+    font-size: 25px;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
 div#all-projects-page-container {
   padding: 10px 15px;
 }
