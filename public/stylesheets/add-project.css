@@ -18,7 +18,7 @@ div.add-project-input-section {
     border-radius: 4px;
 }
 
-h3#input-section-header {
+h3.input-section-header {
     margin: 0 0 10px;
 }
 
@@ -36,6 +36,7 @@ div#default-slug {
 div.single-credits {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 span.credits-delete {
@@ -89,7 +90,7 @@ input#more-media-input {
     width: 30px;
 }
 
-textarea#project-description {
+textarea#input-project-description {
     /* **** annoying that it's outside of padding */
     width: 100%;
     resize: none;
@@ -113,6 +114,7 @@ img.inside-media-preview {
 div.single-inside-media {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 span.inside-media-delete {
@@ -123,6 +125,7 @@ span.inside-media-delete {
     padding: 3px 6px;
     border-radius: 4px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 button#add-project-submit-button {
