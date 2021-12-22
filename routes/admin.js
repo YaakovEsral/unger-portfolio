@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 const pool = require('../connectionAsync');
+const submitProject = require('../middleware/submit-project');
+const fileUpload = require('../middleware/file-upload');
 
 /* GET admin login page. */
 router.get('/', function (req, res) {
-        res.render('admin/login', { title: 'Admin' });
+    res.render('admin/login', { title: 'Admin' });
 });
 
 router.get('/dashboard', async function (req, res, next) {
@@ -21,12 +23,15 @@ router.get('/dashboard', async function (req, res, next) {
 });
 
 router.route('/add-project')
-    .get( (req, res, next) => {
+    .get((req, res, next) => {
         res.render('admin/add-project', { title: 'Add Project' });
     })
-    .post((req, res) => {
-        res.end(200);
-    })
+    .post(fileUpload.fields([
+        { name: 'desktop-cover-photo', maxCount: 1 },
+        { name: 'mobile-cover-photo', maxCount: 1 },
+        { name: 'single-inside-media', maxCount: 10 }
+    ]),
+        submitProject)
 
 router.post('/update-project-order', (req, res) => {
     // console.log(req.body);
@@ -34,7 +39,7 @@ router.post('/update-project-order', (req, res) => {
     try {
         pool.query('CALL updateProjectOrder(?, ?)', [req.body.oldIndex, req.body.newIndex])
     }
-    catch(err) {
+    catch (err) {
         res.end(err);
     }
 })

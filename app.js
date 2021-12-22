@@ -21,7 +21,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')), express.static(path.join(__dirname, 'node_modules')));
+app.use(express.static(path.join(__dirname, 'public')), express.static(path.join(__dirname, 'node_modules')) );
 
 app.use((req, res, next) => {
     res.locals.path = req.path;
@@ -44,6 +44,7 @@ app.use(function(err, req, res, next) {
 
   // set locals, only providing error in development
   console.log('message', err.message);
+  console.log('error field', err.field);
   res.locals.message = err.message;
 //   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
