@@ -55,7 +55,7 @@ function setDefaultSlug(event) {
 const formValues = {
     projectName: undefined,
     slug: undefined,
-    projectType: undefined,
+    projectType: 'Branding',
     clientName: undefined,
     credits: undefined,
     projectDescription: undefined,

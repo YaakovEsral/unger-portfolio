@@ -2,28 +2,26 @@ const multer = require('multer')
 const path = require('path');
 const fs = require('fs');
 const {v4: uuidv4} = require('uuid');
-// const sharp = require('sharp');
 
-/* This program is built for taking desktop, mobile, and inside media. All media should end up in the same directory project-media. The path is the same for all files, with the distinguishing factor being the project slug. An example of a path with the name Kumzitz Corner might be './public/images/project-media/kumzitz-corner'. 
+/* This program is built for taking desktop, mobile, and inside media. All files are stored temporarily in a directory "temp" until validated later for size and dimensions.
+
 Desktop and mobile will have only one per type and will be named "desktop-cover.ext" and "mobile-cover.ext", respectively. As the only variable is the extension name, it is only the extension that is stored in the database.
 Inside media can be multiple files. Each file is given a unique id and saved in the same directory as the desktop and mobile.
-In addition to naming and storing the different files, I have also included logic to add the file names/extensions to the req.body object. This way, the necessary data is accessible to the next piece of middleware and can be stored in the database.
-*/
 
-const projectMediaDir = './public/images/project-media';
+In addition to naming and storing the different files, I have also included logic to add the file names/extensions to the req.body object. This way, the necessary data is accessible to the next piece of middleware and can be stored in the database. */
+
+
+const tempDirectory = './temp';
 
 const storage = multer.diskStorage({
     destination: async (req, file, cb) => {
-        // console.log('req details', req.body);
-        // console.log('file details', file);
-        // finalDestination example: './public/images/project-media/kumzitz-corner
 
-        const currentProjectDir = req.body.slug;
-        const finalDestination = projectMediaDir + '/' + currentProjectDir;
-        if (!fs.existsSync(finalDestination)) {
-            fs.mkdirSync(finalDestination, { recursive: true });
+        console.log('storage engine');
+        // Create temp directory if not exists
+        if (!fs.existsSync(tempDirectory)) {
+            fs.mkdirSync(tempDirectory, { recursive: true });
         }
-        cb(null, finalDestination);
+        cb(null, tempDirectory);
     },
     filename: function (req, file, cb) {
         let fileName;
@@ -39,6 +37,7 @@ const storage = multer.diskStorage({
                 req.body.mobileCover = ext;
                 break;
             default:
+                // Note that this array needs to be stringified to be placed in db, but we do it right before the actual sql query
                 fileName = uuidv4().substring(0, 12) + ext;
                 req.body.insideMedia = req.body.insideMedia || [];
                 req.body.insideMedia.push(fileName);
@@ -53,9 +52,8 @@ const fileFilter = (req, file, cb) => {
     const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
     if (allowedFileTypes.includes(file.mimetype)) {
         cb(null, true);
-        console.log('file filter');
     } else {
-        const error = new Error(`Bad file type - please submit one of the final formats: ${allowedFileTypes.join(', ')}.`);
+        const error = new Error(`Bad file type - please submit one of the following formats: ${allowedFileTypes.join(', ')}.`);
         error.statusCode = 400;
         cb(error);
     }

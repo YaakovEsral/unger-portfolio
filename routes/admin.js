@@ -3,6 +3,9 @@ var router = express.Router();
 const pool = require('../connectionAsync');
 const submitProject = require('../middleware/submit-project');
 const fileUpload = require('../middleware/file-upload');
+const projectDataValidation = require('../middleware/project-data-validation');
+const fileSizeValidation = require('../middleware/file-size-validation');
+const relocateFiles = require('../middleware/relocate-files');
 
 /* GET admin login page. */
 router.get('/', function (req, res) {
@@ -26,12 +29,17 @@ router.route('/add-project')
     .get((req, res, next) => {
         res.render('admin/add-project', { title: 'Add Project' });
     })
-    .post(fileUpload.fields([
-        { name: 'desktop-cover-photo', maxCount: 1 },
-        { name: 'mobile-cover-photo', maxCount: 1 },
-        { name: 'single-inside-media', maxCount: 10 }
-    ]),
-        submitProject)
+    .post(
+        fileUpload.fields([
+            { name: 'desktop-cover-photo', maxCount: 1 },
+            { name: 'mobile-cover-photo', maxCount: 1 },
+            { name: 'single-inside-media', maxCount: 10 }
+        ]),
+        projectDataValidation,
+        fileSizeValidation,
+        submitProject,
+        relocateFiles
+    )
 
 router.post('/update-project-order', (req, res) => {
     // console.log(req.body);
