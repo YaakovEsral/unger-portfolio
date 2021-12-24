@@ -42,14 +42,19 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
 
+    if(err.type === 'add-project-form') {
+        res.statusCode = 400;
+        return res.end(err.message);
+    }
+
   // set locals, only providing error in development
-  console.log('message', err.message);
-  console.log('error field', err.field);
+//   console.log('message', err.message);
+//   console.log('error field', err.field);
   res.locals.message = err.message;
 //   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
 
-console.log(err.status);
+// console.log(err.status);
 
   // render the error page
   res.status(err.status || 500);

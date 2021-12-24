@@ -70,7 +70,7 @@ block content
                 div.single-inside-media
                     span.inside-media-delete Remove this media
                     img.inside-media-preview.preview-image(src="/images/no-image.png")
-                    input.inside-media-input(type="file" name="single-inside-media" accept=".jpg, .jpeg, .png, .gif")
+                    input.inside-media-input(type="file" name="single-inside-media" accept=".jpg, .jpeg, .png, .gif, .mp4, .mov")
 
             div.inside-media-divider
 
@@ -90,5 +90,8 @@ block content
                 label(for="no") No
 
         button#add-project-submit-button Submit Project
+
+        div#form-popup.hidden
+            h1 Hello World
 
     script(src="/javascripts/add-project.js")

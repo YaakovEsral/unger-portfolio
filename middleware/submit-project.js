@@ -5,7 +5,7 @@ module.exports = async (req, res, next) => {
 
     let {projectName, slug, projectType, clientName, credits, projectDescription, dateCompleted, desktopCover, mobileCover, insideMedia, showOnHomePage} = req.body;
 
-    // showOnHomePage = showOnHomePage === 'false' ? 0 : 1;
+    showOnHomePage = showOnHomePage === 'false' ? 0 : 1;
     
     try {
     await pool.query('INSERT INTO projects(project_name, slug, type, client_name, credits, description, date_completed, desktop_cover_photo, mobile_cover_photo, inside_photos_and_videos, show_on_homepage) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',

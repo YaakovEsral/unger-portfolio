@@ -51,17 +51,41 @@ function setDefaultSlug(event) {
     return slug;
 }
 
+function showSubmitDialog(error, slug) {
+    popupBox.classList.remove('hidden');
+    let htmlContent;
+    if (error) {
+        const header = '<h1>Error</h1>'
+        const info = `<p class="error-message">${error.message}</p>`;
+        htmlContent = header + info;
+
+    }
+    else {
+        const header = '<h1>Project Submitted</h1>';
+        const info = `
+                        <p><a href="/portfolio/${slug}" target="_blank">Click here</a> to view your project</p>.
+                        <p>Redirecting you momentarily...</p>
+                     `
+        htmlContent = header + info;
+
+    }
+    popupBox.innerHTML = htmlContent;
+}
+
 // Starting form values
 const formValues = {
     projectName: undefined,
     slug: undefined,
-    projectType: 'Branding',
+    projectType: undefined,
     clientName: undefined,
     credits: undefined,
     projectDescription: undefined,
     dateCompleted: undefined,
     showOnHomePage: undefined
 }
+
+// Note that projectType and showOnHomePage are set automatically in db if they are left null.
+// Project type defaults to branding and showOnHomePage defaults to 0 (false);
 
 // The form
 const addProjectForm = get('add-project-form');
@@ -90,6 +114,9 @@ const insideMediaDiv = get('inside-media-div');
 const moreCreditsButton = get('more-credits-button');
 const moreMediaButton = get('more-media-button');
 
+// Popup
+const popupBox = get('form-popup');
+
 // Misc.
 var defaultSlug = '';
 
@@ -98,9 +125,9 @@ projectNameElem.addEventListener('keyup', e => {
     formValues.projectName = handleTextInput(e);
     defaultSlug = setDefaultSlug(e);
     formValues.slug = formValues.slug || defaultSlug;
-} )
+})
 slugElem.addEventListener('keyup', e => {
-    formValues.slug = handleTextInput(e) || defaultSlug; 
+    formValues.slug = handleTextInput(e) || defaultSlug;
 });
 clientNameElem.addEventListener('keyup', e => formValues.clientName = handleTextInput(e));
 dateCompletedElem.addEventListener('keyup', e => formValues.dateCompleted = handleTextInput(e))
@@ -183,21 +210,39 @@ addProjectForm.addEventListener('submit', async (e) => {
     //     console.log('fd', value);
     //  }
 
-
+    let delayTime;
+    let response;
     try {
         // Note that default format is multipart
-        const response = await fetch('/admin/add-project', {
+        response = await fetch('/admin/add-project', {
             method: 'POST',
             body: formData
         });
         if (!response.ok) {
             const message = await response.text();
-            throw new Error(`${response.status} - ${message || response.statusText}`);
+            throw new Error(message || response.statusText);
         }
-        return response;
+        delayTime = 5000;
+        const parsedResponse = await response.json();
+        console.log(response, parsedResponse);
+        showSubmitDialog(false, parsedResponse.slug);
     } catch (err) {
+        delayTime = 3000;
+        showSubmitDialog(err)
         console.error(err);
         return err;
     }
+    finally {
+        setTimeout(() => {
+            popupBox.classList.add('hidden')
+            if (response.ok) {
+                window.location.assign('/admin/dashboard')
+            }
+        }, delayTime);
+
+    }
 
 })
+
+// listener to remove popup on click
+popupBox.addEventListener('click', e => popupBox.classList.add('hidden'));

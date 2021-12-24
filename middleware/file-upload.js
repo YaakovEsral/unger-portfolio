@@ -11,7 +11,9 @@ Inside media can be multiple files. Each file is given a unique id and saved in 
 In addition to naming and storing the different files, I have also included logic to add the file names/extensions to the req.body object. This way, the necessary data is accessible to the next piece of middleware and can be stored in the database. */
 
 
-const tempDirectory = './temp';
+const { tempDirectory } = require('../constants');
+const { allowedImageTypes } = require('../constants');
+const { allowedVideoTypes } = require('../constants');
 
 const storage = multer.diskStorage({
     destination: async (req, file, cb) => {
@@ -49,11 +51,17 @@ const storage = multer.diskStorage({
 })
 
 const fileFilter = (req, file, cb) => {
-    const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-    if (allowedFileTypes.includes(file.mimetype)) {
+    console.log(file);
+    // Allow videos also if it's for inside media
+    const allowedFileTypes = 
+        file.fieldname !== 'single-inside-media' ? 
+        allowedImageTypes : 
+        allowedImageTypes.concat(allowedVideoTypes);
+    if (allowedFileTypes.includes(path.extname(file.originalname))) {
         cb(null, true);
     } else {
-        const error = new Error(`Bad file type - please submit one of the following formats: ${allowedFileTypes.join(', ')}.`);
+        const ext = path.extname(file.originalname);
+        const error = new Error(`Bad file type ${ext} - please submit one of the following formats: ${allowedFileTypes.join(', ')}.`);
         error.statusCode = 400;
         cb(error);
     }

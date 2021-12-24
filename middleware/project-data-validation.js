@@ -1,5 +1,8 @@
 /* Note that most of this middleware is unlikely to be necessary since there is client side validation. It is primarily in the event of a user tampering with the DOM in DevTools and for the media files which cannot be properly validated on the client side. */
 
+const fs = require('fs');
+const tempDirectory = require('../constants').tempDirectory;
+
 module.exports = (req, res, next) => {
     console.log('data validation middleware', req.body)
 
@@ -11,15 +14,25 @@ module.exports = (req, res, next) => {
     }
 
     // Put all required fields in an array
-    const requiredFields = [req.body.projectName, req.body.projectName, req.body.type, req.body.desktopCover, req.body.mobileCover, req.body.insideMedia, req.body.showOnHomePage];
+    // Note that project type and showOnHomePage are required in the db, but are not validated here since the db gives them a default value.
+    const requiredFields = [req.body.projectName, req.body.projectName, req.body.desktopCover, req.body.mobileCover, req.body.insideMedia];
 
-    // requiredFields.forEach(field => {
-    //     if(!field) {
+    try {
+        requiredFields.forEach(field => {
+            if (!field) {
                 // Delete temp directory
+                fs.rmdirSync(tempDirectory, { recursive: true });
 
-    //         // Return an error that required fields is missing
-    //         return next(new Error(`Missing required field.`))
-    //     }
-    // })
+                // Return an error that required fields is missing
+                const error = new Error(`Missing required field.`);
+                error.type = 'add-project-form';
+                throw error;
+            }
+        })
+    }
+    catch (err) {
+        return next(err)
+    }
+    
     next()
 }

@@ -1,5 +1,7 @@
 form#add-project-form {
     --red: rgb(236, 83, 83);
+    --green: rgb(80, 156, 80);
+    position: relative;
 }
 
 h1#add-project-heading,
@@ -131,4 +133,23 @@ span.inside-media-delete {
 button#add-project-submit-button {
     font-size: 18px;
     margin: 10px 20px;
+}
+
+div#form-popup {
+    height: 200px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+    /* background: var(--green); */
+    background: #bdbdbd;
+    width: 300px;
+    top: 30%;
+    box-shadow: 5px 5px 10px #333;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+div#form-popup * {
+    text-align: center;
 }
