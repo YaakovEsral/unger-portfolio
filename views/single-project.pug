@@ -3,10 +3,27 @@ extends layout
 block content
     script(type='text/javascript').
         var data = !{JSON.stringify(data)}
-        //- console.log(data);
+        console.log(data);
 
 
     h1=data.project_name 
     h2=data.client_name 
 
     p=data.description
+
+    p= 'Completed: ' + data.date_completed
+    
+    - data.credits = JSON.parse(data.credits);
+    div 
+        each val, key in data.credits
+            p= key + ': ' + val
+
+    img(src=`/images/project-media/${data.slug}/desktop-cover${data.desktop_cover_photo}` style="height: 200px")
+    img(src=`/images/project-media/${data.slug}/mobile-cover${data.mobile_cover_photo}` style="height: 200px")
+
+    - data.inside_photos_and_videos = JSON.parse(data.inside_photos_and_videos)
+    each val in data.inside_photos_and_videos
+        //- only display videos this way
+        if ['png', 'jpg', 'jpeg', 'gif'].includes(val.split('.').pop() )
+            img(src=`/images/project-media/${data.slug}/${val}` style="max-height: 200px; max-width: 200px")
+
