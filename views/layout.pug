@@ -4,6 +4,7 @@ html
         title= title
         link(rel='stylesheet' href='/stylesheets/style.css')
         link(rel='stylesheet' href='/stylesheets/font.css')
+        link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 
     body
@@ -13,15 +14,18 @@ html
             
             img#nav-mobile-menu-icon(src="/svg/nav-mobile-icon.svg")
             img#nav-logo(src="/svg/logo.svg")
-            div#nav-mobile-options-container.hidden
-                span#nav-mobile-exit-icon &#10006;
-                ul
-                    li 
-                        a.nav-mobile-option-single(href="./portfolio") Work
-                    li 
-                        a.nav-mobile-option-single(href="./about") About
-                    li 
-                        a.nav-mobile-option-single(href="./contact") Contact
+            div#nav-mobile-overlay.hidden
+                div#nav-mobile-options-container
+                    span#nav-mobile-exit-icon &#10006;
+                    ul
+                        li 
+                            a.nav-mobile-option-single(href="/") Home
+                        li 
+                            a.nav-mobile-option-single(href="/portfolio") Work
+                        li 
+                            a.nav-mobile-option-single(href="/about") About
+                        li 
+                            a.nav-mobile-option-single(href="/contact") Contact
 
 
             //- ul 
