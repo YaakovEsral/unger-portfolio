@@ -25,10 +25,10 @@ block content
         h3#home-projects-section-header Recently Wrapped 
 
         each project in parsedData
-            a(href=`./portfolio/${project.slug}`)
-                div.home-projects-single.container
-                    h4.home-projects-single-header= project.project_name
-                    img.home-projects-single-image(src="/images/voyage-resources.png")
+            a.home-projects-single.container(href=`./portfolio/${project.slug}`)
+                //- div
+                h4.home-projects-single-header= project.project_name
+                img.home-projects-single-image(src="/images/voyage-resources.png")
 
     
 
