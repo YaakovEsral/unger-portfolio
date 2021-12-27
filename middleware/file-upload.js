@@ -1,7 +1,7 @@
 const multer = require('multer')
 const path = require('path');
 const fs = require('fs');
-const {v4: uuidv4} = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
 /* This program is built for taking desktop, mobile, and inside media. All files are stored temporarily in a directory "temp" until validated later for size and dimensions.
 
@@ -27,9 +27,9 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         let fileName;
-        const ext =  path.extname(file.originalname);
+        const ext = path.extname(file.originalname);
 
-        switch(file.fieldname) {
+        switch (file.fieldname) {
             case 'desktop-cover-photo':
                 fileName = 'desktop-cover' + ext;
                 req.body.desktopCover = ext;
@@ -38,14 +38,19 @@ const storage = multer.diskStorage({
                 fileName = 'mobile-cover' + ext;
                 req.body.mobileCover = ext;
                 break;
-            default:
+            case 'single-desktop-inside-media':
                 // Note that this array needs to be stringified to be placed in db, but we do it right before the actual sql query
-                fileName = uuidv4().substring(0, 12) + ext;
-                req.body.insideMedia = req.body.insideMedia || [];
-                req.body.insideMedia.push(fileName);
+                fileName = 'd-' + uuidv4().substring(0, 12) + ext;
+                req.body.desktopInsideMedia = req.body.desktopInsideMedia || [];
+                req.body.desktopInsideMedia.push(fileName);
+                break;
+            case 'single-mobile-inside-media':
+                fileName = 'm-' + uuidv4().substring(0, 12) + ext;
+                req.body.mobileInsideMedia = req.body.mobileInsideMedia || [];
+                req.body.mobileInsideMedia.push(fileName);
                 break;
         }
-        
+
         cb(null, fileName)
     }
 })
@@ -53,11 +58,12 @@ const storage = multer.diskStorage({
 const fileFilter = (req, file, cb) => {
     console.log(file);
     // Allow videos also if it's for inside media
-    const allowedFileTypes = 
-        file.fieldname !== 'single-inside-media' ? 
-        allowedImageTypes : 
-        allowedImageTypes.concat(allowedVideoTypes);
-    if (allowedFileTypes.includes(path.extname(file.originalname))) {
+    const allowedFileTypes =
+        file.fieldname.includes('inside-media') ?
+            allowedImageTypes :
+            allowedImageTypes.concat(allowedVideoTypes);
+    const fileExtension = path.extname(file.originalname).toLowerCase();
+    if (allowedFileTypes.includes(fileExtension)) {
         cb(null, true);
     } else {
         const ext = path.extname(file.originalname);

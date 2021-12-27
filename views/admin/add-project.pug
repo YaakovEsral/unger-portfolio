@@ -64,20 +64,35 @@ block content
             img#mobile-cover-photo-preview.preview-image(src="/images/no-image.png")
             input#mobile-cover-photo-input(type="file" name="mobile-cover-photo" accept=".jpg, .jpeg, .png, .gif")
 
-        div.add-project-input-section#inside-media-div
-            h3.input-section-header Inside Media
-            div#all-inside-media-container
-                div.single-inside-media
+        div.add-project-input-section#desktop-inside-media-div
+            h3.input-section-header Desktop Inside Media
+            div#all-desktop-inside-media-container
+                div.single-desktop-inside-media
                     span.inside-media-delete Remove this media
                     img.inside-media-preview.preview-image(src="/images/no-image.png")
-                    input.inside-media-input(type="file" name="single-inside-media" accept=".jpg, .jpeg, .png, .gif, .mp4, .mov")
+                    input.desktop-inside-media-input(type="file" name="single-desktop-inside-media" accept=".jpg, .jpeg, .png, .gif, .mp4, .mov")
 
             div.inside-media-divider
 
             div.more-media-div
-                    div Add More Media
-                    input#more-media-input(type="number" min="1" max="50" value="1")
-                    button#more-media-button(type="button") Go
+                div Add More Media
+                input#more-desktop-media-input(type="number" min="1" max="50" value="1")
+                button#more-desktop-media-button(type="button") Go
+
+        div.add-project-input-section#mobile-inside-media-div
+            h3.input-section-header Mobile Inside Media
+            div#all-mobile-inside-media-container
+                div.single-mobile-inside-media
+                    span.inside-media-delete Remove this media
+                    img.inside-media-preview.preview-image(src="/images/no-image.png")
+                    input.mobile-inside-media-input(type="file" name="single-mobile-inside-media" accept=".jpg, .jpeg, .png, .gif, .mp4, .mov")
+
+            div.inside-media-divider
+
+            div.more-media-div
+                div Add More Media
+                input#more-mobile-media-input(type="number" min="1" max="50" value="1")
+                button#more-mobile-media-button(type="button") Go
 
         div.add-project-input-section#show-on-homepage-div
             h3.input-section-header Show on Homepage

@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
 
     // Put all required fields in an array
     // Note that project type and showOnHomePage are required in the db, but are not validated here since the db gives them a default value.
-    const requiredFields = [req.body.projectName, req.body.projectName, req.body.desktopCover, req.body.mobileCover, req.body.insideMedia];
+    const requiredFields = [req.body.projectName, req.body.projectName, req.body.desktopCover, req.body.mobileCover, req.body.desktopInsideMedia, req.body.mobileInsideMedia];
 
     try {
         requiredFields.forEach(field => {

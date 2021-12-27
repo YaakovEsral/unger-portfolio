@@ -82,13 +82,15 @@ div.more-media-div div{
 input#more-credits-input,
 button#more-credits-button,
 input#more-media-input,
-button#more-media-button {
+button#more-desktop-media-button,
+button#more-mobile-media-button {
     margin: 0 10px;
     font-size: 18px;
 }
 
 input#more-credits-input,
-input#more-media-input {
+input#more-desktop-media-input,
+input#more-mobile-media-input {
     width: 30px;
 }
 
@@ -113,7 +115,8 @@ img.inside-media-preview {
     margin-bottom: 10px;
 }
 
-div.single-inside-media {
+div.single-desktop-inside-media,
+div.single-mobile-inside-media {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;

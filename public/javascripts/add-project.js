@@ -102,17 +102,21 @@ const showOnHomePageDiv = get('show-on-homepage-div');        // radio
 
 const allCreditsContainer = get('all-single-credits-container');// container
 const moreCreditsInput = get('more-credits-input');          // number input
-const allInsideMediaContainer = get('all-inside-media-container');// container
-const moreMediaInput = get('more-media-input');             // number input
+const allDesktopInsideMediaContainer = get('all-desktop-inside-media-container');// container
+const allMobileInsideMediaContainer = get('all-mobile-inside-media-container');// container
+const moreDesktopMediaInput = get('more-desktop-media-input');             // number input
+const moreMobileMediaInput = get('more-mobile-media-input');             // number input
 
 // Media input
 const desktopPhotoInput = get('desktop-cover-photo-input');
 const mobilePhotoInput = get('mobile-cover-photo-input');
-const insideMediaDiv = get('inside-media-div');
+const desktopInsideMediaDiv = get('desktop-inside-media-div');
+const mobileInsideMediaDiv = get('mobile-inside-media-div');
 
 // Buttons
 const moreCreditsButton = get('more-credits-button');
-const moreMediaButton = get('more-media-button');
+const moreDesktopMediaButton = get('more-desktop-media-button');
+const moreMobileMediaButton = get('more-mobile-media-button');
 
 // Popup
 const popupBox = get('form-popup');
@@ -143,7 +147,8 @@ creditsDivElem.addEventListener('keyup', () => formValues.credits = handleKeyVal
 // listeners for media inputs
 desktopPhotoInput.addEventListener('change', e => handleMediaInput(e));
 mobilePhotoInput.addEventListener('change', e => handleMediaInput(e));
-insideMediaDiv.addEventListener('change', e => handleMediaInput(e));
+desktopInsideMediaDiv.addEventListener('change', e => handleMediaInput(e));
+mobileInsideMediaDiv.addEventListener('change', e => handleMediaInput(e));
 
 // adding inputs for credits
 moreCreditsButton.addEventListener('click', (e) => {
@@ -168,24 +173,47 @@ allCreditsContainer.addEventListener('click', e => {
     }
 });
 
-// adding inputs for inside media
-moreMediaButton.addEventListener('click', (e) => {
-    // Get the value of moreMediaInput and append that many single-inside-media divs
-    for (let i = 0; i < +moreCreditsInput.value; i++) {
-        allInsideMediaContainer.insertAdjacentHTML('beforeend',
+// adding inputs for desktop inside media
+moreDesktopMediaButton.addEventListener('click', (e) => {
+    // Get the value of moreDesktopMediaInput and append that many single-desktop-inside-media divs
+    for (let i = 0; i < +moreDesktopMediaInput.value; i++) {
+        allDesktopInsideMediaContainer.insertAdjacentHTML('beforeend',
             `
-        <div class="single-inside-media">
+        <div class="single-desktop-inside-media">
             <span class="inside-media-delete">&#10006</span>
-            <img class="inside-media-preview" src="/images/no-image.png">
-            <input class="inside-media-input" type="file" name="single-inside-media" />
+            <img class="inside-media-preview preview-image" src="/images/no-image.png">
+            <input class="desktop-inside-media-input" type="file" name="single-desktop-inside-media" />
         </div>
         `
         );
     }
 })
 
-// removing inputs for inside media
-allInsideMediaContainer.addEventListener('click', e => {
+// removing inputs for desktop inside media
+allDesktopInsideMediaContainer.addEventListener('click', e => {
+    if (e.target.classList.contains('inside-media-delete')) {
+        e.target.parentElement.remove();
+    }
+});
+
+// adding inputs for mobile inside media
+moreMobileMediaButton.addEventListener('click', (e) => {
+    // Get the value of moreMobileMediaInput and append that many single-mobile-inside-media divs
+    for (let i = 0; i < +moreMobileMediaInput.value; i++) {
+        allMobileInsideMediaContainer.insertAdjacentHTML('beforeend',
+            `
+        <div class="single-mobile-inside-media">
+            <span class="inside-media-delete">&#10006</span>
+            <img class="inside-media-preview preview-image" src="/images/no-image.png">
+            <input class="mobile-inside-media-input" type="file" name="single-mobile-inside-media" />
+        </div>
+        `
+        );
+    }
+})
+
+// removing inputs for mobile inside media
+allMobileInsideMediaContainer.addEventListener('click', e => {
     if (e.target.classList.contains('inside-media-delete')) {
         e.target.parentElement.remove();
     }
@@ -203,8 +231,10 @@ addProjectForm.addEventListener('submit', async (e) => {
 
     formData.append('desktop-cover-photo', desktopPhotoInput.files[0]);
     formData.append('mobile-cover-photo', mobilePhotoInput.files[0]);
-    const insideMediaInputs = document.querySelectorAll('.inside-media-input');
-    insideMediaInputs.forEach(input => formData.append('single-inside-media', input.files[0]));
+    const desktopInsideMediaInputs = document.querySelectorAll('.desktop-inside-media-input');
+    desktopInsideMediaInputs.forEach(input => formData.append('single-desktop-inside-media', input.files[0]));
+    const mobileInsideMediaInputs = document.querySelectorAll('.mobile-inside-media-input');
+    mobileInsideMediaInputs.forEach(input => formData.append('single-mobile-inside-media', input.files[0]));
 
     // for (var value of formData.values()) {
     //     console.log('fd', value);

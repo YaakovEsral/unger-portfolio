@@ -33,7 +33,8 @@ router.route('/add-project')
         fileUpload.fields([
             { name: 'desktop-cover-photo', maxCount: 1 },
             { name: 'mobile-cover-photo', maxCount: 1 },
-            { name: 'single-inside-media', maxCount: 10 }
+            { name: 'single-desktop-inside-media' },
+            { name: 'single-mobile-inside-media' }
         ]),
         projectDataValidation,
         fileSizeValidation,
