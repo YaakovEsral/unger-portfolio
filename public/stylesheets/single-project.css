@@ -1,0 +1,51 @@
+div#single-project-container {
+  padding: 45.93px 34.48px 27.92px 30.66px;
+  display: flex;
+  flex-direction: column;
+}
+
+h1#single-project-project-name {
+  margin-left: 2px;
+  font-size: 36px;
+  line-height: 87.5%;
+  margin-bottom: 28.6px;
+}
+
+p#description {
+  font-size: 15px;
+  line-height: 23px;
+  letter-spacing: 0.005em;
+  margin-bottom: 27px;
+}
+
+p#client-name,
+p#date-completed {
+  color: var(--grey-1);
+}
+
+p#client-name {
+  margin-bottom: 5px;
+}
+
+p#date-completed {
+  margin-bottom: 21px;
+}
+
+div#project-credits-button {
+  font-size: 12.5px;
+  line-height: 19px;
+  text-decoration: underline;
+  color: var(--grey-1);
+  cursor: pointer;
+  margin-bottom: 59.2px;
+}
+
+div.single-project-image-container {
+  background: var(--grey-1);
+  width: 80vw;
+  margin-bottom: 16.62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(80vw * 0.52);
+}

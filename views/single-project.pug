@@ -1,29 +1,36 @@
 extends layout
 
 block content
+    link(rel="stylesheet" href="/stylesheets/single-project.css")
     script(type='text/javascript').
         var data = !{JSON.stringify(data)}
         console.log(data);
 
 
-    h1=data.project_name 
-    h2=data.client_name 
+    div#single-project-container
 
-    p=data.description
 
-    p= 'Completed: ' + data.date_completed
-    
-    - data.credits = JSON.parse(data.credits);
-    div 
-        each val, key in data.credits
-            p= key + ': ' + val
+        h1#single-project-project-name=data.project_name  
 
-    img(src=`/images/project-media/${data.slug}/desktop-cover${data.desktop_cover_photo}` style="height: 200px")
-    img(src=`/images/project-media/${data.slug}/mobile-cover${data.mobile_cover_photo}` style="height: 200px")
+        p#description=data.description
+        p#client-name= 'Created for: ' + data.client_name
+        p#date-completed= 'Completed on: ' + data.date_completed
+        
 
-    - data.inside_photos_and_videos = JSON.parse(data.inside_photos_and_videos)
-    each val in data.inside_photos_and_videos
-        //- only display videos this way
-        if ['png', 'jpg', 'jpeg', 'gif'].includes(val.split('.').pop() )
-            img(src=`/images/project-media/${data.slug}/${val}` style="max-height: 200px; max-width: 200px")
+        - data.credits = JSON.parse(data.credits);
+        div#project-credits-button Project Credits 
+            div#project-credits-popup.hidden
+                each val, key in data.credits
+                    p= key + ': ' + val
+
+        div.single-project-image-container
+            img(src=`/images/project-media/${data.slug}/desktop-cover${data.desktop_cover_photo}` style="height: 200px")
+        div.single-project-image-container
+            img(src=`/images/project-media/${data.slug}/mobile-cover${data.mobile_cover_photo}` style="height: 200px")
+
+        - data.inside_photos_and_videos = JSON.parse(data.inside_photos_and_videos)
+        each val in data.inside_photos_and_videos
+            //- only display videos this way
+            if ['png', 'jpg', 'jpeg', 'gif'].includes(val.split('.').pop() )
+                img(src=`/images/project-media/${data.slug}/${val}` style="max-height: 200px; max-width: 200px")
 
