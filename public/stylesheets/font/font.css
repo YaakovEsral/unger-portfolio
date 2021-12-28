@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'VisbyCF-DemiBold';
+  src: url('VisbyCF-DemiBold.eot');
+  src: url('VisbyCF-DemiBold.eot?#iefix') format('embedded-opentype'),
+       url('VisbyCF-DemiBold.svg#VisbyCF-DemiBold') format('svg'),
+       url('VisbyCF-DemiBold.ttf') format('truetype'),
+       url('VisbyCF-DemiBold.woff') format('woff'),
+       url('VisbyCF-DemiBold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
