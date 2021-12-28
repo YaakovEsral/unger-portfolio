@@ -14,10 +14,16 @@
   display: none;
 }
 
+.hidden-transition {
+    visibility: hidden;
+    opacity: 0;
+}
+
 body {
   padding: 0;
   margin: 0;
   --home-left-margin-padding: 50px;
+  background: var(--white-1)
 }
 
 h1,
@@ -163,7 +169,7 @@ div#home-main-content-info {
 h1#home-main-info-header {
   font-size: 48px;
   /* font-weight: 600; */
-  line-height: 87.5%;;
+  line-height: 87.5%;
   margin-bottom: 44px; /* ******* not sure if this is perfectly accurate */
 }
 
@@ -190,7 +196,6 @@ a#home-main-info-button span {
 }
 
 div#home-projects-section {
-  background: var(--white-1);
   padding: 49.03px 15.75% 68.93px 15%;
 }
 
@@ -218,7 +223,6 @@ h4.home-projects-single-header {
   text-decoration: none;
   font-size: 12.48px;
   font-weight: 700;
-  font-family: "VisbyCF-Bold";
   height: 21.39px;
   margin: 0;
 }

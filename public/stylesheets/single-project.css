@@ -38,6 +38,40 @@ div#project-credits-button {
   color: var(--grey-1);
   cursor: pointer;
   margin-bottom: 59.2px;
+  position: relative;
+}
+
+div#project-credits-popup {
+    width: 235.69px;
+    /* height: 149.79px; */
+    padding: 20.69px 0 15.51px 32.26px;
+    background: var(--white-2);
+    position: absolute;
+    bottom: 48px;
+    transition:  visibility 1s,  opacity 1s;
+}
+
+div#arrow {
+    background: var(--white-2);
+    /* background: black; */
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    bottom: -10px;
+    left: 32px;
+    transform: rotate(45deg);
+}
+
+span#credits-exit-icon {
+    position: absolute;
+    top: 11.83px;
+    right: 18.94px;
+}
+
+div#project-credits-popup p#credit {
+    text-decoration: none;
+    font-size: 12.45px;
+    line-height: 27.44px;
 }
 
 div.single-project-image-container {

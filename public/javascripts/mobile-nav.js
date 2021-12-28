@@ -24,4 +24,4 @@ mobileNavButton.addEventListener('click', toggleMobileOptionsDisplay);
 mobileExitIcon.addEventListener('click', toggleMobileOptionsDisplay);
 
 
-document.body.addEventListener('click', e => console.log(e, e.target))
+// document.body.addEventListener('click', e => console.log(e, e.target))

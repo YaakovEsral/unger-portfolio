@@ -2,9 +2,10 @@ extends layout
 
 block content
     link(rel="stylesheet" href="/stylesheets/single-project.css")
+    script(type='text/javascript' src="/javascripts/popup.js" defer)
     script(type='text/javascript').
         var data = !{JSON.stringify(data)}
-        console.log(data);
+        //- console.log(data);
 
 
     div#single-project-container
@@ -19,18 +20,21 @@ block content
 
         - data.credits = JSON.parse(data.credits);
         div#project-credits-button Project Credits 
-            div#project-credits-popup.hidden
+            div#project-credits-popup.hidden-transition
+                span#credits-exit-icon &#10006;
+                div#arrow
                 each val, key in data.credits
-                    p= key + ': ' + val
+                    p#credit= key + ': ' + val
 
         div.single-project-image-container
             img(src=`/images/project-media/${data.slug}/desktop-cover${data.desktop_cover_photo}` style="height: 200px")
         div.single-project-image-container
             img(src=`/images/project-media/${data.slug}/mobile-cover${data.mobile_cover_photo}` style="height: 200px")
 
-        - data.inside_photos_and_videos = JSON.parse(data.inside_photos_and_videos)
-        each val in data.inside_photos_and_videos
-            //- only display videos this way
-            if ['png', 'jpg', 'jpeg', 'gif'].includes(val.split('.').pop() )
-                img(src=`/images/project-media/${data.slug}/${val}` style="max-height: 200px; max-width: 200px")
+        //- - console.log(data.mobile_inside_media)
+        //- - data.mobile_inside_media = JSON.parse(data.mobile_inside_media)
+        //- each val in data.mobile_inside_media
+        //-     //- only display videos this way
+        //-     if ['png', 'jpg', 'jpeg', 'gif'].includes(val.split('.').pop() )
+        //-         img(src=`/images/project-media/${data.slug}/${val}` style="max-height: 200px; max-width: 200px")
 
