@@ -53,7 +53,7 @@ div#project-credits-popup {
 
 div#arrow {
     background: var(--white-2);
-    /* background: black; */
+    background: black;
     height: 20px;
     width: 20px;
     position: absolute;

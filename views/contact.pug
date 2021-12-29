@@ -5,7 +5,8 @@ block content
 
     div#contact-section
 
-        h2#contact-header Contact
+        h2#contact-header You have my attention
+        h4#contact-subheader Now let's get theirs
 
         form#contact-form
             div#contact-form-inputs
@@ -14,4 +15,7 @@ block content
                 input(type='text' name='subject' id='subject' placeholder='Subject')
                 textarea(name='message' id='message' placeholder='Message' )
 
-            button Submit
+            button#contact-form-submit Submit
+
+        p#contact-form-result-message <i class="fas fa-check"></i> Success! We got your message.
+        

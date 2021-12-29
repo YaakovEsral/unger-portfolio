@@ -1,16 +1,102 @@
 div#contact-section {
     background: var(--black-1);
-    padding-left: 28.96px;
-    padding-top: 45.93px;
+    padding: 43.1px 50px 71px 42.83px;
 }
 
 h2#contact-header {
-    font-size: 48px;
+    font-size: 36px;
     color: var(--white-1);
+    margin-bottom: 23px;
+    -webkit-text-stroke: .25px var(--black-1); /* background color */
+    color: var(--white-1);
+}
+
+h4#contact-subheader {
+    font-size: 15px;
+    color: var(--white-1);
+    margin-bottom: 52.19px;
+}
+
+form#contact-form {
+    width: 100%;
 }
 
 div#contact-form-inputs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 43.9px 43.9px 183.14px;
+    grid-template-rows: 43.9px 43.9px 158.22px;
+    /* width: 200px; */
+    background: var(--white-1);
+    grid-gap: 1px;
+    border: 1px solid var(--white-1);
+    margin-bottom: 10px;
 }
+
+div#contact-form-inputs input,
+div#contact-form-inputs textarea {
+    width: 100%;
+    /* border: 1px solid var(--white-1); */
+    border-color: transparent;
+    outline: none;
+    background: var(--black-1);
+    color: var(--white-1);
+    padding: 15.66px;
+}
+
+div#contact-form-inputs textarea {
+    padding-top: 10px;
+}
+
+div#contact-form-inputs input::placeholder,
+div#contact-form-inputs textarea::placeholder {
+    color: var(--white-1);
+    opacity: 0.5;
+    font-size: 15px;
+}
+
+div#contact-form-inputs input#firstName {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+div#contact-form-inputs input#lastName {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+div#contact-form-inputs input#subject {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+}
+div#contact-form-inputs textarea#message {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+}
+
+button#contact-form-submit {
+    background: var(--black-1);
+    color: var(--white-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 89.34px;
+    height: 37px;
+    font-size: 17.5px;
+    outline: none;
+    border: 1.15417px solid var(--white-1);
+    margin-bottom: 16px;
+}
+
+p#contact-form-result-message {
+    color: var(--white-1);
+    font-size: 15px;
+}
+
+.fa-check {
+    -webkit-text-stroke: .75px var(--black-1); /* background color */
+    color: var(--white-1);
+  }
+  /* .fa-check {
+    -webkit-text-stroke: 3px var(--white-1); /* font color * /
+    color: blue;
+  } */

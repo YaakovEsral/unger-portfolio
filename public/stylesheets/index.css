@@ -8,6 +8,7 @@
 * {
   font-family: "VisbyCF-DemiBold", "Segoe UI", Tahoma, Geneva, Verdana,
     sans-serif;
+  box-sizing: border-box;
 }
 
 .hidden {
@@ -23,11 +24,15 @@ body {
   padding: 0;
   margin: 0;
   --home-left-margin-padding: 50px;
-  background: var(--white-1)
+  background: var(--white-1);
 }
 
 h1,
 h2,
+h3,
+h4,
+h5,
+h6,
 p {
   margin: 0;
 }
