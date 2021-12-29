@@ -2,11 +2,26 @@
   --white-1: #f4f4f4;
   --white-2: #ffffff;
   --black-1: #2e2d2c;
-  --grey-1: #9F9B97;
+  --grey-1: #9f9b97;
 
-    --footer-right-padding-margin: 14%;
-    --footer-left-padding-margin: 15.75%;
+  --home-left-margin-padding: 6%;
+  --home-right-margin-padding: 6%;
+  --footer-right-margin-padding: 14%;
+  --footer-left-margin-padding: 15.75%;
 }
+
+/* UTILITY CLASSES */
+
+.hidden {
+  display: none;
+}
+
+.hidden-transition {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* VARIOUS ELEMENTS */
 
 * {
   font-family: "VisbyCF-DemiBold", "Segoe UI", Tahoma, Geneva, Verdana,
@@ -14,19 +29,10 @@
   box-sizing: border-box;
 }
 
-.hidden {
-  display: none;
-}
-
-.hidden-transition {
-    visibility: hidden;
-    opacity: 0;
-}
-
 body {
   padding: 0;
   margin: 0;
-  --home-left-margin-padding: 50px;
+ 
   background: var(--white-1);
 }
 
@@ -40,129 +46,21 @@ p {
   margin: 0;
 }
 
-nav,
-div#home-main-section {
-  background: var(--black-1);
-}
-
-nav *,
-div#home-main-section * {
-  color: var(--white-1);
-}
-
-nav {
-  height: 101.41px;
-  /* border-bottom: 1px solid white; */
-  position: relative;
-  /* padding-bottom: 54.73px; */
-    /* z-index is very important for the mobile menu. The nav's z-index should be set so that the later sibling elements which are positioned don't end up higher than the nav. It only works to set the nav (as opposed to the mobile-options-container), since the child element's z-index is only as great as its parent's. See this article for explanation: https://www.freecodecamp.org/news/css-z-index-not-working/ */
-  z-index: 1;
-}
-
-/* Not using dots */
-/* nav img#nav-svg-dots {
-  position: absolute;
-  left: 10.26px;
-  top: 11.92px;
-} */
-
-nav img#nav-mobile-menu-icon {
-  position: absolute;
-  left: 51px;
-  top: 36.9px;
-}
-
-div#nav-mobile-overlay {
-    width: 100%;
-    height: 100%;
-    background: rgba(244, 244, 244, 0.2);
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
-}
-
-div#nav-mobile-options-container {
-  /* display: none; */
-  width: 56vw;
-  height: 100vh;
-  background: var(--white-2);
-  /* z-index: 1; */
-  position: fixed; /* *** Need to see if he likes this behavior, or if we should find a way to disable scrolling when menu is open. */
-  --mobile-menu-left-margin: 30.37px;
-}
-
-div#nav-mobile-options-container * {
-  color: var(--black-1);
-}
-
-span#nav-mobile-exit-icon {
-  font-size: 22.536px;
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  top: 36px;
-  left: var(--mobile-menu-left-margin);
-}
-
-div#nav-mobile-options-container ul {
-  display: flex;
-  flex-direction: column;
-  margin-top: 109.62px;
-  margin-left: var(--mobile-menu-left-margin);
-}
-
-div#nav-mobile-options-container li {
-  margin-bottom: 14.39px;
-}
-
-a.nav-mobile-option-single {
-  font-weight: 600;
-  font-size: 23.78px;
-}
-
-nav img#nav-logo {
-  height: 19.05px;
-  position: absolute;
-  right: 51px;
-  top: 37.16px;
-}
-
-nav img#nav-logo.logo-active {
-    /* Since we are embedding svg in an img tag, we need to use a filter to make control it.
-        See https://medium.com/@union_io/swapping-fill-color-on-image-tag-svgs-using-css-filters-fa4818bf7ec6 for details.
-        I used the following converter generator: https://angel-rs.github.io/css-color-filter-generator/.
-        Hopefully it works okay.
-    */
-  filter: brightness(0) saturate(100%) invert(13%) sepia(7%) saturate(251%)
-    hue-rotate(349deg) brightness(92%) contrast(86%);
-}
-
-/* FOR LARGER SCREENS */
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  /* display: flex;
-  justify-content: space-between;
-  width: 200px; */
-}
-
-nav ul * {
-  text-decoration: none;
-}
-
 a {
   text-decoration: none;
+  color: inherit;
 }
 
+/* HOMEPAGE SECTION 1 - MAIN - INFO */
+
 div#home-main-section {
-  position: relative; /* This line is just so the button's positioned parent is this section and not the html container, which ruins the z-index in mobile menu. */
+    color: var(--white-1);
+    background: var(--black-1);
+    position: relative; /* This line is just so the button's positioned parent is this section and not the html container, which ruins the z-index in mobile menu. */
   /* z-index: -1; Hopefully this doesn't mess us up, once again. */
   padding-top: 43px;
   padding-left: 48.5px;
+
 }
 
 div#home-main-content-container {
@@ -195,6 +93,7 @@ a#home-main-info-button {
   border: 1px solid var(--white-1);
   margin-bottom: 59.59px;
   position: relative;
+  color: var(--white-1);
 }
 
 a#home-main-info-button span {
@@ -202,6 +101,8 @@ a#home-main-info-button span {
   top: 10.33px;
   left: 21.68px;
 }
+
+/* HOMEPAGE SECTION 2 - SECONDARY - PROJECTS */
 
 div#home-projects-section {
   padding: 49.03px 15.75% 68.93px 15%;
@@ -224,7 +125,7 @@ a.home-projects-single.container {
 }
 
 a.home-projects-single.container:not(:last-of-type) {
-    margin-bottom: 41.62px;
+  margin-bottom: 41.62px;
 }
 
 h4.home-projects-single-header {
@@ -235,13 +136,12 @@ h4.home-projects-single-header {
   margin: 0;
 }
 
+/* FOOTER SECTION */
+
 footer {
   background-color: var(--black-1);
-  padding: 
-            37.93px 
-            /* 46.23px */ var(--footer-right-padding-margin) 
-            19.83px 
-            /* 52.37px */ var(--footer-left-padding-margin);
+  padding: 37.93px /* 46.23px */ var(--footer-right-margin-padding) 19.83px
+    /* 52.37px */ var(--footer-left-margin-padding);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -267,8 +167,8 @@ div#footer-contact-container {
   align-items: flex-end;
 }
 
-div#footer-contact-container *{
-    font-size: 12.5px;
+div#footer-contact-container * {
+  font-size: 12.5px;
 }
 
 div#footer-copyright-container {

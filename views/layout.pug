@@ -2,8 +2,9 @@ doctype html
 html
     head
         title= title
-        link(rel='stylesheet' href='/stylesheets/index.css')
         link(rel='stylesheet' href='/stylesheets/font/font.css')
+        link(rel='stylesheet' href='/stylesheets/index.css')
+        link(rel='stylesheet' href='/stylesheets/nav.css')
         link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous")
         script(src="https://kit.fontawesome.com/f383a529e7.js" crossorigin="anonymous")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
@@ -11,7 +12,7 @@ html
     body
         script(src="/javascripts/utils.js" defer)
         script(src='/javascripts/mobile-nav.js' defer)
-        nav
+        nav#mobile-nav
             //- img#nav-svg-dots(src="/svg/nav-dots.svg")
             
             img#nav-mobile-menu-icon(src="/svg/nav-mobile-icon.svg")
@@ -29,16 +30,20 @@ html
                         li 
                             a.nav-mobile-option-single(href="/contact") Contact
 
-
-            //- ul 
-            //-     - // render first link differently depending on if we are on homepage or not
-            //-     a(href=`${path === '/' ? './portfolio' : '/'}`)
-            //-         li= path === '/' ? 'Work' : 'Home'
-            //-     a(href='./about')
-            //-         li About
-            //-     - const classes=['a', 'b', 'c']
-            //-     a(href='./contact' class=classes)
-            //-         li Contact
+        nav#desktop-nav
+            ul 
+                - // render first link differently depending on if we are on homepage or not
+                    li
+                        a(href=`${path === '/' ? './portfolio' : '/'}`) #{path === '/' ? 'Work' : 'Home'}
+                
+                    li 
+                        a(href='./about') About
+                
+                    li 
+                        a(href='./contact') Contact
+            
+            img#nav-svg-dots(src="/svg/nav-dots-desktop.svg")
+            img#nav-logo(src="/svg/logo.svg")
         block content
 
         footer
