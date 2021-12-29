@@ -3,6 +3,9 @@
   --white-2: #ffffff;
   --black-1: #2e2d2c;
   --grey-1: #9F9B97;
+
+    --footer-right-padding-margin: 14%;
+    --footer-left-padding-margin: 15.75%;
 }
 
 * {
@@ -234,7 +237,11 @@ h4.home-projects-single-header {
 
 footer {
   background-color: var(--black-1);
-  padding: 37.93px /* 46.23px */ 14% 19.83px /* 52.37px */ 15.75%;
+  padding: 
+            37.93px 
+            /* 46.23px */ var(--footer-right-padding-margin) 
+            19.83px 
+            /* 52.37px */ var(--footer-left-padding-margin);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
