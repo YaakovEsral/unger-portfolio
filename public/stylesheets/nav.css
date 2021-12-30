@@ -23,7 +23,7 @@ nav#mobile-nav {
 /* Mobile nav menu icon */
 nav#mobile-nav img#nav-mobile-menu-icon {
   position: absolute;
-  left: 51px;
+  left: var(--home-left-margin-padding);
   top: 36.9px;
 }
 
@@ -64,6 +64,7 @@ span#nav-mobile-exit-icon {
 }
 
 div#nav-mobile-options-container ul {
+  list-style-type: none;
   display: flex;
   flex-direction: column;
   margin-top: 109.62px;
@@ -83,7 +84,7 @@ a.nav-mobile-option-single {
 nav#mobile-nav img#nav-logo {
   height: 19.05px;
   position: absolute;
-  right: 51px;
+  right: var(--home-right-margin-padding);
   top: 37.16px;
 }
 
@@ -129,16 +130,23 @@ nav#desktop-nav {
   }
 
   nav#desktop-nav img#nav-svg-dots {
-      position: absolute;
-      /* right: 138px; */
-      right: 18%;
-      top: 11px;
-      /* This is to win over the relatively positioned home main section */
-      z-index: 1;
+    position: absolute;
+    /* right: 138px; */
+    right: 18%;
+    top: 11px;
+    /* This is to win over the relatively positioned home main section */
+    z-index: 1;
   }
 
   nav#desktop-nav img#nav-logo {
     height: 28.06px;
     margin-right: 10px;
   }
+}
+
+
+@media screen and (min-width: 1000px) {
+    nav#desktop-nav img#nav-svg-dots {
+        right: 27%;
+      }
 }

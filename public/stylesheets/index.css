@@ -3,11 +3,10 @@
   --white-2: #ffffff;
   --black-1: #2e2d2c;
   --grey-1: #9f9b97;
+  --grey-2: #8F8F8F;
 
-  --home-left-margin-padding: 6%;
-  --home-right-margin-padding: 6%;
-  --footer-right-margin-padding: 14%;
-  --footer-left-margin-padding: 15.75%;
+  --home-left-margin-padding: /* 51px */ 13.75%;
+  --home-right-margin-padding: /* 51px */ 13.75%;
 }
 
 /* UTILITY CLASSES */
@@ -45,6 +44,11 @@ p {
   margin: 0;
 }
 
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -58,19 +62,27 @@ div#home-main-section {
   position: relative; /* This line is just so the button's positioned parent is this section and not the html container, which ruins the z-index in mobile menu. */
   margin-left: var(--home-left-margin-padding);
   margin-right: var(--home-right-margin-padding);
+  --main-info-top-margin: 50px;
+}
+
+img#home-left-dots {
+    display: none;
 }
 
 div#home-main-content-info {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: var(--main-info-top-margin);
 }
 
 h1#home-main-info-header {
   font-size: 48px;
-  /* font-weight: 600; */
   line-height: 87.5%;
-  margin-bottom: 44px; /* ******* not sure if this is perfectly accurate */
+  margin-bottom: 44px;
+}
+
+h4#home-main-info-subheader {
+    display: none;
 }
 
 p#home-main-info-tagline {
@@ -86,14 +98,10 @@ a#home-main-info-button {
   height: 37px;
   border: 1px solid var(--white-1);
   margin-bottom: 59.59px;
-  position: relative;
   color: var(--white-1);
-}
-
-a#home-main-info-button span {
-  position: absolute;
-  top: 10.33px;
-  left: 21.68px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 img#home-profile-img {
@@ -104,7 +112,10 @@ img#home-profile-img {
 
 div#home-projects-section {
   background: var(--white-1);
-  padding: 49.03px 15.75% 68.93px 15%;
+  padding-top: 49.03px;
+  padding-bottom: 68.93px;
+  padding-left: var(--home-left-margin-padding);
+  padding-right: var(--home-right-margin-padding);
 }
 
 div#home-projects-section * {
@@ -112,7 +123,6 @@ div#home-projects-section * {
 }
 
 h3#home-projects-section-header {
-  margin: 0;
   font-weight: 600;
   font-size: 25.12px;
   margin-bottom: 33.47px;
@@ -132,15 +142,16 @@ h4.home-projects-single-header {
   font-size: 12.48px;
   font-weight: 700;
   height: 21.39px;
-  margin: 0;
 }
 
 /* FOOTER SECTION */
 
 footer {
   background-color: var(--black-1);
-  padding: 37.93px /* 46.23px */ var(--footer-right-margin-padding) 19.83px
-    /* 52.37px */ var(--footer-left-margin-padding);
+  padding-top: 37.93px;
+  padding-bottom: 19.83px;
+  padding-left: var(--home-left-margin-padding);
+  padding-right: var(--home-right-margin-padding);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -180,9 +191,45 @@ div#footer-copyright-container {
 }
 
 @media screen and (min-width: 700px) {
+  :root {
+    --home-left-margin-padding: 6%;
+    --home-right-margin-padding: 6%;
+  }
+
+  img#home-left-dots {
+    display: block;
+    position: absolute;
+    /* left: -330px; */
+    /* left: -54%; */
+    right: 102%;
+    top: var(--main-info-top-margin);
+}
+
   div#home-main-content-container {
     display: flex;
     justify-content: space-between;
+  }
+
+  h1#home-main-info-header {
+    font-size: 55.88px;
+    line-height: 87.5%;
+    margin-bottom: 18.99px;
+  }
+  
+  h4#home-main-info-subheader {
+    display: block;
+    font-size: 15px;
+    line-height: 23.4px;
+    color: var(--grey-2);
+    margin-bottom: 15px;
+}
+
+p#home-main-info-tagline {
+    font-size: 15px;
+  }
+
+  a#home-main-info-button {
+    width: 139px;
   }
 
   img#home-profile-img {
@@ -193,14 +240,29 @@ div#footer-copyright-container {
   }
 }
 
-
 @media screen and (min-width: 800px) {
-    div#home-main-content-info {
-        margin-top: 95.75px;
+    div#home-main-section {
+        --main-info-top-margin: 95.75px;
       }
-        
-    img#home-profile-img {
-      width: 394px;
-    }
+
+  img#home-left-dots {
+    right: 102%;
+}
+
+  img#home-profile-img {
+    width: 394px;
   }
-  
+}
+
+
+@media screen and (min-width: 1000px) {
+    :root {
+        --home-left-margin-padding: 13%;
+        --home-right-margin-padding: 13%;
+      }
+
+  img#home-left-dots {
+    right: 107%;
+}
+
+}
