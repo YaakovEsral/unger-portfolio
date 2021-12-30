@@ -1,7 +1,8 @@
 div#about-section {
-  background: var(--black-1);
-  padding: 45.93px 50.04px 108px 47.67px;
-  color: var(--white-1);
+  margin-top: 45.93px;
+  margin-bottom: 108px;
+  margin-left: var(--home-left-margin-padding);
+  margin-right: var(--home-right-margin-padding);
 }
 
 h2#about-header {
@@ -19,7 +20,7 @@ p.about-paragraph:not(:last-of-type) {
   margin-bottom: 20px;
 }
 
-@media screen and (min-width: 630px) {
+/* @media screen and (min-width: 630px) {
   div#about-section {
     padding-left: var(--footer-left-padding-margin);
   }
@@ -28,27 +29,19 @@ p.about-paragraph:not(:last-of-type) {
       width: 448px;
       margin-right: auto;
   }
+} */
+
+@media screen and (min-width: 700px) {
+  div#about-section {
+    margin-top: 95.74px;
+  }
+
+  h2#about-header {
+    font-size: 48px;
+    margin-bottom: 50px;
+  }
+
+  p.about-paragraph {
+    width: 448px;
 }
-
-/* 700px once we've done desktop nav */
-
-/* @media screen and (min-width: 650px) {
-    div#about-section {
-      padding-right: 25%;
-    }
-  }
-
-  
-  @media screen and (min-width: 750px) {
-    div#about-section {
-      padding-left: 80px;
-    }
-  }
-
-  
-  @media screen and (min-width: 550px) {
-    div#about-section {
-      padding-left: 80px;
-    }
-  }
-   */
+}

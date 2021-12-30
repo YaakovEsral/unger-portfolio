@@ -13,7 +13,7 @@ html
         script(src='/javascripts/mobile-nav.js' defer)
         nav#mobile-nav
             //- img#nav-svg-dots(src="/svg/nav-dots.svg")
-            
+
             img#nav-mobile-menu-icon(src="/svg/nav-mobile-icon.svg")
             img#nav-logo(src="/svg/logo.svg")
             div#nav-mobile-overlay.hidden
@@ -37,18 +37,20 @@ html
                 
                     li 
                         a(href='./about') About
-                
+
                     li 
                         a(href='./contact') Contact
-            
-            img#nav-svg-dots(src="/svg/nav-dots-desktop.svg")
+
+            - // give special class for nav dots when not on the homepage
+            - const classList = path === '/' ? '' : 'position-top';
+            img#nav-svg-dots(src="/svg/nav-dots-desktop.svg" class=classList)
             img#nav-logo(src="/svg/logo.svg")
         block content
 
         footer
-                img#footer-logo(src="/svg/logo.svg")
+            img#footer-logo(src="/svg/logo.svg")
 
-                div#footer-contact-container
-                    div#footer-contact-phone 347-664-0203
-                    div#footer-contact-email meir@meirunger.com
-                div#footer-copyright-container &copy; 2022 Meir Unger &#183; Built by D7mtg &#183; All Rights Reserved
+            div#footer-contact-container
+                div#footer-contact-phone 347-664-0203
+                div#footer-contact-email meir@meirunger.com
+            div#footer-copyright-container &copy; 2022 Meir Unger &#183; Built by D7mtg &#183; All Rights Reserved

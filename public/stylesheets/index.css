@@ -32,6 +32,7 @@ body {
   padding: 0;
   margin: 0;
   background: var(--black-1);
+  color: var(--white-1);
 }
 
 h1,
@@ -57,9 +58,7 @@ a {
 /* HOMEPAGE SECTION 1 - MAIN - INFO */
 
 div#home-main-section {
-  color: var(--white-1);
-  background: var(--black-1);
-  position: relative; /* This line is just so the button's positioned parent is this section and not the html container, which ruins the z-index in mobile menu. */
+  position: relative; /* This line is just so the button's positioned parent is this section and not the html container, which ruins the z-index in mobile menu. It's also for the svg dots on left side. */
   margin-left: var(--home-left-margin-padding);
   margin-right: var(--home-right-margin-padding);
   --main-info-top-margin: 50px;
@@ -98,7 +97,6 @@ a#home-main-info-button {
   height: 37px;
   border: 1px solid var(--white-1);
   margin-bottom: 59.59px;
-  color: var(--white-1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,7 +157,6 @@ footer {
 }
 
 footer * {
-  color: var(--white-1);
   font-weight: 100;
 }
 

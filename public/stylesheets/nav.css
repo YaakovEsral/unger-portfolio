@@ -1,13 +1,17 @@
-nav {
-  background: var(--black-1);
-  color: var(--white-1);
-}
+nav#desktop-nav {
+    display: none;
+  }
 
 /* MOBILE NAV */
 /* Mobile nav has three main sections: menu icon, menu overlay, and logo */
+
 nav#mobile-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   height: 101.41px;
-  position: relative;
+  margin-left: var(--home-left-margin-padding);
+  margin-right: var(--home-right-margin-padding);
 
   /* z-index is very important for the mobile menu. The nav's z-index should be set so that the later sibling elements which are positioned don't end up higher than the nav. It only works to set the nav (as opposed to the mobile-options-container), since the child element's z-index is only as great as its parent's. See this article for explanation: https://www.freecodecamp.org/news/css-z-index-not-working/ */
   z-index: 1;
@@ -22,9 +26,9 @@ nav#mobile-nav {
 
 /* Mobile nav menu icon */
 nav#mobile-nav img#nav-mobile-menu-icon {
-  position: absolute;
-  left: var(--home-left-margin-padding);
-  top: 36.9px;
+
+  margin-top: 36.9px;
+  width: 19.83px;
 }
 
 /* Menu overlay */
@@ -41,7 +45,6 @@ div#nav-mobile-overlay {
 }
 
 div#nav-mobile-options-container {
-  /* display: none; */
   width: 56vw;
   height: 100vh;
   background: var(--white-2);
@@ -64,7 +67,6 @@ span#nav-mobile-exit-icon {
 }
 
 div#nav-mobile-options-container ul {
-  list-style-type: none;
   display: flex;
   flex-direction: column;
   margin-top: 109.62px;
@@ -82,10 +84,8 @@ a.nav-mobile-option-single {
 
 /* Logo */
 nav#mobile-nav img#nav-logo {
-  height: 19.05px;
-  position: absolute;
-  right: var(--home-right-margin-padding);
-  top: 37.16px;
+  width: 51.1px;
+  margin-top: 37.16px;
 }
 
 nav img#nav-logo.logo-active {
@@ -96,10 +96,6 @@ nav img#nav-logo.logo-active {
       */
   filter: brightness(0) saturate(100%) invert(13%) sepia(7%) saturate(251%)
     hue-rotate(349deg) brightness(92%) contrast(86%);
-}
-
-nav#desktop-nav {
-  display: none;
 }
 
 @media screen and (min-width: 700px) {
@@ -131,11 +127,16 @@ nav#desktop-nav {
 
   nav#desktop-nav img#nav-svg-dots {
     position: absolute;
-    /* right: 138px; */
     right: 18%;
     top: 11px;
     /* This is to win over the relatively positioned home main section */
     z-index: 1;
+  }
+
+  /* Special positioning for all pages other than home page */
+  nav#desktop-nav img#nav-svg-dots.position-top {
+    top: auto;
+    bottom: 0;
   }
 
   nav#desktop-nav img#nav-logo {
@@ -144,9 +145,8 @@ nav#desktop-nav {
   }
 }
 
-
 @media screen and (min-width: 1000px) {
-    nav#desktop-nav img#nav-svg-dots {
-        right: 27%;
-      }
+  nav#desktop-nav img#nav-svg-dots {
+    right: 27%;
+  }
 }
