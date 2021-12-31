@@ -1,20 +1,20 @@
 div#contact-section {
-    background: var(--black-1);
-    padding: 43.1px 50px 71px 42.83px;
+    margin-top: 43.1px;
+    margin-bottom: 71px;
+    margin-left: var(--home-left-margin-padding);
+    margin-right: var(--home-right-margin-padding);
 }
 
 h2#contact-header {
     font-size: 36px;
-    color: var(--white-1);
     margin-bottom: 23px;
     -webkit-text-stroke: .25px var(--black-1); /* background color */
-    color: var(--white-1);
 }
 
 h4#contact-subheader {
     font-size: 15px;
-    color: var(--white-1);
     margin-bottom: 52.19px;
+    -webkit-text-stroke: .25px var(--black-1); /* background color */
 }
 
 form#contact-form {
@@ -25,9 +25,8 @@ div#contact-form-inputs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 43.9px 43.9px 158.22px;
-    /* width: 200px; */
-    background: var(--white-1);
-    grid-gap: 1px;
+    /* background: var(--white-1); */
+    /* grid-gap: 1px; */
     border: 1px solid var(--white-1);
     margin-bottom: 10px;
 }
@@ -43,8 +42,22 @@ div#contact-form-inputs textarea {
     padding: 15.66px;
 }
 
+/* div#contact-form-inputs input {
+    border-bottom: 1px solid var(--white-1);
+} */
+
+div#contact-form-inputs input#firstName {
+    border-right: 1px solid var(--white-1);
+}
+
+div#contact-form-inputs input#subject {
+    border-top: 1px solid var(--white-1);
+}
+
 div#contact-form-inputs textarea {
     padding-top: 10px;
+    resize: none;
+    border-top: 1px solid var(--white-1);
 }
 
 div#contact-form-inputs input::placeholder,
@@ -94,9 +107,62 @@ p#contact-form-result-message {
 
 .fa-check {
     -webkit-text-stroke: .75px var(--black-1); /* background color */
-    color: var(--white-1);
+    /* color: var(--white-1); */
   }
-  /* .fa-check {
-    -webkit-text-stroke: 3px var(--white-1); /* font color * /
-    color: blue;
-  } */
+
+
+  @media screen and (min-width: 700px) {
+    div#contact-section {
+        margin-top: 95.74px;
+        margin-bottom: 101.32px;
+        position: relative; /* To position the result message */
+    }
+    
+    h2#contact-header {
+        margin-bottom: 6px;
+    }
+    
+    h4#contact-subheader {
+        margin-bottom: 135.32px;
+    }
+
+    div#contact-form-inputs {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 50.25px 195.73px;
+        margin-bottom: 26.47px;
+    }
+
+    div#contact-form-inputs input#lastName {
+        border-right: 1px solid var(--white-1);
+    }
+
+    div#contact-form-inputs input#subject {
+        border-top: none;
+    }
+    
+    div#contact-form-inputs input#subject {
+        grid-column: 3 / 5;
+        grid-row: 1 / 2;
+    }
+    div#contact-form-inputs textarea#message {
+        grid-column: 1 / 5;
+        grid-row: 2 / 3;
+    }
+    
+    button#contact-form-submit {
+        width: 80.26px;
+        height: 37.27px;
+        margin-left: auto;
+        margin-bottom: auto;
+    }
+    
+    p#contact-form-result-message {
+        position: absolute;
+        bottom: 10px;
+    }
+    
+    i.fa-check::after {
+        content: "\00a0";
+
+    }
+  }
