@@ -27,7 +27,7 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         let fileName;
-        const ext = path.extname(file.originalname);
+        const ext = path.extname(file.originalname).toLowerCase(); // hopefully this means that we don't need the lowercasing check in file filter
 
         switch (file.fieldname) {
             case 'desktop-cover-photo':
@@ -60,8 +60,8 @@ const fileFilter = (req, file, cb) => {
     // Allow videos also if it's for inside media
     const allowedFileTypes =
         file.fieldname.includes('inside-media') ?
-            allowedImageTypes :
-            allowedImageTypes.concat(allowedVideoTypes);
+            allowedImageTypes.concat(allowedVideoTypes) :
+            allowedImageTypes;
     const fileExtension = path.extname(file.originalname).toLowerCase();
     if (allowedFileTypes.includes(fileExtension)) {
         cb(null, true);
