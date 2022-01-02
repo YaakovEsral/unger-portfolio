@@ -1,0 +1,67 @@
+div#portfolio-section {
+  background: var(--white-1);
+  color: var(--black-1);
+  overflow: auto; /* This is so the margin on content-container works properly */
+}
+
+/* extra container here so we can use margin like on other pages instead of padding */
+div#portfolio-content-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 55.93px;
+  margin-bottom: 17.91px;
+  margin-right: var(--home-right-margin-padding);
+  margin-left: var(--home-left-margin-padding);
+}
+
+h2#portfolio-header {
+    font-size: 36px;
+    line-height: 31.5px;
+    margin-bottom: 20px;
+}
+
+h4#portfolio-subheader {
+    font-size: 15px;
+    line-height: 23.4px;
+    width: 130px;
+    margin-bottom: 28px;
+}
+
+div#portfolio-tabs-container {
+    display: flex;
+    margin-bottom: 35.63px;
+}
+
+input.portfolio-input-tab {
+  display: none;
+}
+
+label.portfolio-single-tab {
+    font-size: 11.45px;
+    font-weight: 700;
+    font-family: 'VisbyCF-Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 82.71px;
+    height: 24.87px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input.portfolio-input-tab:checked + label.portfolio-single-tab {
+  background: var(--white-2);
+}
+
+a.portfolio-single-project {
+    display: block;
+    margin-bottom: 27.45px;
+}
+
+h4.portfolio-single-header {
+    font-size: 12.48px;
+    margin-bottom: 7px;
+}
+
+img.portfolio-single-image {
+    width: 234.52px;
+    border: 1px solid black;
+}

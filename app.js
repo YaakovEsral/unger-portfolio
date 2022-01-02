@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')), express.static(path.join
 
 app.use((req, res, next) => {
     res.locals.path = req.path;
+    res.locals.generateFileURL = require('./utils/generateFileURL');
     next();
 })
 

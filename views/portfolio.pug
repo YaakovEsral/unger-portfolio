@@ -1,13 +1,29 @@
 extends layout 
 
 block content
+    link(rel="stylesheet", href="/stylesheets/portfolio.css")
     - const parsedData = JSON.parse(data);
-
-    h1 All portfolio projects
     
-    div 
-        each project in parsedData
-            a(href=`./portfolio/${project.slug}`)
-                div
-                    h1= project.client_name
-                    h2= project.project_name
+
+    div#portfolio-section
+        //- See css for why we use extra container 
+        div#portfolio-content-container 
+            h2#portfolio-header Drawn from my soul
+            h4#portfolio-subheader Every piece of work is my best one to date.
+
+            div#portfolio-tabs-container 
+                input.portfolio-input-tab#branding(type="radio" name="portfolio-tabs" checked)
+                label.portfolio-single-tab(for="branding")  Branding
+                
+                input.portfolio-input-tab#campaigns(type="radio" name="portfolio-tabs")
+                label.portfolio-single-tab(for="campaigns") Campaigns
+                
+                input.portfolio-input-tab#videos(type="radio" name="portfolio-tabs")
+                label.portfolio-single-tab(for="videos") Videos
+
+            div#portfolio-projects-container
+                each project in parsedData
+                    a.portfolio-single-project(href=`./portfolio/${project.slug}`)
+                        h4.portfolio-single-header= project.project_name
+                        - const imageURL = generateFileURL.desktopCover(project);
+                        img.portfolio-single-image(src=imageURL alt=project.project_name title=project.project_name)
