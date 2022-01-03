@@ -1,6 +1,9 @@
 extends layout 
 
 block content
+    script(type='text/javascript').
+
+
     link(rel="stylesheet", href="/stylesheets/portfolio.css")
     - const parsedData = JSON.parse(data);
     
@@ -25,5 +28,5 @@ block content
                 each project in parsedData
                     a.portfolio-single-project(href=`./portfolio/${project.slug}`)
                         h4.portfolio-single-header= project.project_name
-                        - const imageURL = generateFileURL.desktopCover(project);
+                        - const imageURL = generateFileURL.mobileCover(project);
                         img.portfolio-single-image(src=imageURL alt=project.project_name title=project.project_name)

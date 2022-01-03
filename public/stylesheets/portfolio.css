@@ -15,21 +15,21 @@ div#portfolio-content-container {
 }
 
 h2#portfolio-header {
-    font-size: 36px;
-    line-height: 31.5px;
-    margin-bottom: 20px;
+  font-size: 36px;
+  line-height: 31.5px;
+  margin-bottom: 20px;
 }
 
 h4#portfolio-subheader {
-    font-size: 15px;
-    line-height: 23.4px;
-    width: 130px;
-    margin-bottom: 28px;
+  font-size: 15px;
+  line-height: 23.4px;
+  width: 130px;
+  margin-bottom: 28px;
 }
 
 div#portfolio-tabs-container {
-    display: flex;
-    margin-bottom: 35.63px;
+  display: flex;
+  margin-bottom: 35.63px;
 }
 
 input.portfolio-input-tab {
@@ -37,14 +37,14 @@ input.portfolio-input-tab {
 }
 
 label.portfolio-single-tab {
-    font-size: 11.45px;
-    font-weight: 700;
-    font-family: 'VisbyCF-Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 82.71px;
-    height: 24.87px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-size: 11.45px;
+  font-weight: 700;
+  font-family: "VisbyCF-Bold", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 82.71px;
+  height: 24.87px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 input.portfolio-input-tab:checked + label.portfolio-single-tab {
@@ -52,16 +52,69 @@ input.portfolio-input-tab:checked + label.portfolio-single-tab {
 }
 
 a.portfolio-single-project {
-    display: block;
-    margin-bottom: 27.45px;
+  display: block;
+}
+
+a.portfolio-single-project:not(:last-of-type) {
+  margin-bottom: 27.45px;
 }
 
 h4.portfolio-single-header {
-    font-size: 12.48px;
-    margin-bottom: 7px;
+  font-size: 12.48px;
+  margin-bottom: 7px;
 }
 
 img.portfolio-single-image {
-    width: 234.52px;
-    border: 1px solid black;
+  width: 234.52px;
+  border: 1px solid black;
+  display: block;
+}
+
+@media screen and (min-width: 700px) {
+  div#portfolio-content-container {
+    margin-top: 100.71px;
+    margin-bottom: 81.56px;
+    margin-right: var(--home-right-margin-padding);
+    margin-left: var(--home-left-margin-padding);
+  }
+
+  h2#portfolio-header {
+    margin-bottom: 58px;
+  }
+
+  h4#portfolio-subheader {
+    width: 159.98px;
+    margin-bottom: 73.46px;
+  }
+
+  div#portfolio-tabs-container {
+    margin-bottom: 22.14px;
+  }
+
+  label.portfolio-single-tab {
+    font-size: 12.4px;
+    width: 100.41px;
+    height: 31px;
+  }
+
+  div#portfolio-projects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    column-gap: 10.5% /* 64.69px */;
+    row-gap: 27.14px;
+  }
+
+  a.portfolio-single-project:not(:last-of-type) {
+    margin-bottom: 0;
+  }
+
+  h4.portfolio-single-header {
+    font-size: 12.39px;
+    margin-bottom: 10px;
+  }
+
+  img.portfolio-single-image {
+    width: 100%;
+  }
 }
