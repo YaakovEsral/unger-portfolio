@@ -1,6 +1,7 @@
 module.exports =  {
     mobileCover,
-    desktopCover
+    desktopCover,
+    insideMedia
 }
 
 function mobileCover(project) {
@@ -11,6 +12,6 @@ function desktopCover(project) {
     return `/images/project-media/${project.slug}/desktop-cover${project.desktop_cover_photo}`;   
 }
 
-// function mobileInside(project) {
-//     return `/images/project-media/${project.slug}/${project.desktop}`;   
-// }
+function insideMedia(slug, fileName) {
+    return `/images/project-media/${slug}/${fileName}`;   
+}

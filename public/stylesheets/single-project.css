@@ -1,17 +1,27 @@
-div#single-project-container {
-  padding: 45.93px 34.48px 27.92px 30.66px;
-  display: flex;
-  flex-direction: column;
+div#single-project-section {
+    background: var(--white-1);
+    color: var(--black-1);
+    overflow: auto; /* This is so the margin on content-container works properly */
 }
 
-h1#single-project-project-name {
+/* extra container here so we can use margin like on other pages instead of padding */
+div#single-project-content-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45.93px;
+  margin-bottom: 27.92px;
+  margin-right: var(--home-right-margin-padding);
+  margin-left: var(--home-left-margin-padding);
+}
+
+h2#single-project-header {
   margin-left: 2px;
   font-size: 36px;
   line-height: 87.5%;
   margin-bottom: 28.6px;
 }
 
-p#description {
+h4#single-project-subheader {
   font-size: 15px;
   line-height: 23px;
   letter-spacing: 0.005em;
@@ -21,6 +31,7 @@ p#description {
 p#client-name,
 p#date-completed {
   color: var(--grey-1);
+  font-size: 15px;
 }
 
 p#client-name {
@@ -73,12 +84,15 @@ div#project-credits-popup p#credit {
     line-height: 27.44px;
 }
 
-div.single-project-image-container {
+/* div.single-project-image-container {
   background: var(--grey-1);
-  width: 80vw;
   margin-bottom: 16.62px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(80vw * 0.52);
+} */
+
+*.single-project-inside-media {
+    width: 100%;
+    margin-bottom: 16.62px;
 }
