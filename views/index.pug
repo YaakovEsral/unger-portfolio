@@ -19,17 +19,13 @@ block content
 
             img#home-profile-img(src="/images/profile.png")
 
-    div#home-projects-section 
+    div#home-projects-section
+        div#home-projects-content-container 
 
-        h3#home-projects-section-header Recently Wrapped 
+            h3#home-projects-section-header Recently Wrapped 
 
-        each project in parsedData
-            a.home-projects-single.container(href=`./portfolio/${project.slug}`)
-                //- div
-                h4.home-projects-single-header= project.project_name
-                img.home-projects-single-image(src="/images/voyage-resources.png")
-
-    
-
-//- script(id="__bs_script__")
-//-     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.27.7'><\/script>".replace("HOST", location.hostname));
+            each project in parsedData
+                a.home-projects-single.container(href=`./portfolio/${project.slug}`)
+                    //- div
+                    h4.home-projects-single-header= project.project_name
+                    img.home-projects-single-image(src="/images/voyage-resources.png")
