@@ -55,7 +55,7 @@ block content
                 - const ext = extname(url)
                 if constants.allowedImageTypes.includes(ext)
                     picture.single-project-img.desktop
-                        source(srcset=url media="(max-width: 700px)")
+                        source(srcset=url media="(min-width: 700px)")
                         img.single-project-inside-media(src="")
 
                 else if constants.allowedVideoTypes.includes(extname(url) )
