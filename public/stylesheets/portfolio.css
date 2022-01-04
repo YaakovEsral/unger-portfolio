@@ -67,7 +67,7 @@ h4.portfolio-single-header {
 img.portfolio-single-image {
   width: 234.52px;
   border: 1px solid black;
-  display: block;
+  /* display: block; */
 }
 
 @media screen and (min-width: 700px) {

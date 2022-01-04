@@ -25,5 +25,11 @@ block content
                 each project in parsedData
                     a.portfolio-single-project(href=`./portfolio/${project.slug}`)
                         h4.portfolio-single-header= project.project_name
-                        - const imageURL = generateFileURL.mobileCover(project);
-                        img.portfolio-single-image(src=imageURL alt=project.project_name title=project.project_name)
+                        - const mobileURL = generateFileURL.mobileCover(project);
+                        - const desktopURL = generateFileURL.desktopCover(project);
+                        picture.mobile
+                            source(srcset=mobileURL media="(max-width: 700px)")
+                            img.portfolio-single-image(src="" alt=project.project_name title=project.project_name)
+                        picture.desktop
+                            source(srcset=desktopURL media="(min-width: 700px)")
+                            img.portfolio-single-image(src="" alt=project.project_name title=project.project_name)
