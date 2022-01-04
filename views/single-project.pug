@@ -53,10 +53,11 @@ block content
             each url in desktopURLs
                 - const ext = extname(url)
                 if constants.allowedImageTypes.includes(ext)
-                    picture.single-project-img.desktop
+                    picture.single-project-inside-media.desktop
                         source(srcset=url media="(min-width: 700px)")
-                        img.single-project-inside-media(src="")
+                        img(src="")
 
                 else if constants.allowedVideoTypes.includes(extname(url) )
-                    video.single-project-inside-media.desktop(controls)
-                        source(src=url type=`video/${ext.replace('.', '')}`)
+                    div.single-project-inside-media.desktop
+                        video(controls)
+                            source(src=url type=`video/${ext.replace('.', '')}`)
