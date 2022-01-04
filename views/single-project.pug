@@ -37,19 +37,18 @@ block content
                 })
                 console.log('mobile urls', mobileURLs)
 
-            - console.log(constants.allowedVideoTypes)
-
+            //- Note that we are rendering images inside a picture element. This will save bandwidth and only render the image on the correct screen size (< or > 700px). Unfortunately, this doesn't seem to work for video elements. Either way, the media will only display if it is the right screen size, based on our global classes 'mobile' and 'desktop'.
             each url in mobileURLs
                 - const ext = extname(url)
-                //- - console.log(constants.allowedVideoTypes.includes(ext) )
                 if constants.allowedImageTypes.includes(ext)
-                    picture.single-project-img.mobile
+                    picture.single-project-inside-media.mobile
                         source(srcset=url media="(max-width: 700px)")
-                        img.single-project-inside-media(src="")
+                        img(src="")
 
                 else if constants.allowedVideoTypes.includes(extname(url) )
-                    video.single-project-inside-media.mobile(controls)
-                        source(src=url type=`video/${ext.replace('.', '')}`)
+                    div.single-project-inside-media.mobile
+                        video(controls)
+                            source(src=url type=`video/${ext.replace('.', '')}`)
 
             each url in desktopURLs
                 - const ext = extname(url)

@@ -15,7 +15,6 @@ div#single-project-content-container {
 }
 
 h2#single-project-header {
-  margin-left: 2px;
   font-size: 36px;
   line-height: 87.5%;
   margin-bottom: 28.6px;
@@ -49,7 +48,7 @@ div#project-credits-button {
   color: var(--grey-1);
   cursor: pointer;
   margin-bottom: 59.2px;
-  position: relative;
+  position: relative; /* Container for popup */
 }
 
 div#project-credits-popup {
@@ -84,15 +83,66 @@ div#project-credits-popup p#credit {
     line-height: 27.44px;
 }
 
-/* div.single-project-image-container {
-  background: var(--grey-1);
-  margin-bottom: 16.62px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-*.single-project-inside-media {
+*.single-project-inside-media,
+*.single-project-inside-media * {
     width: 100%;
+}
+
+*.single-project-inside-media:not(:last-of-type){
     margin-bottom: 16.62px;
+}
+
+@media screen and (min-width: 700px) {
+    
+    div#single-project-content-container {
+      margin-top: 100.71px;
+      margin-bottom: 80.69px;
+    }
+    
+    h2#single-project-header {
+      font-size: 36px;
+      line-height: 31.5px;
+      margin-bottom: 49.6px;
+    }
+    
+    h4#single-project-subheader {
+        width: 317.46px;
+        margin-bottom: 27px;
+    }
+
+    div#project-credits-button {
+      margin-bottom: 46.97px;
+        width: fit-content; /* This is just so we can use calc(100% + px) in positioning the popup below. */
+    }
+    
+    div#project-credits-popup {
+        width: 203.64px;
+        padding: 13.99px 0 15.51px 21.82px;
+        bottom: auto;
+        top: -13px;
+        left: calc(100% + 20px);
+        /* right: 0; */
+    }
+    
+    div#arrow {
+        height: 12.17px;
+        width: 12.17px;
+        top: 16px;
+        bottom: auto;
+        left: -6px;
+    }
+    
+    span#credits-exit-icon {
+        top: 8px;
+        right: 8.99px;
+    }
+    
+    div#project-credits-popup p#credit {
+        font-size: 8.42px;
+        line-height: 15.62px;
+    }
+    
+    *.single-project-inside-media:not(:last-of-type){
+        margin-bottom: 44.23px;
+    }
 }
