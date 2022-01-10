@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const { runInNewContext } = require('vm');
 
 /* All media should end up in the same directory project-media. The path is the same for all files, with the distinguishing factor being the project slug. An example of a path with the name Kumzitz Corner might be './public/images/project-media/kumzitz-corner'. 
 */
