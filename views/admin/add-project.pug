@@ -5,8 +5,14 @@ block content
     h1#add-project-heading Add Project
 
     //- - console.log('SLUG', projectData.slug)
+    -
+        let slug;
+        if(projectData)
+            slug = projectData.slug;
+        else
+            slug = undefined;
 
-    form#add-project-form(data-slug=projectData.slug || undefined)
+    form#add-project-form(data-slug=slug)
         include add-project-inputs/1-project-name
         include add-project-inputs/2-slug
         include add-project-inputs/3-type
