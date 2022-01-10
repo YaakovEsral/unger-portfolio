@@ -1,0 +1,24 @@
+-
+    const desktopInsideMedia = data.desktop_inside_media ? JSON.parse(data.desktop_inside_media) : [];
+    //- console.log(desktopInsideMedia)
+    const allowedMediaTypes = constants.allowedImageTypes.concat(constants.allowedVideoTypes)
+
+div.add-project-input-section#desktop-inside-media-div
+    h3.input-section-header Desktop Inside Media
+    div#all-desktop-inside-media-container
+        each file in desktopInsideMedia
+            div.single-desktop-inside-media
+                span.inside-media-delete(data-file=file) Remove this media
+                img.inside-media-preview.preview-image(src=generateFileURL.insideMedia(data.slug, file))
+
+        div.single-desktop-inside-media
+            span.inside-media-delete Remove this media
+            img.inside-media-preview.preview-image(src="/images/no-image.png")
+            input.desktop-inside-media-input(type="file" name="single-desktop-inside-media" accept=allowedMediaTypes.join(', ') required=!data.desktop_inside_media)
+
+    div.inside-media-divider
+
+    div.more-media-div
+        div Add More Media
+        input#more-desktop-media-input(type="number" min="1" max="50" value="1")
+        button#more-desktop-media-button(type="button") Go

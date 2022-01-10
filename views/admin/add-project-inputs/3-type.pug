@@ -1,0 +1,14 @@
+div.add-project-input-section#project-type-div
+    h3.input-section-header Project Type
+    div.radio-div
+        input(type="radio" id="branding" name="project-type" value="branding" 
+        checked=(data.type === 'Branding' || !data.type) )
+        label(for="branding") Branding
+    div.radio-div
+        input(type="radio" id="marketing" name="project-type" value="marketing"
+        checked=(data.type === 'Marketing') )
+        label(for="marketing") Marketing
+    div.radio-div
+        input(type="radio" id="3d" name="project-type" value="3d"
+        checked=(data.type === '3D') )
+        label(for="3d") 3D

@@ -1,0 +1,8 @@
+- const desktopCoverPreview = data.desktop_cover_photo ? generateFileURL.desktopCover(data) : "/images/no-image.png";
+    
+div.add-project-input-section#desktop-cover-photo-div
+    h3.input-section-header Desktop Cover Photo
+    img#desktop-cover-photo-preview.preview-image(src=desktopCoverPreview)
+    input#desktop-cover-photo-input(type="file" name="desktop-cover-photo" accept=constants.allowedImageTypes.join(', ') required=!data.desktop_cover_photo)
+
+//- In backend upload route, only require this image if there is no ID. Only use this image if there is one.

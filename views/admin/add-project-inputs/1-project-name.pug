@@ -1,0 +1,19 @@
+//- Set data object to exist so we can check for its attributes throughout.
+//- For some reason, it only works in an if statement and not in a ternary.
+-
+    let data;
+    if(projectData) {
+        //- console.log('if data', data)
+        data = projectData;
+    }
+    else {
+        console.log('no data')
+        data = {};
+    }
+    //- const data = typeof data === 'undefined' ? {} : data;
+    
+    console.log('DATA', projectData)
+
+div.add-project-input-section
+    h3.input-section-header Project Name
+    input#input-project-name(type="text" name="project-name" placeholder="Enter project name..." value=data.project_name || '' required)

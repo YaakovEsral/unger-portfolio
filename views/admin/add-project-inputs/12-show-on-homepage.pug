@@ -1,0 +1,11 @@
+- console.log(data.show_on_homepage)
+
+div.add-project-input-section#show-on-homepage-div
+    h3.input-section-header Show on Homepage
+    div.radio-div
+        input(type="radio" id="yes" name="show-on-homepage" value="yes" checked=(data.show_on_homepage === 1) )
+        label(for="yes") Yes
+
+    div.radio-div
+        input(type="radio" id="no" name="show-on-homepage" value="no" checked=(!data.show_on_homepage || data.show_on_homepage === 0))
+        label(for="no") No

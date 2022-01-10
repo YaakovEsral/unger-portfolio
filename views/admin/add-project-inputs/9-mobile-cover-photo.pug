@@ -1,0 +1,6 @@
+- const mobileCoverPreview = data.mobile_cover_photo ? generateFileURL.mobileCover(data) : "/images/no-image.png";
+
+div.add-project-input-section#mobile-cover-photo-div  
+    h3.input-section-header Mobile Cover Photo
+    img#mobile-cover-photo-preview.preview-image(src=mobileCoverPreview)
+    input#mobile-cover-photo-input(type="file" name="mobile-cover-photo" accept=constants.allowedImageTypes.join(', ') required=!data.mobile_cover_photo)

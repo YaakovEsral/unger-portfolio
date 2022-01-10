@@ -1,0 +1,27 @@
+- const credits = data.credits ? JSON.parse(data.credits) : null;
+//- - console.log(credits)
+
+//- Note that we may get an empty object for our credits. See add-project.js in formValues object
+
+div.add-project-input-section#credits-div
+    h3.input-section-header Credits
+    div#all-single-credits-container
+        if credits && JSON.stringify(credits) !== '{}'
+            each val, key in credits
+                div.single-credits
+                    span.credits-delete(data-number=1) &#10006;
+                    input(type="text" name="credit-type" placeholder="Credit Type" value=key)
+                    input(type="text" name="credit-name" placeholder="Name" value=val)
+        
+        else
+            div.single-credits
+                span.credits-delete(data-number=1) &#10006;
+                input(type="text" name="credit-type" placeholder="Credit Type" value=key)
+                input(type="text" name="credit-name" placeholder="Name" value=val)
+
+    div.credit-divider
+
+    div.more-credits-div
+        div Add More Credits
+        input#more-credits-input(type="number" min="1" max="50" value="1")
+        button#more-credits-button(type="button") Go
