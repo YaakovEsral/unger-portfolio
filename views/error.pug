@@ -1,9 +1,10 @@
 extends layout
 
-block content
-  p ERROR
-  h1= message
-  h2= error.status
 
-  a(href='/') Return to Home
+block content
+    div(style="width: 80%; margin: auto")
+        h1 ERROR
+        pre= message
+        pre= error.status
+        a(href='/') Return to Home
 //-   pre #{error.stack}
