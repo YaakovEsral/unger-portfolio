@@ -48,3 +48,35 @@ async function deleteImage(slug, file, event) {
     }
 
 }
+
+async function deleteProject(event) {
+    const id = event.target.dataset.id;
+    const slug = event.target.dataset.slug;
+    // console.log('deleting project with id of', id);
+    
+    let response;
+    
+    try {
+        response = await fetch('/admin/delete-project', {
+            method: 'delete',
+            body: JSON.stringify({ id, slug }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const message = await response.text();
+        if (!response.ok) {
+            throw new Error(`${response.status} - ${message || response.statusText}`);
+        }
+        console.log(response, message);
+
+        // Remove project from the DOM (grandparent element of the button)
+        event.target.parentElement.parentElement.remove();
+
+        return {message, responseClass: 'success', timeout: 3000};
+
+    } catch (err) {
+        console.error(err);
+        return {message: err, responseClass: 'failure', timeout: 5000};
+    }
+}
