@@ -4,9 +4,12 @@ block nav
     nav#admin-nav
         ul
             li 
-                a(href='./dashboard') All Projects
+                a(href='/admin/dashboard') All Projects
             div.nav-divider
             li 
-                a(href='./add-project') Add Project
+                a(href='/admin/add-project') Add Project
 
-    block content 
+    block content
+
+
+    script(src="/javascripts/popup-html.js")
