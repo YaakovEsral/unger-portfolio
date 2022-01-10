@@ -1,7 +1,12 @@
 module.exports =  {
+    directory,
     mobileCover,
     desktopCover,
     insideMedia
+}
+
+function directory(slug) {
+    return `/images/project-media/${slug}`;
 }
 
 function mobileCover(project) {
