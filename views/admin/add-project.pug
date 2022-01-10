@@ -4,109 +4,25 @@ block content
     link(rel="stylesheet" href="/stylesheets/add-project.css")
     h1#add-project-heading Add Project
 
-    form#add-project-form
-        div.add-project-input-section
-            h3.input-section-header Project Name
-            input#input-project-name(type="text" name="project-name" placeholder="Enter project name...")
+    //- - console.log('SLUG', projectData.slug)
 
-        div.add-project-input-section#slug-div
-            h3.input-section-header Slug
-            div#default-slug Default slug: 
-                span
-            input#input-project-slug(type="text" name="project-slug" placeholder="Enter custom slug...")
-        
-        div.add-project-input-section#project-type-div
-            h3.input-section-header Project Type
-            div.radio-div
-                input(type="radio" id="branding" name="project-type" value="branding" checked)
-                label(for="branding") Branding
-            div.radio-div
-                input(type="radio" id="marketing" name="project-type" value="marketing")
-                label(for="marketing") Marketing
-            div.radio-div
-                input(type="radio" id="3d" name="project-type" value="3d")
-                label(for="3d") 3D
-        
-        div.add-project-input-section
-            h3.input-section-header Client Name
-            input#input-client-name(type="text" name="client-name" placeholder="Client Name")
-
-        div.add-project-input-section#credits-div
-            h3.input-section-header Credits
-            div#all-single-credits-container
-                div.single-credits
-                    span.credits-delete(data-number=1) &#10006;
-                    input(type="text" name="credit-type" placeholder="Credit Type")
-                    input(type="text" name="credit-name" placeholder="Name")
-
-            div.credit-divider
-
-            div.more-credits-div
-                div Add More Credits
-                input#more-credits-input(type="number" min="1" max="50" value="1")
-                button#more-credits-button(type="button") Go
-        
-        div.add-project-input-section
-            h3.input-section-header Project Description
-            textarea#input-project-description(name="project-description", cols="30", rows="10" placeholder="Enter your description...")
-
-        div.add-project-input-section
-            h3.input-section-header Date Completed
-            input#input-date-completed(type="text" name="date-completed" placeholder="Enter a date or time...")
-
-        div.add-project-input-section#desktop-cover-photo-div
-            h3.input-section-header Desktop Cover Photo
-            img#desktop-cover-photo-preview.preview-image(src="/images/no-image.png")
-            input#desktop-cover-photo-input(type="file" name="desktop-cover-photo" accept=".jpg, .jpeg, .png, .gif")
-
-        div.add-project-input-section#mobile-cover-photo-div  
-            h3.input-section-header Mobile Cover Photo
-            img#mobile-cover-photo-preview.preview-image(src="/images/no-image.png")
-            input#mobile-cover-photo-input(type="file" name="mobile-cover-photo" accept=".jpg, .jpeg, .png, .gif")
-
-        div.add-project-input-section#desktop-inside-media-div
-            h3.input-section-header Desktop Inside Media
-            div#all-desktop-inside-media-container
-                div.single-desktop-inside-media
-                    span.inside-media-delete Remove this media
-                    img.inside-media-preview.preview-image(src="/images/no-image.png")
-                    input.desktop-inside-media-input(type="file" name="single-desktop-inside-media" accept=".jpg, .jpeg, .png, .gif, .mp4, .mov")
-
-            div.inside-media-divider
-
-            div.more-media-div
-                div Add More Media
-                input#more-desktop-media-input(type="number" min="1" max="50" value="1")
-                button#more-desktop-media-button(type="button") Go
-
-        div.add-project-input-section#mobile-inside-media-div
-            h3.input-section-header Mobile Inside Media
-            div#all-mobile-inside-media-container
-                div.single-mobile-inside-media
-                    span.inside-media-delete Remove this media
-                    img.inside-media-preview.preview-image(src="/images/no-image.png")
-                    input.mobile-inside-media-input(type="file" name="single-mobile-inside-media" accept=".jpg, .jpeg, .png, .gif, .mp4, .mov")
-
-            div.inside-media-divider
-
-            div.more-media-div
-                div Add More Media
-                input#more-mobile-media-input(type="number" min="1" max="50" value="1")
-                button#more-mobile-media-button(type="button") Go
-
-        div.add-project-input-section#show-on-homepage-div
-            h3.input-section-header Show on Homepage
-            div.radio-div
-                input(type="radio" id="yes" name="show-on-homepage" value="yes")
-                label(for="yes") Yes
-
-            div.radio-div
-                input(type="radio" id="no" name="show-on-homepage" value="no" checked)
-                label(for="no") No
+    form#add-project-form(data-slug=projectData.slug || undefined)
+        include add-project-inputs/1-project-name
+        include add-project-inputs/2-slug
+        include add-project-inputs/3-type
+        include add-project-inputs/4-client-name
+        include add-project-inputs/5-credits
+        include add-project-inputs/6-description
+        include add-project-inputs/7-date-completed
+        include add-project-inputs/8-desktop-cover-photo
+        include add-project-inputs/9-mobile-cover-photo
+        include add-project-inputs/10-desktop-inside-media
+        include add-project-inputs/11-mobile-inside-media
+        include add-project-inputs/12-show-on-homepage
+        include add-project-inputs/13-project-id
 
         button#add-project-submit-button Submit Project
 
         div#form-popup.hidden
-            h1 Hello World
 
     script(src="/javascripts/add-project.js")
