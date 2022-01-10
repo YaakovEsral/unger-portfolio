@@ -31,9 +31,24 @@
         return htmlContent;
     }
 
+    function deleteProject() {
+        const header = '<h1>Delete Project</h1>';
+        const info = `
+                        <p>Are you sure you would like to delete this project?</p>
+                        <div>
+                            <button type="button" id="delete-project-button">Delete</button>
+                            <button type="button" id="delete-project-cancel">Cancel</button>
+                        </div>
+                     `;
+        const htmlContent = header + info;
+
+        return htmlContent;
+    }
+
     window.popupHTML = {
         error,
         projectSubmitted,
-        deleteImage
+        deleteImage,
+        deleteProject
     }
 })()
