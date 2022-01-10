@@ -53,35 +53,16 @@ function setDefaultSlug(event) {
 
 function showSubmitDialog(error, slug) {
     popupBox.classList.remove('hidden');
-    let htmlContent;
-    if (error) {
-        const header = '<h1>Error</h1>'
-        const info = `<p class="error-message">${error.message}</p>`;
-        htmlContent = header + info;
-
-    }
-    else {
-        const header = '<h1>Project Submitted</h1>';
-        const info = `
-                        <p><a href="/portfolio/${slug}" target="_blank">Click here</a> to view your project</p>.
-                        <p>Redirecting you momentarily...</p>
-                     `
-        htmlContent = header + info;
-
-    }
+    // still need to test projectSubmitted
+    const htmlContent = error ? popupHTML.error(error) : popupHTML.projectSubmitted(slug);
     popupBox.innerHTML = htmlContent;
 }
 
-// Starting form values
-const formValues = {
-    projectName: undefined,
-    slug: undefined,
-    projectType: undefined,
-    clientName: undefined,
-    credits: undefined,
-    projectDescription: undefined,
-    dateCompleted: undefined,
-    showOnHomePage: undefined
+function showDeleteDialog(slug, file, event) {
+    popupBox.classList.remove('hidden');
+    // console.log(slug, file)
+    popupBox.innerHTML = popupHTML.deleteImage();
+    get('delete-image-button').addEventListener('click', () => deleteImage(slug, file, event))
 }
 
 // Note that projectType and showOnHomePage are set automatically in db if they are left null.
@@ -123,6 +104,22 @@ const popupBox = get('form-popup');
 
 // Misc.
 var defaultSlug = '';
+
+// Starting form values
+const formValues = {
+    projectName: projectNameElem.value,
+    slug: slugElem.value,
+    projectType: document.querySelector('input[name="project-type"]:checked').value,
+    clientName: clientNameElem.value,
+    credits: handleKeyValueInput(), // always returns a truthy value, beware
+    projectDescription: projectDescriptionElem.value,
+    dateCompleted: dateCompletedElem.value,
+    showOnHomePage: document.querySelector('input[name="show-on-homepage"]:checked').value,
+    projectID: get('project-id').value
+}
+
+console.log(formValues);
+// setInterval(()=> console.log(formValues), 10000);
 
 // listeners for text values
 projectNameElem.addEventListener('keyup', e => {
@@ -191,7 +188,12 @@ moreDesktopMediaButton.addEventListener('click', (e) => {
 
 // removing inputs for desktop inside media
 allDesktopInsideMediaContainer.addEventListener('click', e => {
-    if (e.target.classList.contains('inside-media-delete')) {
+    if(e.target.dataset.file) {
+        // console.log(e.target.dataset.file)
+        showDeleteDialog(addProjectForm.dataset.slug, e.target.dataset.file, e);
+        // code to create "Delete File" dialog and then delete file and remove element
+    }
+    else if (e.target.classList.contains('inside-media-delete')) {
         e.target.parentElement.remove();
     }
 });
@@ -214,7 +216,12 @@ moreMobileMediaButton.addEventListener('click', (e) => {
 
 // removing inputs for mobile inside media
 allMobileInsideMediaContainer.addEventListener('click', e => {
-    if (e.target.classList.contains('inside-media-delete')) {
+    if(e.target.dataset.file) {
+        // console.log(e.target.dataset.file)
+        showDeleteDialog(addProjectForm.dataset.slug, e.target.dataset.file, e);
+        // code to create "Delete File" dialog and then delete file and remove element
+    }
+    else if (e.target.classList.contains('inside-media-delete')) {
         e.target.parentElement.remove();
     }
 });

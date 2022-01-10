@@ -13,7 +13,3 @@ creditsPopup.addEventListener('click', () => {
     // hide(creditsPopup) 
     creditsPopup.classList.add('hidden-transition')
 });
-
-Popper.createPopper(creditsButton, creditsPopup, {
-    placement: 'right'
-})
