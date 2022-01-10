@@ -64,6 +64,38 @@ router.route('/add-project/:slug?')
         relocateFiles
     )
 
+router.delete('/delete-project', async (req, res, next) => {
+    console.log(req.body);
+
+    // Remove entry from database
+    try {
+        await pool.query('DELETE from projects WHERE project_id = ?', [req.body.id]);
+    }
+    catch(err) {
+        err.status = 500;
+        err.message = err.code || 'Error deleting project from database. Please contact your administrator/programmer.'
+        console.log(err);
+        return next(err);
+    }
+
+    // Remove files from system
+    try {
+        const directoryURL = './public' + generateFileURL.directory(req.body.slug);
+        console.log(directoryURL)
+        if (fs.existsSync(directoryURL)) {
+            fs.rmdirSync(directoryURL, { recursive: true });
+        }
+    }
+    catch (err) {
+        err.status = 500;
+        err.message = "Error deleting your files from file system."
+        console.log(err)
+        return next(err);
+    }
+
+    res.end(`Successfully deleted project ${req.body.slug} from database and deleted files from system.`)
+})
+
 router.delete('/delete-image', (req, res, next) => {
     console.log(req.body);
     // Remove file from mysql database
