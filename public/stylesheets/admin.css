@@ -7,13 +7,13 @@ body {
 /* UTILITY CLASSES */
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .error-message {
-    color: rgb(189, 1, 1);
-    font-size: 18px;
-    font-weight: bold;
+  color: rgb(189, 1, 1);
+  font-size: 18px;
+  font-weight: bold;
 }
 
 form#admin-login-form {
@@ -33,31 +33,30 @@ form#admin-login-form * {
 }
 
 nav#admin-nav {
-    background:rgb(240, 172, 47)
+  background: rgb(240, 172, 47);
 }
 
-nav#admin-nav ul{
-    list-style-type: none;
-    padding-left: 0;
-    padding: 1em;
-    display: flex;
-    justify-content: space-between;
-    max-width: 370px;
-    margin: auto;
+nav#admin-nav ul {
+  list-style-type: none;
+  padding-left: 0;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  max-width: 370px;
+  margin: auto;
 }
 
 div.nav-divider {
-    height: 30px;
-    width: 3px;
-    background: rgb(6, 6, 87);
+  height: 30px;
+  width: 3px;
+  background: rgb(6, 6, 87);
 }
 
-nav#admin-nav a{
-    font-size: 25px;
-    color: #333;
-    font-weight: bold;
-    text-decoration: none;
-    
+nav#admin-nav a {
+  font-size: 25px;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 div#all-projects-page-container {
@@ -67,13 +66,13 @@ div#all-projects-page-container {
 #all-projects-container {
   display: flex;
   flex-direction: column;
-  padding: 0;   
+  padding: 0;
 }
 
 #all-projects-container li {
   list-style-type: none;
   padding: 0;
-  
+
   border: 2px solid rgb(199, 129, 0);
   border-radius: 4px;
   margin-bottom: 10px;
@@ -84,4 +83,40 @@ div#all-projects-page-container {
 #all-projects-container a {
   text-decoration: none;
   color: rgb(6, 6, 87);
+}
+
+div#all-projects-popup:not(.hidden) {
+  height: 200px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  /* background: var(--green); */
+  background: #bdbdbd;
+  width: 300px;
+  top: 30%;
+  box-shadow: 5px 5px 10px #333;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div#all-projects-popup * {
+  text-align: center;
+}
+
+p#delete-project-response {
+    font-size: 20px;
+    margin: 0 .5em;
+    font-weight: bold;
+}
+
+p#delete-project-response.success {
+    color: rgb(4 102 4);
+}
+
+p#delete-project-response.failure {
+    color: rgb(226, 69, 69);
+
 }
