@@ -137,10 +137,9 @@ div#project-credits-popup p#credit {
         right: 8.99px;
     }
     
-    div#project-credits-popup p#credit {
-        font-size: 8.42px;
+    /* div#project-credits-popup p#credit {
         line-height: 15.62px;
-    }
+    } */
     
     *.single-project-inside-media:not(:last-of-type){
         margin-bottom: 44.23px;
