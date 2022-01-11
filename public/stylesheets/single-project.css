@@ -58,7 +58,7 @@ div#project-credits-popup {
     background: var(--white-2);
     position: absolute;
     bottom: 48px;
-    transition:  visibility 1s,  opacity 1s;
+    transition:  visibility .3s,  opacity .3s;
 }
 
 div#arrow {
