@@ -18,7 +18,7 @@ block content
             - data.credits = JSON.parse(data.credits);
             div#project-credits-button Project Credits 
                 div#project-credits-popup.hidden-transition
-                    span#credits-exit-icon &#10006;
+                    span#credits-exit-icon.fas.fa-times
                     div#arrow
                     each val, key in data.credits
                         p#credit= key + ': ' + val
