@@ -12,7 +12,9 @@ const {desktopCoverImage} = require('../constants');
 */
 
 module.exports = (req, res, next) => {
+    next();
     console.log('image size validator');
+    console.log(req.body)
 
     // Check the size of files in the temp directory
 

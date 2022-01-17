@@ -59,7 +59,7 @@ router.route('/add-project/:slug?')
             { name: 'single-mobile-inside-media' }
         ]),
         projectDataValidation,
-        fileSizeValidation,
+        // fileSizeValidation,
         submitProject,
         relocateFiles
     )
