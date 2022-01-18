@@ -69,7 +69,8 @@ router.delete('/delete-project', async (req, res, next) => {
 
     // Remove entry from database
     try {
-        await pool.query('DELETE from projects WHERE project_id = ?', [req.body.id]);
+        const response = await pool.query('DELETE from projects WHERE project_id = ?', [req.body.id]);
+        console.log(response);
     }
     catch(err) {
         err.status = 500;
@@ -96,7 +97,7 @@ router.delete('/delete-project', async (req, res, next) => {
     res.end(`Successfully deleted project ${req.body.slug} from database and deleted files from system.`)
 })
 
-router.delete('/delete-image', (req, res, next) => {
+router.delete('/delete-image', async (req, res, next) => {
     console.log(req.body);
     // Remove file from mysql database
 
@@ -104,7 +105,7 @@ router.delete('/delete-image', (req, res, next) => {
     const procedure = req.body.file[0] === 'd' ? 'deleteDesktopInsideMedia' : 'deleteMobileInsideMedia';
 
     try {
-        pool.query(`CALL ${procedure}(?, ?)`, [req.body.file, req.body.slug])
+        await pool.query(`CALL ${procedure}(?, ?)`, [req.body.file, req.body.slug]);
     }
     catch(err) {
         err.status = 500;
@@ -117,7 +118,8 @@ router.delete('/delete-image', (req, res, next) => {
     try {
         const fileURL = './public' + generateFileURL.insideMedia(req.body.slug, req.body.file);
         console.log(fileURL)
-        fs.unlinkSync(fileURL)
+        if(fs.existsSync(fileURL))
+            fs.unlinkSync(fileURL)
     }
     catch (err) {
         err.status = 500;
