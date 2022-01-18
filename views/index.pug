@@ -27,5 +27,13 @@ block content
             each project in parsedData
                 a.home-projects-single.container(href=`./portfolio/${project.slug}`)
                     //- div
+                    - const mobileURL = generateFileURL.mobileCover(project);
+                    - const desktopURL = generateFileURL.desktopCover(project);
+
                     h4.home-projects-single-header= project.project_name
-                    img.home-projects-single-image(src="/images/voyage-resources.png")
+                    picture.mobile
+                            source(srcset=mobileURL media="(max-width: 700px)")
+                            img.home-projects-single-image(src="" alt=project.project_name title=project.project_name)
+                    picture.desktop
+                        source(srcset=desktopURL media="(min-width: 700px)")
+                        img.home-projects-single-image(src="" alt=project.project_name title=project.project_name)
