@@ -104,6 +104,7 @@ img.portfolio-single-image {
     grid-auto-rows: 1fr;
     column-gap: 10.5% /* 64.69px */;
     row-gap: 27.14px;
+    transition:  visibility .3s,  opacity .3s; /* Transition time should match timeout time in portfolio-types */
   }
 
   a.portfolio-single-project:not(:last-of-type) {

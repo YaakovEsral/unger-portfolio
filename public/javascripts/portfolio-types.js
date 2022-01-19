@@ -8,9 +8,15 @@ selectTypeElements.forEach(elem => {
 function handleTypeSelect(e) {
     console.log(e.target.value);
     // Add hidden class to all containers
-    projectsContainers.forEach(container => hide(container));
+    projectsContainers.forEach(container => {
+        // Remove hidden class from current container
+        const currentContainer = Array.from(projectsContainers).find(elem => elem.classList.contains(e.target.value));
 
-    // Remove hidden class from current container
-    const currentContainer = Array.from(projectsContainers).find(elem => elem.classList.contains(e.target.value));
-    show(currentContainer);
+        fadeHide(container)
+        setTimeout(() => {
+            hide(container)
+            show(currentContainer);
+            fadeShow(currentContainer);
+        }, 300); // Note that this number should match the transition delay in portfolio.css for div.portfolio-projects-container
+    });
 }
