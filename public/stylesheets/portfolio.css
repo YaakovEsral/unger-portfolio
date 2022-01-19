@@ -45,6 +45,7 @@ label.portfolio-single-tab {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 input.portfolio-input-tab:checked + label.portfolio-single-tab {
@@ -65,8 +66,8 @@ h4.portfolio-single-header {
 }
 
 img.portfolio-single-image {
-  width: 234.52px;
-  border: 1px solid black;
+  width: 100%;
+  /* border: 1px solid black; */
   /* display: block; */
 }
 
@@ -114,7 +115,15 @@ img.portfolio-single-image {
     margin-bottom: 10px;
   }
 
+  picture.desktop {
+      height: 80%;
+  }
+
   img.portfolio-single-image {
-    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Check out this link for help with object-fit:
+    https://www.digitalocean.com/community/tutorials/css-cropping-images-object-fit */
+    /* overflow: hidden; */
   }
 }
