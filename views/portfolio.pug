@@ -1,8 +1,30 @@
 extends layout 
+mixin project-category-display(projects)
+    div.portfolio-projects-container(class!=attributes.class)
+        each project in projects
+            a.portfolio-single-project(href=`./portfolio/${project.slug}`)
+                h4.portfolio-single-header= project.project_name
+                - const mobileURL = generateFileURL.mobileCover(project);
+                - const desktopURL = generateFileURL.desktopCover(project);
+                picture.mobile
+                    source(srcset=mobileURL media="(max-width: 700px)")
+                    img.portfolio-single-image(src="" alt=project.project_name title=project.project_name)
+                picture.desktop
+                    source(srcset=desktopURL media="(min-width: 700px)")
+                    img.portfolio-single-image(src="" alt=project.project_name title=project.project_name)
+
+
 
 block content
     link(rel="stylesheet", href="/stylesheets/portfolio.css")
-    - const parsedData = JSON.parse(data);
+
+    script(src="/javascripts/portfolio-types.js" defer)
+    -
+        const parsedData = JSON.parse(data);
+        //- console.log(parsedData)
+        const brandingProjects = parsedData.filter(p => p.type === 'Branding')
+        const campaignsProjects = parsedData.filter(p => p.type === 'Campaigns')
+        const videosProjects = parsedData.filter(p => p.type === 'Videos')
     
 
     div#portfolio-section
@@ -12,24 +34,17 @@ block content
             h4#portfolio-subheader Every piece of work is my best one to date.
 
             div#portfolio-tabs-container 
-                input.portfolio-input-tab#branding(type="radio" name="portfolio-tabs" checked)
+                input.portfolio-input-tab#branding(type="radio" name="portfolio-tabs" value="branding" checked)
                 label.portfolio-single-tab(for="branding")  Branding
                 
-                input.portfolio-input-tab#campaigns(type="radio" name="portfolio-tabs")
+                input.portfolio-input-tab#campaigns(type="radio" name="portfolio-tabs" value="campaigns")
                 label.portfolio-single-tab(for="campaigns") Campaigns
                 
-                input.portfolio-input-tab#videos(type="radio" name="portfolio-tabs")
+                input.portfolio-input-tab#videos(type="radio" name="portfolio-tabs" value="videos")
                 label.portfolio-single-tab(for="videos") Videos
 
-            div#portfolio-projects-container
-                each project in parsedData
-                    a.portfolio-single-project(href=`./portfolio/${project.slug}`)
-                        h4.portfolio-single-header= project.project_name
-                        - const mobileURL = generateFileURL.mobileCover(project);
-                        - const desktopURL = generateFileURL.desktopCover(project);
-                        picture.mobile
-                            source(srcset=mobileURL media="(max-width: 700px)")
-                            img.portfolio-single-image(src="" alt=project.project_name title=project.project_name)
-                        picture.desktop
-                            source(srcset=desktopURL media="(min-width: 700px)")
-                            img.portfolio-single-image(src="" alt=project.project_name title=project.project_name)
+            
+
+            +project-category-display(brandingProjects)(class="branding")
+            +project-category-display(campaignsProjects)(class="campaigns hidden")
+            +project-category-display(videosProjects)(class="videos hidden")
