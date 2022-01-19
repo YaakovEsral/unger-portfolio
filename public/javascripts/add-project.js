@@ -44,7 +44,7 @@ function handleMediaInput(event) {
 function setDefaultSlug(event) {
     // console.log(event.target.value);
     const input = event.target.value;
-    const slug = input.toLowerCase().replaceAll(' ', '-');
+    const slug = input.toLowerCase().replace(/\s/g, '-').replace(/\W/g, '');
     // console.log(slug);
     const defaultSlugElem = document.querySelector('#default-slug span');
     defaultSlugElem.innerText = slug;
@@ -122,24 +122,24 @@ console.log(formValues);
 // setInterval(()=> console.log(formValues), 10000);
 
 // listeners for text values
-projectNameElem.addEventListener('keyup', e => {
+projectNameElem.addEventListener('change', e => {
     formValues.projectName = handleTextInput(e);
     defaultSlug = setDefaultSlug(e);
-    formValues.slug = formValues.slug || defaultSlug;
+    formValues.slug = slugElem.value || defaultSlug;
 })
-slugElem.addEventListener('keyup', e => {
+slugElem.addEventListener('change', e => {
     formValues.slug = handleTextInput(e) || defaultSlug;
 });
-clientNameElem.addEventListener('keyup', e => formValues.clientName = handleTextInput(e));
-dateCompletedElem.addEventListener('keyup', e => formValues.dateCompleted = handleTextInput(e))
-projectDescriptionElem.addEventListener('keyup', e => formValues.projectDescription = handleTextInput(e));
+clientNameElem.addEventListener('change', e => formValues.clientName = handleTextInput(e));
+dateCompletedElem.addEventListener('change', e => formValues.dateCompleted = handleTextInput(e))
+projectDescriptionElem.addEventListener('change', e => formValues.projectDescription = handleTextInput(e));
 
 // listeners for radio fields
 projectTypeDiv.addEventListener('change', e => formValues.projectType = handleRadioInput(e));
 showOnHomePageDiv.addEventListener('change', e => formValues.showOnHomePage = handleRadioInput(e) === 'yes')
 
 // listener for key value field (credits)
-creditsDivElem.addEventListener('keyup', () => formValues.credits = handleKeyValueInput());
+creditsDivElem.addEventListener('change', () => formValues.credits = handleKeyValueInput());
 
 // listeners for media inputs
 desktopPhotoInput.addEventListener('change', e => handleMediaInput(e));
