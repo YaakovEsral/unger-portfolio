@@ -16,7 +16,7 @@
   display: none!important;
 }
 
-.hidden-transition {
+.hidden-fade {
   visibility: hidden;
   opacity: 0;
 }
