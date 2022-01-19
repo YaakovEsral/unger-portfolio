@@ -30,6 +30,7 @@ h4#portfolio-subheader {
 div#portfolio-tabs-container {
   display: flex;
   margin-bottom: 35.63px;
+  position: relative;
 }
 
 input.portfolio-input-tab {
@@ -46,10 +47,42 @@ label.portfolio-single-tab {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
-input.portfolio-input-tab:checked + label.portfolio-single-tab {
+/* input.portfolio-input-tab:checked + label.portfolio-single-tab {
   background: var(--white-2);
+} */
+
+/* Same dimensions as label.portfolio-single-tab */
+div#tab-background {
+    background: var(--white-2);
+    width: 82.71px;
+    height: 24.87px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+input#branding:checked ~ div#tab-background {
+    transform: translateX(0);
+    transition: transform .5s;
+}
+
+input#campaigns:checked ~ div#tab-background{
+    transform: translateX(100%);
+    transition: transform .5s;
+}
+
+input#videos:checked ~ div#tab-background {
+    transform: translateX(200%);
+    transition: transform .5s;
+}
+
+div.portfolio-projects-container {
+  transition: visibility 0.3s, opacity 0.3s; /* Transition time should match timeout time in portfolio-types */
 }
 
 a.portfolio-single-project {
@@ -98,13 +131,18 @@ img.portfolio-single-image {
     height: 31px;
   }
 
+  /* Same dimensions as label.portfolio-single-tab */
+  div#tab-background {
+    width: 100.41px;
+    height: 31px;
+}
+
   div.portfolio-projects-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 1fr;
     column-gap: 10.5% /* 64.69px */;
     row-gap: 27.14px;
-    transition:  visibility .3s,  opacity .3s; /* Transition time should match timeout time in portfolio-types */
   }
 
   a.portfolio-single-project:not(:last-of-type) {
@@ -117,7 +155,7 @@ img.portfolio-single-image {
   }
 
   picture.desktop {
-      height: 80%;
+    height: 80%;
   }
 
   img.portfolio-single-image {
