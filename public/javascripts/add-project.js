@@ -44,7 +44,7 @@ function handleMediaInput(event) {
 function setDefaultSlug(event) {
     // console.log(event.target.value);
     const input = event.target.value;
-    const slug = input.toLowerCase().replace(/\s/g, '-').replace(/\W/g, '');
+    const slug = input.toLowerCase().replace(/\s/g, '-').replace(/\W^-/g, '');
     // console.log(slug);
     const defaultSlugElem = document.querySelector('#default-slug span');
     defaultSlugElem.innerText = slug;
