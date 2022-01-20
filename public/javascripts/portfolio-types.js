@@ -1,22 +1,22 @@
 const selectTypeElements = document.querySelectorAll('input[name="portfolio-tabs"]');
 const projectsContainers = document.querySelectorAll('div.portfolio-projects-container');
+let previousContainer;
+let newContainer;
 
 selectTypeElements.forEach(elem => {
     elem.addEventListener('change', handleTypeSelect)
 });
 
-function handleTypeSelect(e) {
-    console.log(e.target.value);
-    // Add hidden class to all containers
-    projectsContainers.forEach(container => {
-        // Remove hidden class from current container
-        const currentContainer = Array.from(projectsContainers).find(elem => elem.classList.contains(e.target.value));
+ /* I think I want to stick with this version. Seems like we have a bug with the code, though. The fade in transition doesn't seem to be working, except for when you slow it down with debugger. */
 
-        fadeHide(container)
-        setTimeout(() => {
-            hide(container)
-            show(currentContainer);
-            fadeShow(currentContainer);
-        }, 300); // Note that this number should match the transition delay in portfolio.css for div.portfolio-projects-container
-    });
+function handleTypeSelect(e) {
+    previousContainer = Array.from(projectsContainers).find(elem => !elem.classList.contains('hidden'));
+    newContainer = Array.from(projectsContainers).find(elem => elem.classList.contains(e.target.value));
+
+    fadeHide(previousContainer);
+    setTimeout(() => {
+        hide(previousContainer)
+        show(newContainer);
+        fadeShow(newContainer);
+    }, 300);
 }
