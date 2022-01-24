@@ -4,15 +4,12 @@ const pool = require('../connectionAsync');
 const submitProject = require('../middleware/submit-project');
 const fileUpload = require('../middleware/file-upload');
 const projectDataValidation = require('../middleware/project-data-validation');
-const fileSizeValidation = require('../middleware/file-size-validation');
+// const fileSizeValidation = require('../middleware/file-size-validation');
 const relocateFiles = require('../middleware/relocate-files');
 const generateFileURL = require('../utils/generateFileURL');
 const fs = require('fs');
 
-/* GET admin login page. */
-router.get('/', function (req, res) {
-    res.render('admin/login', { title: 'Admin' });
-});
+router.get('/', (req, res) => res.redirect('/admin/dashboard'))
 
 router.get('/dashboard', async function (req, res, next) {
     try {
