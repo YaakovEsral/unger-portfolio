@@ -9,6 +9,9 @@ block nav
             li 
                 a(href='/admin/add-project') Add Project
 
+        form(action="/logout?_method=DELETE" method="POST")
+            button(type="submit") Log Out
+
     block content
 
 
