@@ -16,7 +16,7 @@ body {
   font-weight: bold;
 }
 
-form#admin-login-form {
+form.admin-login-form {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -25,7 +25,11 @@ form#admin-login-form {
   align-items: center;
 }
 
-form#admin-login-form * {
+form.admin-login-form h1 {
+    font-size: 36px;
+}
+
+form.admin-login-form * {
   width: 200px;
   margin: 10px 0;
   font-size: 20px;
