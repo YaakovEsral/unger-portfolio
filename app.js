@@ -4,7 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config();
-
+const flash = require('express-flash');
+const session = require('express-session');
+const passport = require('passport');
+const { checkAuthenticated } = require('./middleware/authentication')
+const methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 const portfolioRouter = require('./routes/portfolio');
@@ -23,6 +27,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')), express.static(path.join(__dirname, 'node_modules')));
 
+app.use(flash());
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(methodOverride('_method'))
+
 app.use((req, res, next) => {
     res.locals.path = req.path;
     res.locals.extname = require('path').extname;
@@ -33,7 +48,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/portfolio', portfolioRouter);
-app.use('/admin', adminRouter)
+app.use('/admin', checkAuthenticated, adminRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
