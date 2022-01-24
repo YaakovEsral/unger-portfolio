@@ -1,0 +1,16 @@
+extends admin-layout
+
+block content
+    
+
+    form.admin-login-form.form( method="post" action="/register")
+    
+        h1 Register
+        input(name="username" placeholder="Username")
+        input(name="password" placeholder="Password" type="text")
+        a(href="/login") Go to Login Page
+        button Register
+
+        if messages.notification
+            span= messages.notification
+

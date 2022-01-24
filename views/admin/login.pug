@@ -1,9 +1,20 @@
 extends admin-layout
 
 block content
-    form(id="admin-login-form" class="form")
+
+
+    form.admin-login-form.form(method="post" action="/login")
+
+        h1 Log In
         input(name="username" placeholder="Username")
         input(name="password" placeholder="Password" type="text")
-        a(href="admin/dashboard") Dashboard
+        if slots_available
+            a(href="/register") Go to Register Page
         button Login
+
+        if messages.notification
+            span= messages.notification
+
+        if messages.error
+            span= messages.error
 
