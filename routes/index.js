@@ -60,7 +60,7 @@ router.get('/login', checkNotAuthenticated, async (req, res) => {
 })
 
 router.post('/register', checkNotAuthenticated, async (req, res, next) => {
-    console.log('register attempted', req.body)
+    // console.log('register attempted', req.body)
 
     // Only allow access to this route if there are user slots available
     const usersAvailable = await areUserSlotsAvailable();
