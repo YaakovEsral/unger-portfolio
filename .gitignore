@@ -3,4 +3,4 @@ node_modules
 .env
 /ignore
 bs-config.js
-/project-media
+/public/images/project-media
