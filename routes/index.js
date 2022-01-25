@@ -70,9 +70,15 @@ router.post('/register', checkNotAuthenticated, async (req, res, next) => {
     }
 
     // Only allow registry if username and password were submitted
-    if (!req.body.username || !req.body.password) {
+    if (!req.body.username || !req.body.password || !req.body.password2) {
         req.flash('notification', 'Username and password are required.')
-        return res.render('./admin/register');
+        return res.render('./admin/register', {username: req.body.username || ''});
+    }
+
+    // Only allow registry if both passwords match
+    if(req.body.password !== req.body.password2) {
+        req.flash('notification', 'Passwords do not match.')
+        return res.render('./admin/register', {username: req.body.username || ''});
     }
 
     // Only allow registry if username is available
