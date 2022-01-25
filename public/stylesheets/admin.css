@@ -26,7 +26,7 @@ form.admin-login-form {
 }
 
 form.admin-login-form h1 {
-    font-size: 36px;
+  font-size: 36px;
 }
 
 form.admin-login-form * {
@@ -38,9 +38,12 @@ form.admin-login-form * {
 
 nav#admin-nav {
   background: rgb(240, 172, 47);
+  display: flex;
+  align-items: center;
 }
 
 nav#admin-nav ul {
+  flex-grow: 4;
   list-style-type: none;
   padding-left: 0;
   padding: 1em;
@@ -61,6 +64,11 @@ nav#admin-nav a {
   color: #333;
   font-weight: bold;
   text-decoration: none;
+}
+
+form#admin-logout button{
+    font-size: 20px;
+    margin-right: 20px;
 }
 
 div#all-projects-page-container {
@@ -111,16 +119,15 @@ div#all-projects-popup * {
 }
 
 p#delete-project-response {
-    font-size: 20px;
-    margin: 0 .5em;
-    font-weight: bold;
+  font-size: 20px;
+  margin: 0 0.5em;
+  font-weight: bold;
 }
 
 p#delete-project-response.success {
-    color: rgb(4 102 4);
+  color: rgb(4, 102, 4);
 }
 
 p#delete-project-response.failure {
-    color: rgb(226, 69, 69);
-
+  color: rgb(226, 69, 69);
 }
