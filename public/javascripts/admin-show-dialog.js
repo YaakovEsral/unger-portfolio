@@ -11,7 +11,7 @@
         get('delete-project-cancel').addEventListener('click', () => hide(dialogBox))
         // Add listener to delete the identified project when the final delete button is clicked
         get('delete-project-button').addEventListener('click', async () => {
-            const response = await deleteFetchUtils.deleteProject(event);
+            const response = await fetchUtils.deleteProject(event);
             dialogBox.innerHTML = `<p class=${response.responseClass} id="delete-project-response">${response.message}</p>`;
             setTimeout(() => hide(dialogBox), response.timeout)
         })
@@ -25,7 +25,7 @@
         dialogBox.innerHTML = htmlSnippets.deleteImage();
         get('cancel-delete-image-button').addEventListener('click', () => hide(dialogBox));
         get('delete-image-button').addEventListener('click', async () => {
-            const response = await deleteFetchUtils.deleteImage(slug, file, event) 
+            const response = await fetchUtils.deleteImage(slug, file, event) 
             dialogBox.innerHTML = `<p class=${response.responseClass} id="delete-project-response">${response.message}</p>`;
             setTimeout(() => hide(dialogBox), response.timeout)
         })
@@ -37,7 +37,7 @@
         dialogBox.innerHTML = htmlContent;
         show(dialogBox);
         
-        const response = await deleteFetchUtils.submitProject(formData);
+        const response = await fetchUtils.submitProject(formData);
         htmlContent = response.responseClass === 'success' ? 
                     htmlSnippets.projectSubmitted(response.message) : 
                     htmlSnippets.error(response.message);

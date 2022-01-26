@@ -90,7 +90,7 @@
 
     }
 
-    window.deleteFetchUtils = {
+    window.fetchUtils = {
         deleteImage,
         deleteProject,
         submitProject
