@@ -5,7 +5,11 @@ html
         link(rel='stylesheet' href='/stylesheets/admin.css')
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
         script(src="/javascripts/utils.js")
+        script(src="/javascripts/fetch-utils.js")
+        script(src="/javascripts/admin-show-dialog.js" defer)
 
     body
         block nav
         block content
+
+        div#admin-popup.hidden
