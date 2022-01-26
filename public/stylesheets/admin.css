@@ -101,6 +101,18 @@ div#all-projects-page-container {
   color: rgb(6, 6, 87);
 }
 
+div#admin-modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(75, 151, 229, 0.4);
+    z-index: 1;
+}
+
 div#admin-popup:not(.hidden) {
   height: 200px;
   position: fixed;
