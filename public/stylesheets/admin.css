@@ -101,7 +101,7 @@ div#all-projects-page-container {
   color: rgb(6, 6, 87);
 }
 
-div#all-projects-popup:not(.hidden) {
+div#admin-popup:not(.hidden) {
   height: 200px;
   position: fixed;
   left: 0;
@@ -118,7 +118,7 @@ div#all-projects-popup:not(.hidden) {
   justify-content: center;
 }
 
-div#all-projects-popup * {
+div#admin-popup * {
   text-align: center;
 }
 
@@ -128,10 +128,10 @@ p#delete-project-response {
   font-weight: bold;
 }
 
-p#delete-project-response.success {
+p.success {
   color: rgb(4, 102, 4);
 }
 
-p#delete-project-response.failure {
+p.failure {
   color: rgb(226, 69, 69);
 }
