@@ -43,5 +43,5 @@ module.exports = (req, res, next) => {
     else {
         console.log('No files to relocate.')
     }
-    return res.json(req.body);
+    return res.end(req.body.slug);
 }
