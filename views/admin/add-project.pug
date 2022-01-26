@@ -2,6 +2,7 @@ extends index
 
 block content
     link(rel="stylesheet" href="/stylesheets/add-project.css")
+    
     h1#add-project-heading Add Project
 
     //- - console.log('SLUG', projectData.slug)
@@ -30,5 +31,7 @@ block content
         button#add-project-submit-button Submit Project
 
         div#form-popup.hidden
-
+    
+    script(src="/javascripts/admin-add-project-variables.js")
+    script(src="/javascripts/handle-admin-inputs.js")
     script(src="/javascripts/add-project.js")
