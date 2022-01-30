@@ -79,13 +79,13 @@ div#all-projects-page-container {
   padding: 10px 15px;
 }
 
-#all-projects-container {
+ul#all-projects-container {
   display: flex;
   flex-direction: column;
   padding: 0;
 }
 
-#all-projects-container li {
+ul#all-projects-container li {
   list-style-type: none;
   padding: 0;
 
@@ -96,9 +96,45 @@ div#all-projects-page-container {
   cursor: move;
 }
 
-#all-projects-container a {
+ul#all-projects-container a {
   text-decoration: none;
   color: rgb(6, 6, 87);
+}
+
+div.single-project-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.single-project-container div {
+    width: 30%;
+}
+
+div.single-project-container a,
+div.single-project-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: 16px;
+    outline: none;
+    border: transparent;
+    padding: 0 8px;
+    border-radius: 4px;
+}
+
+div.single-project-container a.admin-edit {
+    background-color: rgb(125, 240, 125);
+}
+
+div.single-project-container a.admin-view {
+    background-color: rgb(136, 136, 245);
+}
+
+div.single-project-container button.show-delete-project-dialog-button {
+    background-color: rgb(218, 118, 118);
+    cursor: pointer;
 }
 
 div#admin-modal {
