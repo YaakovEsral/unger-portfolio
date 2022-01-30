@@ -12,15 +12,16 @@ block content
 
         ul#all-projects-container
             each project in parsedData
-                li
-                    a(href=`./add-project/${project.slug}`)
+                li                    
+                    div.single-project-container
                         div
-                            h1= project.client_name
-                            h2= project.project_name
+                            h2= project.client_name
+                            h3= project.project_name
+                        a.admin-edit(href=`./add-project/${project.slug}`) Edit this project
 
-                            p: a(href=`/portfolio/${project.slug}`) View live version
+                        a.admin-view(href=`/portfolio/${project.slug}`) View live version
 
-                            button#show-delete-project-dialog-button(type="button" data-id=project.project_id data-slug=project.slug) Delete this project
+                        button.show-delete-project-dialog-button(type="button" data-id=project.project_id data-slug=project.slug) Delete this project
 
         div#all-projects-popup.hidden   
 
