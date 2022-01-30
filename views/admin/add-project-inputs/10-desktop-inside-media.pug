@@ -6,19 +6,19 @@
 div.add-project-input-section#desktop-inside-media-div
     h3.input-section-header Desktop Inside Media
     div#all-desktop-inside-media-container
+        h4 Saved Media
         each file in desktopInsideMedia
-            div.single-desktop-inside-media
-                span.inside-media-delete(data-file=file) Remove this media
+            div.single-desktop-inside-media.saved-image
+                span.inside-media-delete.saved-image-delete(data-file=file) Delete This Media From Project
                 img.inside-media-preview.preview-image(src=generateFileURL.insideMedia(data.slug, file))
+        
+        div.inside-media-divider
+        
+        input#desktop-inside-media-input(type="file" name="single-desktop-inside-media" accept=allowedMediaTypes.join(', ') multiple required=!data.desktop_inside_media)
 
-        div.single-desktop-inside-media
-            span.inside-media-delete Remove this media
-            img.inside-media-preview.preview-image(src="/images/no-image.png")
-            input.desktop-inside-media-input(type="file" name="single-desktop-inside-media" accept=allowedMediaTypes.join(', ') required=!data.desktop_inside_media)
+    
 
-    div.inside-media-divider
-
-    div.more-media-div
-        div Add More Media
-        input#more-desktop-media-input(type="number" min="1" max="50" value="1")
-        button#more-desktop-media-button(type="button") Go
+    //- div.more-media-div
+    //-     div Add More Media
+    //-     input#more-desktop-media-input(type="number" min="1" max="50" value="1")
+    //-     button#more-desktop-media-button(type="button") Go

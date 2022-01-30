@@ -4,20 +4,21 @@
 div.add-project-input-section#mobile-inside-media-div
     h3.input-section-header Mobile Inside Media
     div#all-mobile-inside-media-container
+        h4 Saved Media
         each file in mobileInsideMedia
-            div.single-mobile-inside-media
-                span.inside-media-delete(data-file=file) Remove this media
+            div.single-mobile-inside-media.saved-image
+                span.inside-media-delete.saved-image-delete(data-file=file) Delete Media From This Project
                 img.inside-media-preview.preview-image(src=generateFileURL.insideMedia(data.slug, file) )
                 
-        div.single-mobile-inside-media
-            span.inside-media-delete Remove this media
-            img.inside-media-preview.preview-image(src="/images/no-image.png")
-            input.mobile-inside-media-input(type="file" name="single-mobile-inside-media" accept=allowedMediaTypes.join(', ') required=!data.mobile_inside_media)
 
 
-    div.inside-media-divider
 
-    div.more-media-div
-        div Add More Media
-        input#more-mobile-media-input(type="number" min="1" max="50" value="1")
-        button#more-mobile-media-button(type="button") Go
+
+        div.inside-media-divider
+        
+        input#mobile-inside-media-input(type="file" name="single-mobile-inside-media" accept=allowedMediaTypes.join(', ') multiple required=!data.mobile_inside_media)
+
+    //- div.more-media-div
+    //-     div Add More Media
+    //-     input#more-mobile-media-input(type="number" min="1" max="50" value="1")
+    //-     button#more-mobile-media-button(type="button") Go
