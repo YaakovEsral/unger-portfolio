@@ -2,7 +2,7 @@ extends layout
 mixin project-category-display(projects)
     div.portfolio-projects-container(class!=attributes.class)
         each project in projects
-            a.portfolio-single-project(href=`./portfolio/${project.slug}`)
+            a.portfolio-single-project(href=`./${project.slug}`)
                 h4.portfolio-single-header= project.project_name
                 - const mobileURL = generateFileURL.mobileCover(project);
                 - const desktopURL = generateFileURL.desktopCover(project);
