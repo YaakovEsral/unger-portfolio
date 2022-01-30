@@ -57,28 +57,28 @@ label.portfolio-single-tab {
 
 /* Same dimensions as label.portfolio-single-tab */
 div#tab-background {
-    background: var(--white-2);
-    width: 82.71px;
-    height: 24.87px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
+  background: var(--white-2);
+  width: 82.71px;
+  height: 24.87px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
 }
 
 input#branding:checked ~ div#tab-background {
-    transform: translateX(0);
-    transition: transform .5s;
+  transform: translateX(0);
+  transition: transform 0.5s;
 }
 
-input#campaigns:checked ~ div#tab-background{
-    transform: translateX(100%);
-    transition: transform .5s;
+input#campaigns:checked ~ div#tab-background {
+  transform: translateX(100%);
+  transition: transform 0.5s;
 }
 
 input#videos:checked ~ div#tab-background {
-    transform: translateX(200%);
-    transition: transform .5s;
+  transform: translateX(200%);
+  transition: transform 0.5s;
 }
 
 div.portfolio-projects-container {
@@ -98,10 +98,13 @@ h4.portfolio-single-header {
   margin-bottom: 7px;
 }
 
+/* Note about image dimensions: The ratio we are using is based on the Fruity Bar cover image dimensions, which are 4000 x 2250 pixels. This simplifies to 16 x 9. In percentage, the height is 56.25% of the width.
+To implement this, we used vw in order to have a constant to measure from. Height in vw here is calculated to be 56.25% of the width in vw. */
 img.portfolio-single-image {
-  width: 100%;
-  /* border: 1px solid black; */
-  /* display: block; */
+  width: 70vw;
+  height: 39.375vw;
+  object-fit: cover;
+  display: block;
 }
 
 @media screen and (min-width: 700px) {
@@ -135,7 +138,7 @@ img.portfolio-single-image {
   div#tab-background {
     width: 100.41px;
     height: 31px;
-}
+  }
 
   div.portfolio-projects-container {
     display: grid;
@@ -159,7 +162,8 @@ img.portfolio-single-image {
   }
 
   img.portfolio-single-image {
-    height: 100%;
+    width: 32.5vw;
+    height: 18.28125vw;
     object-fit: cover;
     /* Check out this link for help with object-fit:
     https://www.digitalocean.com/community/tutorials/css-cropping-images-object-fit */
