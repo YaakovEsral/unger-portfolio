@@ -54,10 +54,10 @@ showOnHomePageDiv.addEventListener('change', e => formValues.showOnHomePage = ha
 creditsDivElem.addEventListener('change', () => formValues.credits = handleKeyValueInput());
 
 // listeners for media inputs
-desktopPhotoInput.addEventListener('change', e => handleMediaInput(e));
-mobilePhotoInput.addEventListener('change', e => handleMediaInput(e));
-allDesktopInsideMediaContainer.addEventListener('change', e => handleMediaInput(e));
-allMobileInsideMediaContainer.addEventListener('change', e => handleMediaInput(e));
+desktopPhotoInput.addEventListener('change', e => handleCoverPhotoInput(e));
+mobilePhotoInput.addEventListener('change', e => handleCoverPhotoInput(e));
+desktopInsideMediaInput.addEventListener('change', e => handleInsideMediaInput(e));
+mobileInsideMediaInput.addEventListener('change', e => handleInsideMediaInput(e));
 
 // adding inputs for credits
 moreCreditsButton.addEventListener('click', (e) => {
@@ -74,42 +74,42 @@ allCreditsContainer.addEventListener('click', e => {
     }
 });
 
-// adding inputs for desktop inside media
-moreDesktopMediaButton.addEventListener('click', (e) => {
-    // Get the value of moreDesktopMediaInput and append that many single-desktop-inside-media divs
-    for (let i = 0; i < +moreDesktopMediaInput.value; i++) {
-        allDesktopInsideMediaContainer.insertAdjacentHTML('beforeend', htmlSnippets.singleDesktopInsideMedia());
-    }
-})
-
-// removing inputs for desktop inside media
+// removing images for desktop inside media
 allDesktopInsideMediaContainer.addEventListener('click', e => {
-    if(e.target.dataset.file) {
+    // if this is a saved media
+    if (e.target.dataset.file) {
         // console.log(e.target.dataset.file)
         adminShowDialog.deleteImage(addProjectForm.dataset.slug, e.target.dataset.file, e);
         // code to create "Delete File" dialog and then delete file and remove element
     }
-    else if (e.target.classList.contains('inside-media-delete')) {
+    // else if this was just uploaded
+    else if (e.target.dataset.index) {
+        // console.log(e.target, e.target.dataset.index)
+        // Make sure to get the index based on the index property we set earlier. (This index won't change even if other files are deleted)
+        const index = desktopInsideMediaFiles.find(file => file.index === e.target.dataset.index);
+        // Remove entry from the file array
+        desktopInsideMediaFiles.splice(index, 1);
+        // Remove parent element
         e.target.parentElement.remove();
     }
 });
 
-// adding inputs for mobile inside media
-moreMobileMediaButton.addEventListener('click', (e) => {
-    // Get the value of moreMobileMediaInput and append that many single-mobile-inside-media divs
-    for (let i = 0; i < +moreMobileMediaInput.value; i++) {
-        allMobileInsideMediaContainer.insertAdjacentHTML('beforeend', htmlSnippets.singleMobileInsideMedia());
-    }
-})
-
-// removing inputs for mobile inside media
+// removing images for mobile inside media
 allMobileInsideMediaContainer.addEventListener('click', e => {
-    if(e.target.dataset.file) {
+    // if this is a saved media
+    if (e.target.dataset.file) {
         // console.log(e.target.dataset.file)
         adminShowDialog.deleteImage(addProjectForm.dataset.slug, e.target.dataset.file, e);
         // code to create "Delete File" dialog and then delete file and remove element
     }
-    else if (e.target.classList.contains('inside-media-delete')) {
+    // else if this was just uploaded
+    else if (e.target.dataset.index) {
+        // console.log(e.target, e.target.dataset.index)
+        // Make sure to get the index based on the index property we set earlier. (This index won't change even if other files are deleted)
+        const index = mobileInsideMediaFiles.find(file => file.index === e.target.dataset.index);
+        // Remove entry from the file array
+        mobileInsideMediaFiles.splice(index, 1);
+        // Remove parent element
         e.target.parentElement.remove();
     }
 });
@@ -126,10 +126,8 @@ addProjectForm.addEventListener('submit', async (e) => {
 
     formData.append('desktop-cover-photo', desktopPhotoInput.files[0]);
     formData.append('mobile-cover-photo', mobilePhotoInput.files[0]);
-    const desktopInsideMediaInputs = document.querySelectorAll('.desktop-inside-media-input');
-    desktopInsideMediaInputs.forEach(input => formData.append('single-desktop-inside-media', input.files[0]));
-    const mobileInsideMediaInputs = document.querySelectorAll('.mobile-inside-media-input');
-    mobileInsideMediaInputs.forEach(input => formData.append('single-mobile-inside-media', input.files[0]));
+    desktopInsideMediaFiles.forEach(file => formData.append('single-desktop-inside-media', file));
+    mobileInsideMediaFiles.forEach(file => formData.append('single-mobile-inside-media', file));
 
     // for (var value of formData.values()) {
     //     console.log('fd', value);
@@ -138,6 +136,3 @@ addProjectForm.addEventListener('submit', async (e) => {
     // Note that admin dialog also executes the fetch call
     adminShowDialog.submitProject(formData);
 })
-
-// listener to remove popup on click
-popupBox.addEventListener('click', e => popupBox.classList.add('hidden'));
