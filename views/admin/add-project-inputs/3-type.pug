@@ -2,7 +2,7 @@ div.add-project-input-section#project-type-div
     h3.input-section-header Project Type
     div.radio-div
         input(type="radio" id="branding" name="project-type" value="branding" 
-        checked=(data.type === 'Branding' || !data.type) )
+        checked=(data.type === 'Branding') required )
         label(for="branding") Branding
     div.radio-div
         input(type="radio" id="campaigns" name="project-type" value="campaigns"

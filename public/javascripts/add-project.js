@@ -9,7 +9,7 @@ This file puts everything together - adding listeners for change and submit even
 const formValues = {
     projectName: projectNameElem.value,
     slug: slugElem.value,
-    projectType: document.querySelector('input[name="project-type"]:checked').value,
+    projectType: document.querySelector('input[name="project-type"]:checked')?.value, // only if one is checked already
     clientName: clientNameElem.value,
     credits: handleKeyValueInput(), // always returns a truthy value, beware
     projectDescription: projectDescriptionElem.value,
