@@ -23,17 +23,15 @@ const moreMobileMediaInput = get('more-mobile-media-input');             // numb
 // Media input
 const desktopPhotoInput = get('desktop-cover-photo-input');
 const mobilePhotoInput = get('mobile-cover-photo-input');
-const desktopInsideMediaDiv = get('desktop-inside-media-div');
-const mobileInsideMediaDiv = get('mobile-inside-media-div');
+const desktopInsideMediaInput = get('desktop-inside-media-input');
+const mobileInsideMediaInput = get('mobile-inside-media-input');
 
 // Buttons
 const moreCreditsButton = get('more-credits-button');
 const moreDesktopMediaButton = get('more-desktop-media-button');
 const moreMobileMediaButton = get('more-mobile-media-button');
 
-// Popup
-const popupBox = get('form-popup');
-
 // Misc.
-var defaultSlug = '';
-
+const defaultSlug = '';
+const desktopInsideMediaFiles = [];
+const mobileInsideMediaFiles = [];
