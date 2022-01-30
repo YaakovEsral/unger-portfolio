@@ -32,6 +32,6 @@ const moreDesktopMediaButton = get('more-desktop-media-button');
 const moreMobileMediaButton = get('more-mobile-media-button');
 
 // Misc.
-const defaultSlug = '';
+let defaultSlug = '';
 const desktopInsideMediaFiles = [];
 const mobileInsideMediaFiles = [];
