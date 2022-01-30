@@ -30,11 +30,33 @@ function handleKeyValueInput() {
     return JSON.stringify(credits);
 }
 
-function handleMediaInput(event) {
-    console.log(event);
+function handleCoverPhotoInput(event) {
     // console.log(event.target.parentElement.children[1]);
     const previewImage = event.target.parentElement.children[1];
     // const previewImage = event.target.parentElement.children[/preview/]); // regex for containing "preview" in ID
     const url = URL.createObjectURL(event.target.files[0]);
     previewImage.src = url;
+}
+
+function handleInsideMediaInput(event) {
+    // console.log(event);
+    // console.log(event.target.id.includes('desktop'))
+
+    // Determine if it's desktop or mobile from event
+    const fileInput = event.target;
+    const fileArray = event.target.id.includes('desktop') ? desktopInsideMediaFiles : mobileInsideMediaFiles;
+    const generateHTML = event.target.id.includes('desktop') ? htmlSnippets.singleDesktopInsideMedia : htmlSnippets.singleMobileInsideMedia;
+    const mediaContainer = event.target.id.includes('desktop') ? allDesktopInsideMediaContainer : allMobileInsideMediaContainer ;
+
+    // Add to the appropriate array
+    for (let i = 0, files = fileInput.files; i < files.length; i++) {
+        files[i].index = i;
+        fileArray.push(files[i]);
+        // console.log(fileArray[i].name, fileArray[i].index);
+        const url = URL.createObjectURL(files[i]);
+        const header = '<h4>New Media</h4>';
+        const element = generateHTML(i, url);
+        const htmlContent = header + element;
+        mediaContainer.insertAdjacentHTML('beforeend', htmlContent);
+    }
 }
