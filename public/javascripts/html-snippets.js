@@ -56,23 +56,21 @@
         return htmlContent;
     }
 
-    function singleDesktopInsideMedia() {
+    function singleDesktopInsideMedia(index, url) {
         const htmlContent = `
-                                <div class="single-desktop-inside-media">
-                                    <span class="inside-media-delete">&#10006</span>
-                                    <img class="inside-media-preview preview-image" src="/images/no-image.png">
-                                    <input class="desktop-inside-media-input" type="file" name="single-desktop-inside-media" />
+                                <div class="single-desktop-inside-media upload-image">
+                                    <span class="inside-media-delete delete-uploaded-image" data-index=${index}>Remove Media From Upload</span>
+                                    <img class="inside-media-preview preview-image" src=${url}>
                                 </div>
                             `;
         return htmlContent;
     }
 
-    function singleMobileInsideMedia() {
+    function singleMobileInsideMedia(index, url) {
         const htmlContent = `
-                                <div class="single-mobile-inside-media">
-                                    <span class="inside-media-delete">&#10006</span>
-                                    <img class="inside-media-preview preview-image" src="/images/no-image.png">
-                                    <input class="mobile-inside-media-input" type="file" name="single-mobile-inside-media" />
+                                <div class="single-mobile-inside-media upload-image">
+                                    <span class="inside-media-delete delete-uploaded-image" data-index=${index}>Remove Media From Upload</span>
+                                    <img class="inside-media-preview preview-image" src=${url}>
                                 </div>
                             `;
         return htmlContent;
