@@ -1,7 +1,0 @@
-/notes
-node_modules
-.env
-/ignore
-bs-config.js
-/public/images/project-media
-.gitignore
