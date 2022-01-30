@@ -4,3 +4,4 @@ node_modules
 /ignore
 bs-config.js
 /public/images/project-media
+.gitignore
