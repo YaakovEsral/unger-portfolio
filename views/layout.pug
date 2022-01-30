@@ -35,13 +35,13 @@ html
             ul 
                 - // render first link differently depending on if we are on homepage or not
                     li
-                        a(href=`${path === '/' ? './portfolio' : '/'}`) #{path === '/' ? 'Work' : 'Home'}
+                        a(href=`${path === '/' ? '/portfolio' : '/'}`) #{path === '/' ? 'Work' : 'Home'}
                 
                     li 
-                        a(href='./about') About
+                        a(href='/about') About
 
                     li 
-                        a(href='./contact') Contact
+                        a(href='/contact') Contact
 
             - // give special class for nav dots when not on the homepage
             - const classList = path === '/' ? '' : 'position-top';
