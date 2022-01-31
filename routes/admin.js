@@ -62,14 +62,16 @@ router.route('/add-project/:slug?')
     )
 
 router.delete('/delete-project', async (req, res, next) => {
-    console.log(req.body);
+    console.log('deleting project', req.body);
 
-    // Remove entry from database
+    // Remove entry from database and update sequence_nums for all entries that are higher than this one
     try {
-        const response = await pool.query('DELETE from projects WHERE project_id = ?', [req.body.id]);
+        const response = await pool.query(
+            'CALL deleteProject(?)',
+            [req.body.id]);
         console.log(response);
     }
-    catch(err) {
+    catch (err) {
         err.status = 500;
         err.message = err.code || 'Error deleting project from database. Please contact your administrator/programmer.'
         console.log(err);
@@ -104,7 +106,7 @@ router.delete('/delete-image', async (req, res, next) => {
     try {
         await pool.query(`CALL ${procedure}(?, ?)`, [req.body.file, req.body.slug]);
     }
-    catch(err) {
+    catch (err) {
         err.status = 500;
         err.message = "Error removing file from database."
         console.log(err)
@@ -115,7 +117,7 @@ router.delete('/delete-image', async (req, res, next) => {
     try {
         const fileURL = './public' + generateFileURL.insideMedia(req.body.slug, req.body.file);
         console.log(fileURL)
-        if(fs.existsSync(fileURL))
+        if (fs.existsSync(fileURL))
             fs.unlinkSync(fileURL)
     }
     catch (err) {
@@ -128,8 +130,8 @@ router.delete('/delete-image', async (req, res, next) => {
 })
 
 router.post('/update-project-order', (req, res) => {
-    // console.log(req.body);
-    res.send('request received');
+    console.log('reorder projects', req.body);
+    // res.send('request received');
     try {
         pool.query('CALL updateProjectOrder(?, ?)', [req.body.oldIndex, req.body.newIndex])
     }
