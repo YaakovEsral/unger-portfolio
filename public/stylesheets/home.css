@@ -43,6 +43,13 @@ a#home-main-info-button {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--white-1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a#home-main-info-button:hover {
+  color: var(--black-1);
+  background-color: var(--white-1);
 }
 
 img#home-profile-img {
@@ -59,10 +66,10 @@ div#home-projects-section {
 
 /* extra container here so we can use margin like on other pages instead of padding */
 div#home-projects-content-container {
-    margin-top: 49.03px;
-    margin-bottom: 68.93px;
-    margin-left: var(--home-left-margin-padding);
-    margin-right: var(--home-right-margin-padding);
+  margin-top: 49.03px;
+  margin-bottom: 68.93px;
+  margin-left: var(--home-left-margin-padding);
+  margin-right: var(--home-right-margin-padding);
 }
 
 h3#home-projects-section-header {
@@ -73,6 +80,11 @@ h3#home-projects-section-header {
 a.home-projects-single.container {
   display: flex;
   flex-direction: column;
+  transition: transform 0.35s ease-in;
+}
+
+a.home-projects-single.container:hover {
+  transform: scale(1.03, 1.03);
 }
 
 a.home-projects-single.container:not(:last-of-type) {
@@ -83,12 +95,12 @@ h4.home-projects-single-header {
   text-decoration: none;
   font-size: 12.48px;
   font-weight: 700;
-  font-family: 'VisbyCF-Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "VisbyCF-Bold", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   height: 21.39px;
 }
 
 img.home-projects-single-image {
-    width: 100%;
+  width: 100%;
 }
 
 @media screen and (min-width: 700px) {
@@ -136,21 +148,21 @@ img.home-projects-single-image {
   }
 
   /* HOMEPAGE SECTION 2 - SECONDARY - PROJECTS */
-  
+
   div#home-projects-content-container {
-      margin-top: 73.27px;
-      margin-bottom: 55.92px;
+    margin-top: 73.27px;
+    margin-bottom: 55.92px;
   }
-  
+
   h3#home-projects-section-header {
     font-size: 36px;
     margin-bottom: 53.47px;
   }
-  
+
   a.home-projects-single.container:not(:last-of-type) {
     margin-bottom: 72.18px;
   }
-  
+
   h4.home-projects-single-header {
     font-size: 17.5px;
     font-weight: 700;
