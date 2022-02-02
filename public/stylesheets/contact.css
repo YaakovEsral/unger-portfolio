@@ -37,9 +37,22 @@ div#contact-form-inputs textarea {
     /* border: 1px solid var(--white-1); */
     border-color: transparent;
     outline: none;
-    background: var(--black-1);
-    color: var(--white-1);
+    background: var(--black-1) !important;
+    color: var(--white-1) !important;
     padding: 15.66px;
+}
+
+/* Special rule for correcting default browser autofill styles.
+See note on MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/:autofill
+and fix on CSS-Tricks: https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/ */
+div#contact-form-inputs input:-webkit-autofill,
+div#contact-form-inputs input:-webkit-autofill:hover, 
+div#contact-form-inputs input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--white-1);
+    box-shadow: 0 0 0px 1000px var(--black-1) inset;
+    border: 0px;
+    font-size: 15px;
+    -webkit-box-shadow: 0 0 0px 1000px var(--black-1) inset;
 }
 
 /* div#contact-form-inputs input {
