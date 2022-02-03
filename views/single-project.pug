@@ -42,10 +42,10 @@ block content
                 - const ext = extname(url)
                 if constants.allowedImageTypes.includes(ext)
                     picture.single-project-inside-media.mobile
-                        source(srcset=url media="(max-width: 700px)")
-                        img(src="")
+                        source(data-srcset=url media="(max-width: 700px)")
+                        img.lazyload(data-src=url)
 
-                else if constants.allowedVideoTypes.includes(extname(url) )
+                else if constants.allowedVideoTypes.includes(ext)
                     div.single-project-inside-media.mobile
                         video(controls)
                             source(src=url type=`video/${ext.replace('.', '')}`)
@@ -54,10 +54,10 @@ block content
                 - const ext = extname(url)
                 if constants.allowedImageTypes.includes(ext)
                     picture.single-project-inside-media.desktop
-                        source(srcset=url media="(min-width: 700px)")
-                        img(src="")
+                        source(data-srcset=url media="(min-width: 700px)")
+                        img.lazyload(data-src=url)
 
-                else if constants.allowedVideoTypes.includes(extname(url) )
+                else if constants.allowedVideoTypes.includes(ext)
                     div.single-project-inside-media.desktop
                         video(controls)
                             source(src=url type=`video/${ext.replace('.', '')}`)

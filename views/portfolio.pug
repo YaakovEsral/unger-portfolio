@@ -7,11 +7,11 @@ mixin project-category-display(projects)
                 - const mobileURL = generateFileURL.mobileCover(project);
                 - const desktopURL = generateFileURL.desktopCover(project);
                 picture.mobile
-                    source(srcset=mobileURL media="(max-width: 700px)")
-                    img.portfolio-single-image(src="" alt=project.project_name title=project.project_name)
+                    source(data-srcset=mobileURL media="(max-width: 700px)")
+                    img.portfolio-single-image.lazyload(data-src=mobileURL alt=project.project_name title=project.project_name)
                 picture.desktop
-                    source(srcset=desktopURL media="(min-width: 700px)")
-                    img.portfolio-single-image(src="" alt=project.project_name title=project.project_name)
+                    source(data-srcset=desktopURL media="(min-width: 700px)")
+                    img.portfolio-single-image.lazyload(data-src=desktopURL alt=project.project_name title=project.project_name)
 
 
 

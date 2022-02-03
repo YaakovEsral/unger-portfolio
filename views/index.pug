@@ -32,8 +32,8 @@ block content
 
                     h4.home-projects-single-header= project.project_name
                     picture.mobile
-                            source(srcset=mobileURL media="(max-width: 700px)")
-                            img.home-projects-single-image(src="" alt=project.project_name title=project.project_name)
+                            source(data-srcset=mobileURL media="(max-width: 700px)")
+                            img.home-projects-single-image.lazyload(data-src=mobileURL alt=project.project_name title=project.project_name)
                     picture.desktop
-                        source(srcset=desktopURL media="(min-width: 700px)")
-                        img.home-projects-single-image(src="" alt=project.project_name title=project.project_name)
+                        source(data-srcset=desktopURL media="(min-width: 700px)")
+                        img.home-projects-single-image.lazyload(data-src=desktopURL alt=project.project_name title=project.project_name)
