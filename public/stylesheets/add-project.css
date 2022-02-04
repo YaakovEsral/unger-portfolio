@@ -113,6 +113,11 @@ img.inside-media-preview {
     width: 100%;
     max-width: 200px;
     margin-bottom: 10px;
+    cursor: grab;
+}
+
+img.inside-media-preview.sortable-chosen {
+    cursor: grabbing;
 }
 
 div.single-desktop-inside-media,
