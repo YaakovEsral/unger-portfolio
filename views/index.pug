@@ -31,6 +31,7 @@ block content
                     - const desktopURL = generateFileURL.desktopCover(project);
 
                     h4.home-projects-single-header= project.project_name
+                    //- Image container is here so we can create a zoom-in effect
                     div.home-projects-single-img-container
                         picture.mobile
                                 source(data-srcset=mobileURL media="(max-width: 700px)")
