@@ -6,12 +6,14 @@ mixin project-category-display(projects)
                 h4.portfolio-single-header= project.project_name
                 - const mobileURL = generateFileURL.mobileCover(project);
                 - const desktopURL = generateFileURL.desktopCover(project);
-                picture.mobile
-                    source(data-srcset=mobileURL media="(max-width: 700px)")
-                    img.portfolio-single-image.lazyload(data-src=mobileURL alt=project.project_name title=project.project_name)
-                picture.desktop
-                    source(data-srcset=desktopURL media="(min-width: 700px)")
-                    img.portfolio-single-image.lazyload(data-src=desktopURL alt=project.project_name title=project.project_name)
+                div.portfolio-projects-single-img-container
+                    picture.mobile
+                        source(data-srcset=mobileURL media="(max-width: 700px)")
+                        img.portfolio-single-image.lazyload(data-src=mobileURL alt=project.project_name title=project.project_name)
+                div.portfolio-projects-single-img-container
+                    picture.desktop
+                        source(data-srcset=desktopURL media="(min-width: 700px)")
+                        img.portfolio-single-image.lazyload(data-src=desktopURL alt=project.project_name title=project.project_name)
 
 
 
