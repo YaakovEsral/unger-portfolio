@@ -3,6 +3,8 @@
     const SUCCESS_TIMEOUT = 3000;
     const FAILURE_TIMEOUT = 5000;
 
+    const IMAGE_SUCCESS_TIMEOUT = 1000; // client requested shorter time
+
     async function deleteImage(slug, file, event) {
         console.log('deleting', slug, file);
 
@@ -25,7 +27,7 @@
             // If delete worked, remove element
             event.target.parentElement.remove();
 
-            return { message, responseClass: 'success', timeout: SUCCESS_TIMEOUT };
+            return { message, responseClass: 'success', timeout: IMAGE_SUCCESS_TIMEOUT };
 
         } catch (err) {
             console.error(err);
