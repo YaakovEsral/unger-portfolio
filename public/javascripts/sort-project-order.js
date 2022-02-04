@@ -7,8 +7,11 @@ async function onSort(e) {
         newIndex: e.newIndex,
         oldIndex: e.oldIndex
     }
+
+    let response;
+
     try {
-        const response = await fetch('/admin/update-project-order', {
+            response = await fetch('/admin/update-project-order', {
             method: 'post',
             body: JSON.stringify(data),
             headers: {

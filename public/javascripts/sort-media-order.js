@@ -36,9 +36,9 @@ async function onSortMobile() {
 }
 
 async function updateOrderFetch(data) {
-    
+    let response;
     try {
-        const response = await fetch('/admin/update-media-order', {
+            response = await fetch('/admin/update-media-order', {
             method: 'post',
             body: JSON.stringify(data),
             headers: {
