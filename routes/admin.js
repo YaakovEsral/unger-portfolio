@@ -140,4 +140,19 @@ router.post('/update-project-order', (req, res) => {
     }
 })
 
+router.post('/update-media-order', (req, res) => {
+    console.log('reorder media', req.body);
+
+     // Determine which procedure to use based on first char in file name
+     const procedure = req.body.procedure === 'desktop' ? 'updateDesktopInsideMediaOrder' : 'updateMobileInsideMediaOrder';
+
+    try {
+        pool.query(`CALL ${procedure}(?, ?)`, [JSON.stringify(req.body.newFileOrder), req.body.slug])
+    }
+    catch (err) {
+        res.end(err);
+    }
+    res.end()
+})
+
 module.exports = router;
