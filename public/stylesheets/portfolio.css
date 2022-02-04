@@ -49,6 +49,12 @@ label.portfolio-single-tab {
   cursor: pointer;
   position: relative;
   z-index: 2;
+  opacity: 0.9;
+  transition: opacity .3s;
+}
+
+label.portfolio-single-tab:hover {
+    opacity: 1;
 }
 
 /* input.portfolio-input-tab:checked + label.portfolio-single-tab {
