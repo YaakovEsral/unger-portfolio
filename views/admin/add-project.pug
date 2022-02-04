@@ -2,7 +2,9 @@ extends index
 
 block content
     link(rel="stylesheet" href="/stylesheets/add-project.css")
-    
+    script(type="text/javascript" src='/sortablejs/Sortable.js' defer)
+    script(type="text/javascript" src="/javascripts/sort-media-order.js" defer)
+
     h1#add-project-heading Add Project
 
     //- - console.log('SLUG', projectData.slug)
@@ -29,7 +31,7 @@ block content
         include add-project-inputs/13-project-id
 
         button#add-project-submit-button Submit Project
-    
+
     script(src="/javascripts/admin-add-project-variables.js")
     script(src="/javascripts/handle-admin-inputs.js")
     script(src="/javascripts/add-project.js")
