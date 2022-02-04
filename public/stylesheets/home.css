@@ -80,11 +80,6 @@ h3#home-projects-section-header {
 a.home-projects-single.container {
   display: flex;
   flex-direction: column;
-  transition: transform 0.35s ease-in;
-}
-
-a.home-projects-single.container:hover {
-  transform: scale(1.03, 1.03);
 }
 
 a.home-projects-single.container:not(:last-of-type) {
@@ -99,8 +94,18 @@ h4.home-projects-single-header {
   height: 21.39px;
 }
 
+/* Container is here so we can get the zoom-in effect using overflow: hidden */
+div.home-projects-single-img-container {
+  overflow: hidden;
+}
+
 img.home-projects-single-image {
   width: 100%;
+  transition: transform 0.35s ease-in;
+}
+
+img.home-projects-single-image:hover {
+  transform: scale(1.03, 1.03);
 }
 
 @media screen and (min-width: 700px) {
