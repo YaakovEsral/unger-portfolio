@@ -6,19 +6,15 @@
 div.add-project-input-section#desktop-inside-media-div
     h3.input-section-header Desktop Inside Media
     div#all-desktop-inside-media-container
-        h4 Saved Media
-        each file in desktopInsideMedia
-            div.single-desktop-inside-media.saved-image
-                span.inside-media-delete.saved-image-delete(data-file=file) Delete This Media From Project
-                img.inside-media-preview.preview-image(src=generateFileURL.insideMedia(data.slug, file))
+        if desktopInsideMedia.length
+            h4 Saved Media
+            div#saved-desktop-inside-media
+                each file in desktopInsideMedia
+                    div.single-desktop-inside-media.saved-image(data-file=file)
+                        span.inside-media-delete.saved-image-delete(data-file=file) Delete This Media From Project
+                        img.inside-media-preview.preview-image(src=generateFileURL.insideMedia(data.slug, file))
+            
+            div.inside-media-divider
         
-        div.inside-media-divider
-        
+        h4 Add Media
         input#desktop-inside-media-input(type="file" name="single-desktop-inside-media" accept=allowedMediaTypes.join(', ') multiple required=!data.desktop_inside_media)
-
-    
-
-    //- div.more-media-div
-    //-     div Add More Media
-    //-     input#more-desktop-media-input(type="number" min="1" max="50" value="1")
-    //-     button#more-desktop-media-button(type="button") Go
