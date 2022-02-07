@@ -1,4 +1,6 @@
 const form = get('contact-form');
+const successMessage = get('contact-form-success-message');
+const failureMessage = get('contact-form-failure-message');
 
 form.addEventListener('submit', async e => {
     e.preventDefault();
@@ -32,12 +34,15 @@ form.addEventListener('submit', async e => {
         // console.log(response, parsedResponse);
 
         // Display success message
-        show(get('contact-form-success-message'));
+        hide(failureMessage);
+        show(successMessage);
         form.reset();
     } catch (err) {
         // Comment out this console log in production
         console.error(err);
-        show(get('contact-form-failure-message'));
+        // Display error message
+        hide(successMessage);
+        show(failureMessage);
     }
 
 })
