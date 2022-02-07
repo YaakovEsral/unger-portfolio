@@ -110,8 +110,8 @@ nav img#nav-logo.logo-active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: var(--home-left-margin-padding);
-    padding-right: var(--home-right-margin-padding);
+    margin-left: var(--home-left-margin-padding);
+    margin-right: var(--home-right-margin-padding);
     position: relative;
   }
 
