@@ -51,14 +51,16 @@ html
         block content
 
         footer
-            img#footer-logo(src="/svg/logo.svg")
+            //- Container created to enable uniform margin setup on 1500px+ screen size
+            div#footer-content-container
+                img#footer-logo(src="/svg/logo.svg")
 
-            div#footer-contact-container
-                div#footer-contact-phone 347-664-0203
-                div#footer-contact-email meir@meirunger.com
-            
-            - const year = new Date().getFullYear();
-            div#footer-copyright-container-mobile &copy; #{year} Meir Unger &#183; Built by D7mtg &#183; All Rights Reserved
-            
-            div#footer-copyright-desktop &copy; #{year} Meir Unger &#183; All Rights Reserved
-            div#footer-creators-desktop Built by D7mtg
+                div#footer-contact-container
+                    div#footer-contact-phone 347-664-0203
+                    div#footer-contact-email meir@meirunger.com
+                
+                - const year = new Date().getFullYear();
+                div#footer-copyright-container-mobile &copy; #{year} Meir Unger &#183; Built by D7mtg &#183; All Rights Reserved
+                
+                div#footer-copyright-desktop &copy; #{year} Meir Unger &#183; All Rights Reserved
+                div#footer-creators-desktop Built by D7mtg
