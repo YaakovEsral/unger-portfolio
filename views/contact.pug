@@ -2,6 +2,7 @@ extends layout
 
 block content 
     link(rel='stylesheet' href='/stylesheets/contact.css')
+    script(type="text/javascript" src="/javascripts/contact-form-submit.js" defer)
 
     div#contact-section
 
@@ -10,12 +11,12 @@ block content
 
         form#contact-form
             div#contact-form-inputs
-                input(type='text' name='firstName' id='firstName' placeholder='First Name' autocomplete="given-name")
-                input(type='text' name='lastName' id='lastName' placeholder='Last Name' autocomplete="family-name")
+                input(type='text' name='firstName' id='firstName' placeholder='First Name' autocomplete="given-name" required)
+                input(type='text' name='lastName' id='lastName' placeholder='Last Name' autocomplete="family-name" required)
                 input(type='text' name='subject' id='subject' placeholder='Subject')
-                textarea(name='message' id='message' placeholder='Message' )
+                textarea(name='message' id='message' placeholder='Message' required)
 
             button#contact-form-submit Submit
 
-        p#contact-form-result-message <i class="fas fa-check"></i> Success! We got your message.
-        
+        p#contact-form-success-message.hidden <i class="fas fa-check"></i> Success! We got your message.
+        p#contact-form-failure-message.hidden An error occurred - try again later.
