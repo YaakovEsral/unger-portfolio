@@ -3,9 +3,11 @@ const creditsPopup = get('project-credits-popup');
 const exitIcon = get('credits-exit-icon');
 
 creditsButton.addEventListener('click', (e) => {
-    if (!creditsPopup.classList.contains('hidden-fade') && !e.path.includes(creditsPopup))
+    // Had to do extra coding since Firefox doesn't yet have "path" attribute on "event"
+    if (!creditsPopup.classList.contains('hidden-fade') && 
+        e.target !== creditsPopup &&
+        e.target.parentNode !== creditsPopup)
         return fadeHide(creditsPopup);
-
     if (e.target === creditsButton)
         // show(creditsPopup)
         fadeShow(creditsPopup);
@@ -20,7 +22,9 @@ exitIcon.addEventListener('click', () => {
 
 document.body.addEventListener('click', e => {
 
-    if (!e.path.includes(creditsButton) && !e.path.includes(creditsPopup)) {
+    if (e.target !== creditsButton && 
+        e.target !== creditsPopup && 
+        e.target.parentNode !== creditsPopup) {
         fadeHide(creditsPopup)
     }
 })
