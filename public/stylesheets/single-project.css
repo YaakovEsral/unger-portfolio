@@ -1,7 +1,7 @@
 div#single-project-section {
-    background: var(--white-1);
-    color: var(--black-1);
-    overflow: auto; /* This is so the margin on content-container works properly */
+  background: var(--white-1);
+  color: var(--black-1);
+  overflow: auto; /* This is so the margin on content-container works properly */
 }
 
 /* extra container here so we can use margin like on other pages instead of padding */
@@ -52,96 +52,103 @@ div#project-credits-button {
 }
 
 div#project-credits-popup {
-    width: 235.69px;
-    /* height: 149.79px; */
-    padding: 20.69px 0 15.51px 32.26px;
-    background: var(--white-2);
-    position: absolute;
-    bottom: 48px;
-    transition:  visibility .3s,  opacity .3s;
+  width: 235.69px;
+  /* height: 149.79px; */
+  padding: 20.69px 0 15.51px 32.26px;
+  background: var(--white-2);
+  position: absolute;
+  bottom: 48px;
+  transition: visibility 0.3s, opacity 0.3s;
 }
 
 div#arrow {
-    background: var(--white-2);
-    height: 20px;
-    width: 20px;
-    position: absolute;
-    bottom: -10px;
-    left: 32px;
-    transform: rotate(45deg);
+  background: var(--white-2);
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  bottom: -10px;
+  left: 32px;
+  transform: rotate(45deg);
 }
 
 span#credits-exit-icon {
-    position: absolute;
-    top: 11.83px;
-    right: 18.94px;
+  position: absolute;
+  top: 11.83px;
+  right: 18.94px;
 }
 
 div#project-credits-popup p#credit {
-    text-decoration: none;
-    font-size: 12.45px;
-    line-height: 27.44px;
+  text-decoration: none;
+  font-size: 12.45px;
+  line-height: 27.44px;
 }
 
 *.single-project-inside-media,
 *.single-project-inside-media * {
-    width: 100%;
+  width: 100%;
 }
 
-*.single-project-inside-media:not(:last-child){
-    margin-bottom: 16.62px;
+*.single-project-inside-media:not(:last-child) {
+  margin-bottom: 16.62px;
 }
 
 @media screen and (min-width: 700px) {
-    
-    div#single-project-content-container {
-      margin-top: 100.71px;
-      margin-bottom: 80.69px;
-    }
-    
-    h2#single-project-header {
-      font-size: 36px;
-      line-height: 31.5px;
-      margin-bottom: 49.6px;
-    }
-    
-    h4#single-project-subheader {
-        width: 317.46px;
-        margin-bottom: 27px;
-    }
+  div#single-project-content-container {
+    margin-top: 100.71px;
+    margin-bottom: 80.69px;
+  }
 
-    div#project-credits-button {
-      margin-bottom: 46.97px;
-        width: fit-content; /* This is just so we can use calc(100% + px) in positioning the popup below. */
-    }
-    
-    div#project-credits-popup {
-        width: 203.64px;
-        padding: 13.99px 0 15.51px 21.82px;
-        bottom: auto;
-        top: -13px;
-        left: calc(100% + 20px);
-        /* right: 0; */
-    }
-    
-    div#arrow {
-        height: 12.17px;
-        width: 12.17px;
-        top: 16px;
-        bottom: auto;
-        left: -6px;
-    }
-    
-    span#credits-exit-icon {
-        top: 8px;
-        right: 8.99px;
-    }
-    
-    /* div#project-credits-popup p#credit {
+  h2#single-project-header {
+    font-size: 36px;
+    line-height: 31.5px;
+    margin-bottom: 49.6px;
+  }
+
+  h4#single-project-subheader {
+    width: 317.46px;
+    margin-bottom: 27px;
+  }
+
+  div#project-credits-button {
+    margin-bottom: 46.97px;
+    line-height: 13px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    width: fit-content; /* This is just so we can use calc(100% + px) in positioning the popup below. */
+    transition: 0.35s border-color;
+  }
+
+  div#project-credits-button:hover {
+    border-color: var(--grey-1);
+}
+
+  div#project-credits-popup {
+    width: 203.64px;
+    padding: 13.99px 0 15.51px 21.82px;
+    bottom: auto;
+    top: -13px;
+    left: calc(100% + 20px);
+    /* right: 0; */
+  }
+
+  div#arrow {
+    height: 12.17px;
+    width: 12.17px;
+    top: 16px;
+    bottom: auto;
+    left: -6px;
+  }
+
+  span#credits-exit-icon {
+    top: 8px;
+    right: 8.99px;
+  }
+
+  /* div#project-credits-popup p#credit {
         line-height: 15.62px;
     } */
-    
-    *.single-project-inside-media:not(:last-child){
-        margin-bottom: 44.23px;
-    }
+
+  *.single-project-inside-media:not(:last-child) {
+    margin-bottom: 44.23px;
+  }
 }
