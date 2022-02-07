@@ -59,6 +59,7 @@ div#project-credits-popup {
   position: absolute;
   bottom: 48px;
   transition: visibility 0.3s, opacity 0.3s;
+  cursor: auto;
 }
 
 div#arrow {
@@ -75,6 +76,7 @@ span#credits-exit-icon {
   position: absolute;
   top: 11.83px;
   right: 18.94px;
+  cursor: pointer;
 }
 
 div#project-credits-popup p#credit {
@@ -120,7 +122,7 @@ div#project-credits-popup p#credit {
 
   div#project-credits-button:hover {
     border-color: var(--grey-1);
-}
+  }
 
   div#project-credits-popup {
     width: 203.64px;
