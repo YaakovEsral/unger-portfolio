@@ -185,6 +185,9 @@ img.portfolio-single-image {
   img.portfolio-single-image {
     width: 32.5vw;
     height: 18.28125vw;
+    /* Max dimensions here are calculated for the vw dimensions when screen is at 1500px wide. */
+    max-width: 487.5px;
+    max-height: 247.22px;
     object-fit: cover;
     /* Check out this link for help with object-fit:
     https://www.digitalocean.com/community/tutorials/css-cropping-images-object-fit */
