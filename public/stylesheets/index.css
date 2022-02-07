@@ -13,7 +13,7 @@
 /* UTILITY CLASSES */
 
 .hidden {
-  display: none!important;
+  display: none !important;
 }
 
 .hidden-fade {
@@ -80,5 +80,22 @@ a {
   :root {
     --home-left-margin-padding: 13%;
     --home-right-margin-padding: 13%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+
+/* Uniform margin on larger screens. Even though this references elements from other files, the code is all kept here for simplicity's sake. */
+  nav,
+  div#home-main-section,
+  div#home-projects-content-container,
+  div#footer-content-container,
+  div#portfolio-content-container,
+  div#single-project-content-container,
+  div#about-section,
+  div#contact-section {
+    max-width: 1096px;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
