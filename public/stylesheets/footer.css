@@ -5,10 +5,14 @@ footer {
   margin-bottom: 19.83px;
   padding-left: var(--home-left-margin-padding);
   padding-right: var(--home-right-margin-padding);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  row-gap: 16.85px;
+}
+
+/* We created a content container so we can give it a max-width for larger screens (1500px+) */
+div#footer-content-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 16.85px;
 }
 
 img#footer-logo {
@@ -42,7 +46,7 @@ div#footer-creators-desktop {
 }
 
 @media screen and (min-width: 700px) {
-  footer {
+  div#footer-content-container {
     grid-template-rows: 2fr 1fr 1fr;
   }
 
