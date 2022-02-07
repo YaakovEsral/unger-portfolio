@@ -111,6 +111,12 @@ button#contact-form-submit {
     border: 1.15417px solid var(--white-1);
     margin-bottom: 16px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button#contact-form-submit:hover {
+  color: var(--black-1);
+  background-color: var(--white-1);
 }
 
 p#contact-form-success-message {
