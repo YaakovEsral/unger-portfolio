@@ -119,6 +119,11 @@ button#contact-form-submit:hover {
   background-color: var(--white-1);
 }
 
+/* Special container to prevent screen jump when message appears */
+div#contact-form-response-container {
+    height: 20px;
+}
+
 p#contact-form-success-message {
     color: var(--white-1);
     font-size: 15px;
