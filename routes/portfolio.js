@@ -10,7 +10,7 @@ router.get('/', async (req, res, next) => {
         const data = await pool.query('SELECT * FROM projects ORDER BY sequence_num ASC');
         // console.log(data[0]);
         // console.log(data[0][0]);
-        res.render('portfolio', { data: JSON.stringify(data[0]) });
+        res.render('portfolio', { data: JSON.stringify(data[0]), title: 'Meir Unger | Work' });
     }
     // catching a network/db error. And throughout
     catch (err) {
@@ -28,7 +28,7 @@ router.get('/:slug', async (req, res, next) => {
 
     try {
         const data = await pool.query('SELECT * FROM projects WHERE slug = ?', [req.params.slug]);
-        // console.log(data[0]);
+        console.log(data[0]);
 
         // If no data, create an error message and forward to the error handler
         if (!data[0].length) {
@@ -37,7 +37,7 @@ router.get('/:slug', async (req, res, next) => {
             error.message = 'No such page.'
             return next(error);
         }
-        res.render('single-project', { data: data[0][0] });
+        res.render('single-project', { data: data[0][0], title: `${data[0][0].project_name} | Meir Unger` });
     }
     catch (err) {
         console.error(err);

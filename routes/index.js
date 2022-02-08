@@ -17,7 +17,7 @@ router.get('/', async function (req, res, next) {
     try {
         const data = await pool.query('SELECT * FROM projects WHERE show_on_homepage = 1 ORDER BY sequence_num ASC');
         // console.log(data[0]);
-        res.render('index', { title: 'Meir Unger - Home', data: JSON.stringify(data[0]) });
+        res.render('index', { title: 'Meir Unger | Home', data: JSON.stringify(data[0]) });
     }
     // catching a network/db error. And throughout
     catch (err) {
@@ -28,13 +28,13 @@ router.get('/', async function (req, res, next) {
 
 /* GET about page. */
 router.get('/about', function (req, res) {
-    res.render('about', { title: 'Meir Unger - About' });
+    res.render('about', { title: 'Meir Unger | About' });
 
 });
 
 /* GET contact page. */
 router.get('/contact', function (req, res) {
-    res.render('contact', { title: 'Meir Unger - Contact' });
+    res.render('contact', { title: 'Meir Unger | Contact' });
 });
 
 /* AUTHENTICATION ROUTES */
