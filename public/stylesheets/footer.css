@@ -5,6 +5,13 @@ footer {
   margin-bottom: 19.83px;
   padding-left: var(--home-left-margin-padding);
   padding-right: var(--home-right-margin-padding);
+  
+  /* Fixing footer to bottom of the page */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--footer-height);
 }
 
 /* We created a content container so we can give it a max-width for larger screens (1500px+) */

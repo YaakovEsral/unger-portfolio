@@ -8,6 +8,8 @@
 
   --home-left-margin-padding: /* 51px */ 13.75%;
   --home-right-margin-padding: /* 51px */ 13.75%;
+
+  --footer-height: 135px;
 }
 
 /* UTILITY CLASSES */
@@ -38,6 +40,10 @@ body {
   margin: 0;
   background: var(--black-1);
   color: var(--white-1);
+  /* The following styles are so the footer gets fixed to bottom of page. */
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: var(--footer-height);
 }
 
 h1,
