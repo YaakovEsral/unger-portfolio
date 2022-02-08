@@ -65,8 +65,8 @@ html
                 img#footer-logo(src="/svg/logo.svg")
 
                 div#footer-contact-container
-                    div#footer-contact-phone 347-664-0203
-                    div#footer-contact-email meir@meirunger.com
+                    div#footer-contact-phone: a(href="tel:+3476640203") 347-664-0203
+                    div#footer-contact-email: a(href="mailto:meir@meirunger.com") meir@meirunger.com
                 
                 - const year = new Date().getFullYear();
                 div#footer-copyright-container-mobile &copy; #{year} Meir Unger &#183; Built by D7mtg &#183; All Rights Reserved
