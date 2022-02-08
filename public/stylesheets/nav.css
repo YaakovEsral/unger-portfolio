@@ -151,6 +151,13 @@ nav img#nav-logo.logo-active {
   nav#desktop-nav img#nav-logo {
     height: 28.06px;
     margin-right: 10px;
+    opacity: 1;
+    cursor: pointer;
+    transition: opacity 0.35s;
+  }
+
+  nav#desktop-nav img#nav-logo:hover {
+    opacity: 0.7;
   }
 }
 

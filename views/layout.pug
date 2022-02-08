@@ -17,8 +17,14 @@ html
         nav#mobile-nav
             //- img#nav-svg-dots(src="/svg/nav-dots.svg")
 
+            //- Special regex to determine based on path if the current page is a single project page, i.e. if there are any characters after the second slash in /portfolio/.
+            -
+                const regex = /\/portfolio\/.+/;
+                const logoHref = regex.test(path) === true ? '/portfolio' : '/'
+
             img#nav-mobile-menu-icon(src="/svg/nav-mobile-icon.svg")
-            img#nav-logo(src="/svg/logo.svg")
+            a(href=logoHref)
+                img#nav-logo(src="/svg/logo.svg")
             div#nav-mobile-overlay.hidden
                 div#nav-mobile-options-container
                     span#nav-mobile-exit-icon.fas.fa-times
@@ -47,7 +53,10 @@ html
             - // give special class for nav dots when not on the homepage
             - const classList = path === '/' ? '' : 'position-top';
             img#nav-svg-dots(src="/svg/nav-dots-desktop.svg" class=classList)
-            img#nav-logo(src="/svg/logo.svg")
+            //- Render the logo link differently depending on what page we are on. If we are on a single project page, return to portfolio page. Else, return to home.
+
+            a(href=logoHref)
+                img#nav-logo(src="/svg/logo.svg")
         block content
 
         footer
