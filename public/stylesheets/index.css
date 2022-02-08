@@ -66,6 +66,11 @@ a {
   color: inherit;
 }
 
+::selection {
+  background: var(--black-1);
+  color: var(--white-1);
+}
+
 @media screen and (min-width: 700px) {
   :root {
     --home-left-margin-padding: 6%;
@@ -90,8 +95,7 @@ a {
 }
 
 @media screen and (min-width: 1500px) {
-
-/* Uniform margin on larger screens. Even though this references elements from other files, the code is all kept here for simplicity's sake. */
+  /* Uniform margin on larger screens. Even though this references elements from other files, the code is all kept here for simplicity's sake. */
   nav,
   div#home-main-section,
   div#home-projects-content-container,
