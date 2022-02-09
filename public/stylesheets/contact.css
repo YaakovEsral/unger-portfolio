@@ -39,6 +39,7 @@ div#contact-form-inputs textarea {
     background: var(--black-1) !important;
     color: var(--white-1) !important;
     padding: 15.66px;
+    font-size: 15px;
 }
 
 /* Special rule for correcting default browser autofill styles.
