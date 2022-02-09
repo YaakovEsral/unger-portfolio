@@ -28,6 +28,10 @@ nav#mobile-nav {
 nav#mobile-nav img#nav-mobile-menu-icon {
   margin-top: 36.9px;
   width: 19.83px;
+  /* The following styles are to expand the clicking range. We need padding, but we also need to use translate to recover the offset. */
+  box-sizing: content-box;
+  padding: 20px;
+  transform: translate(-20px, -20px);
 }
 
 /* Animations classes for mobile nav */
@@ -121,17 +125,17 @@ div#nav-mobile-options-container * {
 
 span#nav-mobile-exit-icon {
   font-size: 22.536px;
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  top: 36px;
-  left: var(--home-left-margin-padding);
+  margin-top: 36px;
+  margin-left: var(--home-left-margin-padding);
+  /* See note above (mobile nav menu icon) about the following styles */
+  padding: 20px;
+  transform: translate(-20px, -20px);
 }
 
 div#nav-mobile-options-container ul {
   display: flex;
   flex-direction: column;
-  margin-top: 109.62px;
+  margin-top: calc(52.97 - 20)px; /* to make up for transform translate */
   margin-left: var(--home-left-margin-padding);
 }
 
