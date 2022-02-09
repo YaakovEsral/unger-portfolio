@@ -5,6 +5,7 @@ footer {
   margin-bottom: 19.83px;
   padding-left: var(--home-left-margin-padding);
   padding-right: var(--home-right-margin-padding);
+  background-color: var(--black-1);
   
   /* Fixing footer to bottom of the page */
   position: absolute;
