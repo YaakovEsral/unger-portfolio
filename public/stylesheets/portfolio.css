@@ -91,6 +91,7 @@ input#videos:checked ~ div#tab-background {
 
 div.portfolio-projects-container {
   transition: visibility 0.3s, opacity 0.3s; /* Transition time should match timeout time in portfolio-types */
+  margin-bottom: 17.91px;
 }
 
 a.portfolio-single-project {
@@ -170,6 +171,7 @@ img.portfolio-single-image {
     grid-auto-rows: 1fr;
     column-gap: 10.5% /* 64.69px */;
     row-gap: 27.14px;
+    margin-bottom: 81.56px;
   }
 
   a.portfolio-single-project:not(:last-of-type) {
