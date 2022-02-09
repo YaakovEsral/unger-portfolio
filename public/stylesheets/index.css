@@ -6,8 +6,8 @@
   --grey-2: #8f8f8f;
   --grey-3: #606060;
 
-  --home-left-margin-padding: /* 51px */ 13.75%;
-  --home-right-margin-padding: /* 51px */ 13.75%;
+  --home-left-margin-padding: /* 51px */ 13vw;
+  --home-right-margin-padding: /* 51px */ 13vw;
 
   --footer-height: 135px;
 }
@@ -73,8 +73,8 @@ a {
 
 @media screen and (min-width: 700px) {
   :root {
-    --home-left-margin-padding: 6%;
-    --home-right-margin-padding: 6%;
+    --home-left-margin-padding: 5.8vw;
+    --home-right-margin-padding: 5.8vw;
   }
 
   /* UTILITY */
@@ -89,8 +89,8 @@ a {
 
 @media screen and (min-width: 1000px) {
   :root {
-    --home-left-margin-padding: 13%;
-    --home-right-margin-padding: 13%;
+    --home-left-margin-padding: 12.8vw;
+    --home-right-margin-padding: 12.8vw;
   }
 }
 
