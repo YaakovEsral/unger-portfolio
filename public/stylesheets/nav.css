@@ -55,7 +55,7 @@ div#nav-mobile-overlay {
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 3; /* Needs to win over segmented control on Work page, which is 2 */
   background: rgba(244, 244, 244, 0.2);
   animation: fade-in 0.35s;
 }
