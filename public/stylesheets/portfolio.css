@@ -25,6 +25,7 @@ h4#portfolio-subheader {
   line-height: 23.4px;
   width: 130px;
   margin-bottom: 28px;
+  letter-spacing: 0.25px;
 }
 
 div#portfolio-tabs-container {
@@ -39,6 +40,7 @@ input.portfolio-input-tab {
 
 label.portfolio-single-tab {
   font-size: 11.45px;
+  letter-spacing: 0.25px;
   font-weight: 700;
   font-family: "VisbyCF-Bold", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   width: 82.71px;
@@ -101,6 +103,7 @@ a.portfolio-single-project:not(:last-of-type) {
 
 h4.portfolio-single-header {
   font-size: 12.48px;
+  letter-spacing: 0.25px;
   margin-bottom: 7px;
 }
 

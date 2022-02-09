@@ -35,6 +35,7 @@ div#footer-contact-container {
   flex-direction: column;
   align-items: flex-end;
   font-size: 12.5px;
+  letter-spacing: 0.25px;
 }
 
 div#footer-copyright-container-mobile {
@@ -45,6 +46,7 @@ div#footer-copyright-container-mobile {
   margin: auto;
   line-height: 12.48px;
   font-size: 8px;
+  letter-spacing: 0.25px;
 }
 
 div#footer-copyright-desktop,
@@ -98,5 +100,6 @@ div#footer-creators-desktop {
     color: var(--grey-3);
     display: inline-block;
     margin: auto;
+    letter-spacing: 0.25px;
   }
 }

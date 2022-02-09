@@ -23,7 +23,7 @@ h2#single-project-header {
 h4#single-project-subheader {
   font-size: 15px;
   line-height: 23px;
-  letter-spacing: 0.005em;
+  letter-spacing: 0.25px;
   margin-bottom: 27px;
 }
 
@@ -31,6 +31,7 @@ p#client-name,
 p#date-completed {
   color: var(--grey-1);
   font-size: 15px;
+  letter-spacing: 0.25px;
 }
 
 p#client-name {
@@ -43,6 +44,7 @@ p#date-completed {
 
 div#project-credits-button {
   font-size: 12.5px;
+  letter-spacing: 0.25px;
   line-height: 19px;
   text-decoration: underline;
   color: var(--grey-1);
@@ -82,6 +84,7 @@ span#credits-exit-icon {
 div#project-credits-popup p#credit {
   text-decoration: none;
   font-size: 12.45px;
+  letter-spacing: 0.25px;
   line-height: 27.44px;
 }
 

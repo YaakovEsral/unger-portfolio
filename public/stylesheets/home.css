@@ -32,6 +32,7 @@ p#home-main-info-tagline {
   width: 64%; /* make sure this is correct throughout */
   line-height: 20.28px;
   margin-bottom: 32px;
+  letter-spacing: .25px;
 }
 
 a#home-main-info-button {
@@ -89,6 +90,7 @@ a.home-projects-single.container:not(:last-of-type) {
 h4.home-projects-single-header {
   text-decoration: none;
   font-size: 12.48px;
+  letter-spacing: 0.25px;
   font-weight: 700;
   font-family: "VisbyCF-Bold", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   height: 21.39px;
@@ -133,6 +135,7 @@ img.home-projects-single-image:hover {
   h4#home-main-info-subheader {
     display: block;
     font-size: 15px;
+    letter-spacing: 0.25px;
     line-height: 23.4px;
     color: var(--grey-2);
     margin-bottom: 15px;
@@ -171,6 +174,7 @@ img.home-projects-single-image:hover {
 
   h4.home-projects-single-header {
     font-size: 17.5px;
+    letter-spacing: normal;
     font-weight: 700;
     height: 30px;
   }

@@ -13,6 +13,7 @@ h2#contact-header {
 
 h4#contact-subheader {
     font-size: 15px;
+    letter-spacing: 0.25px;
     margin-bottom: 52.19px;
 }
 
@@ -40,6 +41,7 @@ div#contact-form-inputs textarea {
     color: var(--white-1) !important;
     padding: 15.66px;
     font-size: 15px;
+    letter-spacing: 0.25px;
 }
 
 /* Special rule for correcting default browser autofill styles.
@@ -52,6 +54,7 @@ div#contact-form-inputs input:-webkit-autofill:focus {
     box-shadow: 0 0 0px 1000px var(--black-1) inset;
     border: 0px;
     font-size: 15px;
+    letter-spacing: 0.25px;
     -webkit-box-shadow: 0 0 0px 1000px var(--black-1) inset;
 }
 
@@ -78,6 +81,7 @@ div#contact-form-inputs textarea::placeholder {
     color: var(--white-1);
     opacity: 0.5;
     font-size: 15px;
+    letter-spacing: 0.25px;
 }
 
 div#contact-form-inputs input#firstName {
@@ -128,6 +132,7 @@ div#contact-form-response-container {
 p#contact-form-success-message {
     color: var(--white-1);
     font-size: 15px;
+    letter-spacing: 0.25px;
     animation: slideup 0.35s;
 }
 
@@ -144,6 +149,7 @@ p#contact-form-success-message {
 p#contact-form-failure-message {
     color: #C62828;
     font-size: 15px;
+    letter-spacing: 0.25px;
     animation-name: bounce;
     animation-duration: 0.5s;
     animation-delay: 0.25s;
