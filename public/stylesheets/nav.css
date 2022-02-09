@@ -1,6 +1,6 @@
 nav#desktop-nav {
-    display: none;
-  }
+  display: none;
+}
 
 /* MOBILE NAV */
 /* Mobile nav has three main sections: menu icon, menu overlay, and logo */
@@ -26,23 +26,61 @@ nav#mobile-nav {
 
 /* Mobile nav menu icon */
 nav#mobile-nav img#nav-mobile-menu-icon {
-
   margin-top: 36.9px;
   width: 19.83px;
+}
+
+/* Animations classes for mobile nav */
+
+/* !important is needed to override the animation that's already on the element */
+
+.overlay-fade-out {
+  /* for overlay */
+  /* background: rgba(244, 244, 244, 0) !important; */
+  animation: fade-out 0.35s !important;
+}
+
+.hidden-slide-left {
+  /* for container */
+  /* left: -56%; */
+  animation: slide-right 0.35s !important;
 }
 
 /* Menu overlay */
 div#nav-mobile-overlay {
   width: 100%;
   height: 100%;
-  background: rgba(244, 244, 244, 0.2);
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   z-index: 1;
+  background: rgba(244, 244, 244, 0.2);
+  animation: fade-in 0.35s;
 }
+
+@keyframes fade-in {
+  from {
+    background: rgba(244, 244, 244, 0);
+  }
+
+  to {
+    background: rgba(244, 244, 244, 0.2);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    background: rgba(244, 244, 244, 0.2);
+  }
+
+  to {
+    background: rgba(244, 244, 244, 0);
+  }
+}
+
+/* The actual mobile menu */
 
 div#nav-mobile-options-container {
   width: 56vw;
@@ -50,7 +88,31 @@ div#nav-mobile-options-container {
   background: var(--white-2);
   /* z-index: 1; */
   position: fixed; /* *** Need to see if he likes this behavior, or if we should find a way to disable scrolling when menu is open. */
-  --mobile-menu-left-margin: 30.37px;
+}
+
+div#nav-mobile-options-container/* :not(.hidden-slide-left) */ {
+  /* transition: left 0.35s; */
+  animation: slide-left 0.35s;
+}
+
+@keyframes slide-left {
+  from {
+    left: -56%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+@keyframes slide-right {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: -56%;
+  }
 }
 
 div#nav-mobile-options-container * {
@@ -63,14 +125,14 @@ span#nav-mobile-exit-icon {
   width: 40px;
   position: absolute;
   top: 36px;
-  left: var(--mobile-menu-left-margin);
+  left: var(--home-left-margin-padding);
 }
 
 div#nav-mobile-options-container ul {
   display: flex;
   flex-direction: column;
   margin-top: 109.62px;
-  margin-left: var(--mobile-menu-left-margin);
+  margin-left: var(--home-left-margin-padding);
 }
 
 div#nav-mobile-options-container li {
@@ -126,13 +188,13 @@ nav img#nav-logo.logo-active {
   }
 
   nav#desktop-nav ul li a {
-      opacity: 0.7;
-      transition: opacity 0.35s;
+    opacity: 0.7;
+    transition: opacity 0.35s;
   }
 
   nav#desktop-nav ul li a:hover {
     opacity: 1;
-}
+  }
 
   nav#desktop-nav img#nav-svg-dots {
     position: absolute;
