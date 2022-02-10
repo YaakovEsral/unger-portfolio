@@ -81,7 +81,7 @@ div#contact-form-inputs input#lastName {
     grid-row: 1 / 2;
 }
 
-div#contact-form-inputs input#subject {
+div#contact-form-inputs input#email {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
 }
@@ -208,7 +208,7 @@ p#contact-form-failure-message {
         grid-column: 2 / 3;
     }
     
-    div#contact-form-inputs input#subject {
+    div#contact-form-inputs input#email {
         grid-column: 3 / 5;
         grid-row: 1 / 2;
     }
