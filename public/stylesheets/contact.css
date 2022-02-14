@@ -1,109 +1,113 @@
 div#contact-section {
-    margin-top: 43.1px;
-    margin-bottom: 71px;
-    margin-left: var(--site-left-margin-padding);
-    margin-right: var(--site-right-margin-padding);
-    overflow: hidden; /* for slideup animation below */
+  margin-top: 43.1px;
+  margin-bottom: 71px;
+  margin-left: var(--site-left-margin-padding);
+  margin-right: var(--site-right-margin-padding);
+  overflow: hidden; /* for slideup animation below */
 }
 
 h2#contact-header {
-    font-size: 36px;
-    margin-bottom: 23px;
+  font-size: 36px;
+  margin-bottom: 23px;
 }
 
 h4#contact-subheader {
-    font-size: 15px;
-    letter-spacing: 0.25px;
-    margin-bottom: 52.19px;
+  font-size: 15px;
+  letter-spacing: 0.25px;
+  margin-bottom: 52.19px;
 }
 
 form#contact-form {
-    width: 100%;
+  width: 100%;
 }
 
 div#contact-form-inputs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 43.9px 43.9px 158.22px;
-    background: var(--white-1);
-    grid-gap: 1px;
-    border: 1px solid var(--white-1);
-    margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 43.9px 43.9px 158.22px;
+  background: var(--white-1);
+  grid-gap: 1px;
+  border: 1px solid var(--white-1);
+  margin-bottom: 10px;
 }
 
 div#contact-form-inputs input,
 div#contact-form-inputs textarea {
-    width: 100%;
-    border-color: transparent;
-    outline: none;
-    background: var(--black-1) !important;
-    color: var(--white-1) !important;
-    padding: 15.66px;
-    font-size: 15px;
-    letter-spacing: 0.25px;
-    margin: 0; /* For some reason, there was extra margin showing on textarea in FF. */
+  width: 100%;
+  border-color: transparent;
+  outline: none;
+  background: var(--black-1) !important;
+  color: var(--white-1) !important;
+  padding: 15.66px;
+  font-size: 15px;
+  letter-spacing: 0.25px;
+  margin: 0; /* For some reason, there was extra margin showing on textarea in FF. */
 }
 
 /* Special rule for correcting default browser autofill styles.
 See note on MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/:autofill
 and fix on CSS-Tricks: https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/ */
 div#contact-form-inputs input:-webkit-autofill,
-div#contact-form-inputs input:-webkit-autofill:hover, 
+div#contact-form-inputs input:-webkit-autofill:hover,
 div#contact-form-inputs input:-webkit-autofill:focus {
-    -webkit-text-fill-color: var(--white-1);
-    box-shadow: 0 0 0px 1000px var(--black-1) inset;
-    border: 0px;
-    font-size: 15px;
-    letter-spacing: 0.25px;
-    -webkit-box-shadow: 0 0 0px 1000px var(--black-1) inset;
+  -webkit-text-fill-color: var(--white-1);
+  box-shadow: 0 0 0px 1000px var(--black-1) inset;
+  border: 0px;
+  font-size: 15px;
+  letter-spacing: 0.25px;
+  -webkit-box-shadow: 0 0 0px 1000px var(--black-1) inset;
 }
 
 div#contact-form-inputs textarea {
-    padding-top: 10px;
-    resize: none;
+  padding-top: 10px;
+  resize: none;
 }
 
 div#contact-form-inputs input::placeholder,
 div#contact-form-inputs textarea::placeholder {
-    color: var(--white-1);
-    opacity: 0.5;
-    font-size: 15px;
-    letter-spacing: 0.25px;
+  color: var(--white-1);
+  opacity: 0.5;
+  font-size: 15px;
+  letter-spacing: 0.25px;
 }
 
 div#contact-form-inputs input#firstName {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
 div#contact-form-inputs input#lastName {
-    grid-column: 2 / -1;
-    grid-row: 1 / 2;
+  grid-column: 2 / -1;
+  grid-row: 1 / 2;
 }
 
 div#contact-form-inputs input#email {
-    grid-column: 1 / -1;
-    grid-row: 2 / 3;
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
 }
 div#contact-form-inputs textarea#message {
-    grid-column: 1 / -1;
-    grid-row: 3 / -1;
+  grid-column: 1 / -1;
+  grid-row: 3 / -1;
 }
 
 button#contact-form-submit {
-    background: var(--black-1);
-    color: var(--white-1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 89.34px;
-    height: 37px;
-    font-size: 17.5px;
-    outline: none;
-    border: 1.15417px solid var(--white-1);
-    margin-bottom: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+  background: var(--black-1);
+  color: var(--white-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 89.34px;
+  height: 37px;
+  font-size: 17.5px;
+  outline: none;
+  border: 1.15417px solid var(--white-1);
+  margin-bottom: 16px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s, color 0.3s;
+  -moz-transition: background-color 0.3s, color 0.3s;
+  -o-transition: background-color 0.3s, color 0.3s;
+  -ms-transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 button#contact-form-submit:hover {
@@ -113,124 +117,122 @@ button#contact-form-submit:hover {
 
 /* Special container to prevent screen jump when message appears */
 div#contact-form-response-container {
-    height: 20px;
+  height: 20px;
 }
 
 p#contact-form-success-message {
-    color: var(--white-1);
-    font-size: 15px;
-    letter-spacing: 0.25px;
-    animation: slideup 0.35s;
+  color: var(--white-1);
+  font-size: 15px;
+  letter-spacing: 0.25px;
+  animation: slideup 0.35s;
 }
 
 @keyframes slideup {
-    from {
-        transform: translateY(100%);
-    }
+  from {
+    transform: translateY(100%);
+  }
 
-    to {
-        transform: translateY(0);
-    }
+  to {
+    transform: translateY(0);
+  }
 }
 
 p#contact-form-failure-message {
-    color: #C62828;
-    font-size: 15px;
-    letter-spacing: 0.25px;
-    animation-name: bounce;
-    animation-duration: 0.5s;
-    animation-delay: 0.25s;
+  color: #c62828;
+  font-size: 15px;
+  letter-spacing: 0.25px;
+  animation-name: bounce;
+  animation-duration: 0.5s;
+  animation-delay: 0.25s;
 }
 
 @keyframes bounce {
-    0% {
-      transform: translateX(0px);
-      timing-function: ease-in;
-    }
-    37% {
-      transform: translateX(5px);
-      timing-function: ease-out;
-    }
-    55% {
-      transform: translateX(-5px);
-      timing-function: ease-in;
-    }
-    73% {
-      transform: translateX(4px);
-      timing-function: ease-out;
-    }
-    82% {
-      transform: translateX(-4px);
-      timing-function: ease-in;
-    }
-    91% {
-      transform: translateX(2px);
-      timing-function: ease-out;
-    }
-    96% {
-      transform: translateX(-2px);
-      timing-function: ease-in;
-    }
-    100% {
-      transform: translateX(0px);
-      timing-function: ease-in;
-    }
+  0% {
+    transform: translateX(0px);
+    timing-function: ease-in;
   }
+  37% {
+    transform: translateX(5px);
+    timing-function: ease-out;
+  }
+  55% {
+    transform: translateX(-5px);
+    timing-function: ease-in;
+  }
+  73% {
+    transform: translateX(4px);
+    timing-function: ease-out;
+  }
+  82% {
+    transform: translateX(-4px);
+    timing-function: ease-in;
+  }
+  91% {
+    transform: translateX(2px);
+    timing-function: ease-out;
+  }
+  96% {
+    transform: translateX(-2px);
+    timing-function: ease-in;
+  }
+  100% {
+    transform: translateX(0px);
+    timing-function: ease-in;
+  }
+}
 
 .fa-check {
-    -webkit-text-stroke: .75px var(--black-1); /* background color */
-    /* color: var(--white-1); */
+  -webkit-text-stroke: 0.75px var(--black-1); /* background color */
+  /* color: var(--white-1); */
+}
+
+@media screen and (min-width: 700px) {
+  div#contact-section {
+    margin-top: 95.74px;
+    margin-bottom: 101.32px;
+    position: relative; /* To position the result message */
   }
 
-
-  @media screen and (min-width: 700px) {
-    div#contact-section {
-        margin-top: 95.74px;
-        margin-bottom: 101.32px;
-        position: relative; /* To position the result message */
-    }
-    
-    h2#contact-header {
-        margin-bottom: 6px;
-    }
-    
-    h4#contact-subheader {
-        margin-bottom: 135.32px;
-    }
-
-    div#contact-form-inputs {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 50.25px 195.73px;
-        margin-bottom: 26.47px;
-    }
-
-    div#contact-form-inputs input#lastName {
-        grid-column: 2 / 3;
-    }
-    
-    div#contact-form-inputs input#email {
-        grid-column: 3 / 5;
-        grid-row: 1 / 2;
-    }
-    div#contact-form-inputs textarea#message {
-        grid-column: 1 / 5;
-        grid-row: 2 / 3;
-    }
-    
-    button#contact-form-submit {
-        width: 80.26px;
-        height: 37.27px;
-        margin-left: auto;
-        margin-bottom: auto;
-    }
-    
-    p#contact-form-result-message {
-        position: absolute;
-        bottom: 10px;
-    }
-    
-    i.fa-check::after {
-        content: "\00a0";
-
-    }
+  h2#contact-header {
+    margin-bottom: 6px;
   }
+
+  h4#contact-subheader {
+    margin-bottom: 135.32px;
+  }
+
+  div#contact-form-inputs {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 50.25px 195.73px;
+    margin-bottom: 26.47px;
+  }
+
+  div#contact-form-inputs input#lastName {
+    grid-column: 2 / 3;
+  }
+
+  div#contact-form-inputs input#email {
+    grid-column: 3 / 5;
+    grid-row: 1 / 2;
+  }
+  div#contact-form-inputs textarea#message {
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+  }
+
+  button#contact-form-submit {
+    width: 80.26px;
+    height: 37.27px;
+    margin-left: auto;
+    margin-bottom: auto;
+  }
+
+  p#contact-form-result-message {
+    position: absolute;
+    bottom: 10px;
+  }
+
+  i.fa-check::after {
+    content: "\00a0";
+  }
+}

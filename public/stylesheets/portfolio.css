@@ -52,6 +52,10 @@ label.portfolio-single-tab {
   position: relative;
   z-index: 2;
   opacity: 0.9;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
 
@@ -76,20 +80,36 @@ div#tab-background {
 
 input#branding:checked ~ div#tab-background {
   transform: translateX(0);
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
   transition: transform 0.5s;
 }
 
 input#campaigns:checked ~ div#tab-background {
   transform: translateX(100%);
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
   transition: transform 0.5s;
 }
 
 input#videos:checked ~ div#tab-background {
   transform: translateX(200%);
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
   transition: transform 0.5s;
 }
 
 div.portfolio-projects-container {
+  -webkit-transition: visibility 0.3s, opacity 0.3s;
+  -moz-transition: visibility 0.3s, opacity 0.3s;
+  -o-transition: visibility 0.3s, opacity 0.3s;
+  -ms-transition: visibility 0.3s, opacity 0.3s;
   transition: visibility 0.3s, opacity 0.3s; /* Transition time should match timeout time in portfolio-types */
   margin-bottom: 17.91px;
 }
@@ -115,6 +135,10 @@ div.portfolio-projects-single-img-container {
 
 img.portfolio-single-image {
   width: 100%;
+  -webkit-transition: transform 0.35s ease-in;
+  -moz-transition: transform 0.35s ease-in;
+  -o-transition: transform 0.35s ease-in;
+  -ms-transition: transform 0.35s ease-in;
   transition: transform 0.35s ease-in;
   display: block;
 }

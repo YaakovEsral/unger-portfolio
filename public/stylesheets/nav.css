@@ -135,7 +135,7 @@ span#nav-mobile-exit-icon {
 div#nav-mobile-options-container ul {
   display: flex;
   flex-direction: column;
-  margin-top: calc(52.97 - 20)px; /* to make up for transform translate */
+  margin-top: calc(52.97 - 20) px; /* to make up for transform translate */
   margin-left: var(--site-left-margin-padding);
 }
 
@@ -193,6 +193,10 @@ nav img#nav-logo.logo-active {
 
   nav#desktop-nav ul li a {
     opacity: 0.7;
+    -webkit-transition: opacity 0.35s;
+    -moz-transition: opacity 0.35s;
+    -o-transition: opacity 0.35s;
+    -ms-transition: opacity 0.35s;
     transition: opacity 0.35s;
   }
 
@@ -219,6 +223,10 @@ nav img#nav-logo.logo-active {
     margin-right: 10px;
     opacity: 1;
     cursor: pointer;
+    -webkit-transition: opacity 0.35s;
+    -moz-transition: opacity 0.35s;
+    -o-transition: opacity 0.35s;
+    -ms-transition: opacity 0.35s;
     transition: opacity 0.35s;
   }
 

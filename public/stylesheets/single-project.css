@@ -61,6 +61,10 @@ div#project-credits-popup {
   background: var(--white-2);
   position: absolute;
   bottom: 48px;
+  -webkit-transition: visibility 0.3s, opacity 0.3s;
+  -moz-transition: visibility 0.3s, opacity 0.3s;
+  -o-transition: visibility 0.3s, opacity 0.3s;
+  -ms-transition: visibility 0.3s, opacity 0.3s;
   transition: visibility 0.3s, opacity 0.3s;
   cursor: auto;
 }
@@ -122,6 +126,10 @@ div#project-credits-popup p#credit {
     text-decoration: none;
     border-bottom: 1px solid transparent;
     width: fit-content; /* This is just so we can use calc(100% + px) in positioning the popup below. */
+    -webkit-transition: 0.35s border-color;
+    -moz-transition: 0.35s border-color;
+    -o-transition: 0.35s border-color;
+    -ms-transition: 0.35s border-color;
     transition: 0.35s border-color;
   }
 

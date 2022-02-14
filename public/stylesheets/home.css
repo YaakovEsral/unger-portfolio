@@ -32,7 +32,7 @@ p#home-main-info-tagline {
   width: 64%; /* make sure this is correct throughout */
   line-height: 20.28px;
   margin-bottom: 32px;
-  letter-spacing: .25px;
+  letter-spacing: 0.25px;
 }
 
 a#home-main-info-button {
@@ -45,7 +45,7 @@ a#home-main-info-button {
   justify-content: center;
   align-items: center;
   color: var(--white-1);
-  transition: background-color 0.3s, color 0.3s;
+  /* transition: background-color 0.3s, color 0.3s; */
 }
 
 a#home-main-info-button:hover {
@@ -103,6 +103,10 @@ div.home-projects-single-img-container {
 
 img.home-projects-single-image {
   width: 100%;
+  -webkit-transition: transform 0.35s ease-in;
+  -moz-transition: transform 0.35s ease-in;
+  -o-transition: transform 0.35s ease-in;
+  -ms-transition: transform 0.35s ease-in;
   transition: transform 0.35s ease-in;
   display: block;
 }
