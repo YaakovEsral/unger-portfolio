@@ -55,9 +55,9 @@ div#project-credits-button {
 }
 
 div#project-credits-popup {
-  width: 235.69px;
+  /* width: 235.69px; */
   /* height: 149.79px; */
-  padding: 20.69px 0 15.51px 32.26px;
+  padding: 20.69px 32.26px 15.51px 32.26px;
   background: var(--white-2);
   position: absolute;
   bottom: 48px;
@@ -87,6 +87,7 @@ div#project-credits-popup p#credit {
   font-size: 12.45px;
   letter-spacing: 0.25px;
   line-height: 27.44px;
+  width: max-content;
 }
 
 *.single-project-inside-media,
@@ -130,7 +131,7 @@ div#project-credits-popup p#credit {
 
   div#project-credits-popup {
     width: 203.64px;
-    padding: 13.99px 0 15.51px 21.82px;
+    padding: 13.99px 21.82px 15.51px 21.82px;
     bottom: auto;
     top: -13px;
     left: calc(100% + 20px);
