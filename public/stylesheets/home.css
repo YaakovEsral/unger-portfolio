@@ -45,7 +45,7 @@ a#home-main-info-button {
   justify-content: center;
   align-items: center;
   color: var(--white-1);
-  /* transition: background-color 0.3s, color 0.3s; */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 a#home-main-info-button:hover {
