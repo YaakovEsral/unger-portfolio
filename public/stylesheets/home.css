@@ -2,8 +2,8 @@
 
 div#home-main-section {
   position: relative; /* This line is just so the button's positioned parent is this section and not the html container, which ruins the z-index in mobile menu. It's also for the svg dots on left side. */
-  margin-left: var(--home-left-margin-padding);
-  margin-right: var(--home-right-margin-padding);
+  margin-left: var(--site-left-margin-padding);
+  margin-right: var(--site-right-margin-padding);
   --main-info-top-margin: 50px;
 }
 
@@ -69,8 +69,8 @@ div#home-projects-section {
 div#home-projects-content-container {
   margin-top: 49.03px;
   margin-bottom: 68.93px;
-  margin-left: var(--home-left-margin-padding);
-  margin-right: var(--home-right-margin-padding);
+  margin-left: var(--site-left-margin-padding);
+  margin-right: var(--site-right-margin-padding);
 }
 
 h3#home-projects-section-header {

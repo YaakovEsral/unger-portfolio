@@ -1,8 +1,8 @@
 div#about-section {
   margin-top: 45.93px;
   margin-bottom: 108px;
-  margin-left: var(--home-left-margin-padding);
-  margin-right: var(--home-right-margin-padding);
+  margin-left: var(--site-left-margin-padding);
+  margin-right: var(--site-right-margin-padding);
 }
 
 h2#about-header {

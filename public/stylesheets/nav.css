@@ -10,8 +10,8 @@ nav#mobile-nav {
   justify-content: space-between;
   align-items: flex-start;
   height: 101.41px;
-  margin-left: var(--home-left-margin-padding);
-  margin-right: var(--home-right-margin-padding);
+  margin-left: var(--site-left-margin-padding);
+  margin-right: var(--site-right-margin-padding);
 
   /* z-index is very important for the mobile menu. The nav's z-index should be set so that the later sibling elements which are positioned don't end up higher than the nav. It only works to set the nav (as opposed to the mobile-options-container), since the child element's z-index is only as great as its parent's. See this article for explanation: https://www.freecodecamp.org/news/css-z-index-not-working/ */
   z-index: 1;
@@ -126,7 +126,7 @@ div#nav-mobile-options-container * {
 span#nav-mobile-exit-icon {
   font-size: 22.536px;
   margin-top: 36px;
-  margin-left: var(--home-left-margin-padding);
+  margin-left: var(--site-left-margin-padding);
   /* See note above (mobile nav menu icon) about the following styles */
   padding: 20px;
   transform: translate(-20px, -20px);
@@ -136,7 +136,7 @@ div#nav-mobile-options-container ul {
   display: flex;
   flex-direction: column;
   margin-top: calc(52.97 - 20)px; /* to make up for transform translate */
-  margin-left: var(--home-left-margin-padding);
+  margin-left: var(--site-left-margin-padding);
 }
 
 div#nav-mobile-options-container li {
@@ -176,8 +176,8 @@ nav img#nav-logo.logo-active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: var(--home-left-margin-padding);
-    margin-right: var(--home-right-margin-padding);
+    margin-left: var(--site-left-margin-padding);
+    margin-right: var(--site-right-margin-padding);
     position: relative;
   }
 

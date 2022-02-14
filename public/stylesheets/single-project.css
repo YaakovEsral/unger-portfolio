@@ -10,8 +10,8 @@ div#single-project-content-container {
   flex-direction: column;
   margin-top: 45.93px;
   margin-bottom: 27.92px;
-  margin-right: var(--home-right-margin-padding);
-  margin-left: var(--home-left-margin-padding);
+  margin-right: var(--site-right-margin-padding);
+  margin-left: var(--site-left-margin-padding);
 }
 
 h2#single-project-header {

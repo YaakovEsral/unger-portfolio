@@ -10,8 +10,8 @@ div#portfolio-content-container {
   flex-direction: column;
   margin-top: 55.93px;
   margin-bottom: 17.91px;
-  margin-right: var(--home-right-margin-padding);
-  margin-left: var(--home-left-margin-padding);
+  margin-right: var(--site-right-margin-padding);
+  margin-left: var(--site-left-margin-padding);
 }
 
 h2#portfolio-header {
@@ -136,8 +136,8 @@ img.portfolio-single-image {
   div#portfolio-content-container {
     margin-top: 100.71px;
     margin-bottom: 81.56px;
-    margin-right: var(--home-right-margin-padding);
-    margin-left: var(--home-left-margin-padding);
+    margin-right: var(--site-right-margin-padding);
+    margin-left: var(--site-left-margin-padding);
   }
 
   h2#portfolio-header {

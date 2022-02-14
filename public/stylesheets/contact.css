@@ -1,8 +1,8 @@
 div#contact-section {
     margin-top: 43.1px;
     margin-bottom: 71px;
-    margin-left: var(--home-left-margin-padding);
-    margin-right: var(--home-right-margin-padding);
+    margin-left: var(--site-left-margin-padding);
+    margin-right: var(--site-right-margin-padding);
     overflow: hidden; /* for slideup animation below */
 }
 
