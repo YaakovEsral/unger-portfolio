@@ -9,9 +9,16 @@ div.add-project-input-section#mobile-inside-media-div
             h4 Saved Media
             div#saved-mobile-inside-media
                 each file in mobileInsideMedia
-                    div.single-mobile-inside-media.saved-image(data-file=file)
-                        span.inside-media-delete.saved-image-delete(data-file=file) Delete Media From This Project
-                        img.inside-media-preview.preview-image(src=generateFileURL.insideMedia(data.slug, file) )
+                    - const ext = extname(file);
+                    if constants.allowedImageTypes.includes(ext)
+                        div.single-mobile-inside-media.saved-image(data-file=file)
+                            span.inside-media-delete.saved-image-delete(data-file=file) Delete Media From This Project
+                            img.inside-media-preview.preview-image(src=generateFileURL.insideMedia(data.slug, file) )
+                    
+                    else 
+                        div.single-mobile-inside-media.saved-image(data-file=file)
+                            span.inside-media-delete.saved-image-delete(data-file=file) Delete Media From This Project
+                            video.inside-media-preview.preview-image(src=generateFileURL.insideMedia(data.slug, file) controls)
                 
                 div.inside-media-divider
 

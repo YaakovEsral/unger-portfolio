@@ -55,7 +55,7 @@ function handleInsideMediaInput(event) {
         // console.log(fileArray[i].name, fileArray[i].index);
         const url = URL.createObjectURL(files[i]);
         const header = '<h4>New Media</h4>';
-        const element = generateHTML(i, url);
+        const element = generateHTML(i, url, isFileImage(files[i]));
         const htmlContent = header + element;
         mediaContainer.insertAdjacentHTML('beforeend', htmlContent);
     }

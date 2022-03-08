@@ -56,13 +56,19 @@
         return htmlContent;
     }
 
-    function singleDesktopInsideMedia(index, url) {
-        const htmlContent = `
+    function singleDesktopInsideMedia(index, url, isFileImage) {
+        const htmlContent = isFileImage ? `
                                 <div class="single-desktop-inside-media upload-image">
                                     <span class="inside-media-delete delete-uploaded-image" data-index=${index}>Remove Media From Upload</span>
                                     <img class="inside-media-preview preview-image" src=${url}>
                                 </div>
-                            `;
+                            `: 
+                            `
+                            <div class="single-desktop-inside-media upload-image">
+                                <span class="inside-media-delete delete-uploaded-image" data-index=${index}>Remove Media From Upload</span>
+                                <video class="inside-media-preview preview-image" src=${url} controls>
+                            </div>
+                        `;
         return htmlContent;
     }
 

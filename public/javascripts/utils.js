@@ -25,3 +25,7 @@ function toggleShowHide(elem) {
 function get(id) {
     return document.getElementById(id);
 }
+
+function isFileImage(file) {
+    return file && file['type'].split('/')[0] === 'image';
+}
