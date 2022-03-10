@@ -8,20 +8,25 @@ block content
 
         div#single-project-content-container
 
-            h2#single-project-header=data.project_name  
-            h4#single-project-subheader=data.description
+            h2#single-project-header=data.project_name 
 
-            p#client-name= 'Created for: ' + data.client_name
-            p#date-completed= 'Completed on: ' + data.date_completed
+            if data.description
+                h4#single-project-subheader=data.description
+
+            if data.client_name
+                p#client-name= 'Created for: ' + data.client_name
+    
+            if data.date_completed
+                p#date-completed= 'Completed on: ' + data.date_completed
             
-
-            - data.credits = JSON.parse(data.credits);
-            div#project-credits-button Project Credits 
-                div#project-credits-popup.hidden-fade
-                    span#credits-exit-icon.fas.fa-times
-                    div#arrow
-                    each val, key in data.credits
-                        p#credit= key + ': ' + val
+            unless data.credits === '{}'
+                - data.credits = JSON.parse(data.credits);
+                div#project-credits-button Project Credits 
+                    div#project-credits-popup.hidden-fade
+                        span#credits-exit-icon.fas.fa-times
+                        div#arrow
+                        each val, key in data.credits
+                            p#credit= key + ': ' + val
 
             -
                 //- Create one array each for mobile and desktop inside media URLs, using generateFileURL algo
@@ -35,7 +40,7 @@ block content
                 data.desktop_inside_media.forEach((fileName) => {
                     desktopURLs.push(generateFileURL.insideMedia(data.slug, fileName) );
                 })
-                console.log('mobile urls', mobileURLs)
+                //- console.log('mobile urls', mobileURLs)
 
             //- Note that we are rendering images inside a picture element. This will save bandwidth and only render the image on the correct screen size (< or > 700px). Unfortunately, this doesn't seem to work for video elements. Either way, the media will only display if it is the right screen size, based on our global classes 'mobile' and 'desktop'.
             each url in mobileURLs
