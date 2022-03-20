@@ -10,6 +10,9 @@ html
         script(src='/lazysizes/lazysizes.min.js')
         script(src="https://kit.fontawesome.com/f383a529e7.js" crossorigin="anonymous")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+        link(rel="stylesheet" href="/aos/dist/aos.css")
+        link(rel='stylesheet' href='/stylesheets/animations.css')
+        script(src="/aos/dist/aos.js")
         link(rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png")
         link(rel="icon" type="image/png" sizes="32x32" href="/images/favicon//favicon-32x32.png")
         link(rel="icon" type="image/png" sizes="16x16" href="/images/favicon//favicon-16x16.png")
@@ -18,6 +21,16 @@ html
 
     body
         script(src="/javascripts/utils.js")
+        script.
+            window.addEventListener('load', 
+            AOS.init({
+            offset: 200,
+            duration: 600,
+            easing: 'ease',
+            delay: 100,
+            once: true
+            }) );
+
         script(src='/javascripts/mobile-nav.js' defer)
         nav#mobile-nav
             //- img#nav-svg-dots(src="/svg/nav-dots.svg")
@@ -48,7 +61,7 @@ html
                 - // render first link differently depending on if we are on homepage or not
                     li
                         a(href=`${path === '/' ? '/portfolio' : '/'}`) #{path === '/' ? 'Work' : 'Home'}
-                
+
                     li 
                         a(href='/about') About
 
@@ -72,9 +85,17 @@ html
                 div#footer-contact-container
                     div#footer-contact-phone: a(href="tel:+3476640203") 347-664-0203
                     div#footer-contact-email: a(href="mailto:meir@meirunger.com") meir@meirunger.com
-                
+
                 - const year = new Date().getFullYear();
                 div#footer-copyright-container-mobile &copy; #{year} Meir Unger &#183; Built by #[a(href="https://d7m.tg?utm_source=meirunger&utm_medium=web&utm_campaign=feb22" target="_blank") D7mtg] &#183; All Rights Reserved
-                
+
                 div#footer-copyright-desktop &copy; #{year} Meir Unger &#183; All Rights Reserved
                 div#footer-creators-desktop Built by #[a(href="https://d7m.tg?utm_source=meirunger&utm_medium=web&utm_campaign=feb22" target="_blank") D7mtg]
+
+        script.
+            document.querySelectorAll('img')
+                .forEach((img) =>
+                    img.addEventListener('load', () =>
+                    AOS.refresh()
+                )
+            );
