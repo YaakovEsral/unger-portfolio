@@ -9,8 +9,10 @@ html
         script(src="/javascripts/admin-show-dialog.js" defer)
 
     body
+        div#admin-modal.hidden
+            div#admin-popup
+        div#admin-popup-no-modal.hidden
+
         block nav
         block content
 
-        div#admin-modal.hidden
-            div#admin-popup

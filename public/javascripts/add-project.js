@@ -33,6 +33,9 @@ function setDefaultSlug(event) {
 
 // console.log(formValues);
 
+// listener for dialogBoxNoModal
+dialogBoxNoModal.addEventListener('click', () => dialogBoxNoModal.classList.add('hidden'));
+
 // listeners for text values
 projectNameElem.addEventListener('change', e => {
     formValues.projectName = handleTextInput(e);
@@ -75,12 +78,18 @@ allCreditsContainer.addEventListener('click', e => {
 });
 
 // removing images for desktop inside media
-allDesktopInsideMediaContainer.addEventListener('click', e => {
+allDesktopInsideMediaContainer.addEventListener('click', async e => {
     // if this is a saved media
     if (e.target.dataset.file) {
         // console.log(e.target.dataset.file)
-        adminShowDialog.deleteImage(addProjectForm.dataset.slug, e.target.dataset.file, e);
-        // code to create "Delete File" dialog and then delete file and remove element
+        // old version - open dialog:
+        // adminShowDialog.deleteImage(addProjectForm.dataset.slug, e.target.dataset.file, e);
+
+        // new version - delete immediately and show message after
+        const response = await fetchUtils.deleteImage(addProjectForm.dataset.slug, e.target.dataset.file, e)
+        dialogBoxNoModal.innerHTML = `<p class=${response.responseClass} id="delete-project-response">${response.message}</p>`;
+        show(dialogBoxNoModal);
+        setTimeout(() => hide(dialogBoxNoModal), response.timeout)
     }
     // else if this was just uploaded
     else if (e.target.dataset.index) {
@@ -95,12 +104,18 @@ allDesktopInsideMediaContainer.addEventListener('click', e => {
 });
 
 // removing images for mobile inside media
-allMobileInsideMediaContainer.addEventListener('click', e => {
+allMobileInsideMediaContainer.addEventListener('click', async e => {
     // if this is a saved media
     if (e.target.dataset.file) {
         // console.log(e.target.dataset.file)
-        adminShowDialog.deleteImage(addProjectForm.dataset.slug, e.target.dataset.file, e);
-        // code to create "Delete File" dialog and then delete file and remove element
+        // old version- see above in desktop media
+        // adminShowDialog.deleteImage(addProjectForm.dataset.slug, e.target.dataset.file, e);
+
+        // new version - delete immediately and show message after
+        const response = await fetchUtils.deleteImage(addProjectForm.dataset.slug, e.target.dataset.file, e)
+        dialogBoxNoModal.innerHTML = `<p class=${response.responseClass} id="delete-project-response">${response.message}</p>`;
+        show(dialogBoxNoModal);
+        setTimeout(() => hide(dialogBoxNoModal), response.timeout)
     }
     // else if this was just uploaded
     else if (e.target.dataset.index) {
