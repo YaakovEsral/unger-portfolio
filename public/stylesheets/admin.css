@@ -149,7 +149,8 @@ div#admin-modal {
     z-index: 1;
 }
 
-div#admin-popup:not(.hidden) {
+div#admin-popup:not(.hidden),
+div#admin-popup-no-modal:not(.hidden) {
   height: 200px;
   position: fixed;
   left: 0;
@@ -166,8 +167,15 @@ div#admin-popup:not(.hidden) {
   justify-content: center;
 }
 
-div#admin-popup * {
+div#admin-popup *,
+div#admin-popup-no-modal * {
   text-align: center;
+}
+
+div#admin-popup-no-modal {
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0.7;
 }
 
 p#delete-project-response {
