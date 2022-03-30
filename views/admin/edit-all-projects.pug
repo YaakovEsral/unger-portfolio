@@ -1,12 +1,12 @@
 extends index 
 
 block content
-    script(src="/javascripts/edit-all-projects.js" defer)
+
     script(src='/sortablejs/Sortable.js' defer)
     script(src='/javascripts/sort-project-order.js' defer)
-    
+
     - const parsedData = JSON.parse(data);
-    
+
     div#all-projects-page-container
         h1=title 
 
@@ -25,3 +25,4 @@ block content
 
         div#all-projects-popup.hidden   
 
+    script(src="/javascripts/edit-all-projects.js")

@@ -2,36 +2,38 @@
     const dialogModal = get('admin-modal');
     const dialogBox = get('admin-popup');
 
-    function deleteProject(event) {
-        // console.log(event);
+    /* deleteProject and deleteImage are not currently in use, as we skipping the dialog and only showing it after the delete. So we are really skipping this module straight to the fetchUtils delete modules. */
 
-        // Set inner content
-        dialogBox.innerHTML = htmlSnippets.deleteProject();
+    // function deleteProject(event) {
+    //     // console.log(event);
 
-        // Add listener to hide dialog when "cancel" is clicked
-        get('delete-project-cancel').addEventListener('click', () => hide(dialogModal))
-        // Add listener to delete the identified project when the final delete button is clicked
-        get('delete-project-button').addEventListener('click', async () => {
-            const response = await fetchUtils.deleteProject(event);
-            dialogBox.innerHTML = `<p class=${response.responseClass} id="delete-project-response">${response.message}</p>`;
-            setTimeout(() => hide(dialogModal), response.timeout)
-        })
+    //     // Set inner content
+    //     dialogBox.innerHTML = htmlSnippets.deleteProject();
 
-        show(dialogModal);
-    }
+    //     // Add listener to hide dialog when "cancel" is clicked
+    //     get('delete-project-cancel').addEventListener('click', () => hide(dialogModal))
+    //     // Add listener to delete the identified project when the final delete button is clicked
+    //     get('delete-project-button').addEventListener('click', async () => {
+    //         const response = await fetchUtils.deleteProject(event);
+    //         dialogBox.innerHTML = `<p class=${response.responseClass} id="delete-project-response">${response.message}</p>`;
+    //         setTimeout(() => hide(dialogModal), response.timeout)
+    //     })
 
-    function deleteImage(slug, file, event) {
-        // console.log(slug, file)
+    //     show(dialogModal);
+    // }
 
-        dialogBox.innerHTML = htmlSnippets.deleteImage();
-        get('cancel-delete-image-button').addEventListener('click', () => hide(dialogModal));
-        get('delete-image-button').addEventListener('click', async () => {
-            const response = await fetchUtils.deleteImage(slug, file, event) 
-            dialogBox.innerHTML = `<p class=${response.responseClass} id="delete-project-response">${response.message}</p>`;
-            setTimeout(() => hide(dialogModal), response.timeout)
-        })
-        show(dialogModal);
-    }
+    // function deleteImage(slug, file, event) {
+    //     // console.log(slug, file)
+
+    //     dialogBox.innerHTML = htmlSnippets.deleteImage();
+    //     get('cancel-delete-image-button').addEventListener('click', () => hide(dialogModal));
+    //     get('delete-image-button').addEventListener('click', async () => {
+    //         const response = await fetchUtils.deleteImage(slug, file, event) 
+    //         dialogBox.innerHTML = `<p class=${response.responseClass} id="delete-project-response">${response.message}</p>`;
+    //         setTimeout(() => hide(dialogModal), response.timeout)
+    //     })
+    //     show(dialogModal);
+    // }
 
     async function submitProject(formData) {
         let htmlContent = '<p>Submitting project</p>';
@@ -52,8 +54,8 @@
     }
 
     window.adminShowDialog = {
-        deleteProject,
-        deleteImage,
+        // deleteProject,
+        // deleteImage,
         submitProject
     }
 

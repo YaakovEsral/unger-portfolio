@@ -35,4 +35,3 @@ const moreMobileMediaButton = get('more-mobile-media-button');
 let defaultSlug = '';
 const desktopInsideMediaFiles = [];
 const mobileInsideMediaFiles = [];
-const dialogBoxNoModal = get('admin-popup-no-modal');
