@@ -126,11 +126,11 @@ div#project-credits-popup p#credit {
     text-decoration: none;
     border-bottom: 1px solid transparent;
     width: fit-content; /* This is just so we can use calc(100% + px) in positioning the popup below. */
-    -webkit-transition: 0.35s border-color;
-    -moz-transition: 0.35s border-color;
-    -o-transition: 0.35s border-color;
-    -ms-transition: 0.35s border-color;
-    transition: 0.35s border-color;
+    -webkit-transition: 0.35s border-color, transform 0.6s 0.6s, opacity 0.6s 0.6s;
+    -moz-transition: 0.35s border-color, transform 0.6s 0.6s, opacity 0.6s 0.6s;
+    -o-transition: 0.35s border-color, transform 0.6s 0.6s, opacity 0.6s 0.6s;
+    -ms-transition: 0.35s border-color, transform 0.6s 0.6s, opacity 0.6s 0.6s;
+    transition: 0.35s border-color, transform 0.6s 0.6s, opacity 0.6s 0.6s;
   }
 
   div#project-credits-button:hover {
