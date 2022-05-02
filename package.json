@@ -25,6 +25,7 @@
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "pug": "2.0.0-beta11",
+    "rellax": "^1.12.1",
     "sortablejs": "^1.14.0",
     "uuid": "^8.3.2"
   },
