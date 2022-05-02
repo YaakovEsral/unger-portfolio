@@ -8,20 +8,20 @@ block content
 
         div#single-project-content-container
 
-            h2#single-project-header=data.project_name 
+            h2#single-project-header(data-aos="fade-up")=data.project_name 
 
             if data.description
-                h4#single-project-subheader=data.description
+                h4#single-project-subheader(data-aos="fade-up" data-aos-delay=200)=data.description
 
             if data.client_name
-                p#client-name= 'Created for: ' + data.client_name
+                p#client-name(data-aos="fade-up" data-aos-delay=400)= 'Created for: ' + data.client_name
     
             if data.date_completed
-                p#date-completed= 'Completed on: ' + data.date_completed
+                p#date-completed(data-aos="fade-up" data-aos-delay=400)= 'Completed on: ' + data.date_completed
             
             unless data.credits === '{}'
                 - data.credits = JSON.parse(data.credits);
-                div#project-credits-button Project Credits 
+                div#project-credits-button(data-aos="fade-up" data-aos-delay=600) Project Credits 
                     div#project-credits-popup.hidden-fade
                         span#credits-exit-icon.fas.fa-times
                         div#arrow
@@ -48,22 +48,38 @@ block content
                 if constants.allowedImageTypes.includes(ext)
                     picture.single-project-inside-media.mobile
                         source(data-srcset=url media="(max-width: 700px)")
-                        img.lazyload(data-src=url)
+                        img.lazyload(data-src=url data-aos="fade-up")
 
                 else if constants.allowedVideoTypes.includes(ext)
                     div.single-project-inside-media.mobile
-                        video.inside-media-video(controls preload="metadata")
+                        video.inside-media-video(controls preload="metadata" data-aos="fade-up")
                             source(src=url type=`video/${ext.replace('.', '')}`)
-
+            
             each url in desktopURLs
                 - const ext = extname(url)
+                
                 if constants.allowedImageTypes.includes(ext)
                     picture.single-project-inside-media.desktop
                         source(data-srcset=url media="(min-width: 700px)")
-                        img.lazyload(data-src=url)
+                        img.lazyload(data-src=url data-aos="fade-up")
+                
 
                 else if constants.allowedVideoTypes.includes(ext)
                     div.single-project-inside-media.desktop
-                        video.inside-media-video(controls preload="metadata")
+                        video.inside-media-video(controls preload="metadata"  data-aos="fade-up")
                             source(src=url type=`video/${ext.replace('.', '')}`)
-        
+
+    script.
+        document.querySelectorAll('img')
+            .forEach((img) =>
+                img.addEventListener('load', () =>
+                AOS.refresh()
+            )
+        );
+
+        document.querySelectorAll('video')
+            .forEach((video) =>
+                video.addEventListener('load', () =>
+                AOS.refresh()
+            )
+        );
