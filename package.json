@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "debug": "set DEBUG=* & nodemon ./bin/www",
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "devStart": "nodemon ./bin/www",
     "ui": "browser-sync start --config bs-config.js"
   },
   "dependencies": {
