@@ -2,15 +2,15 @@ extends layout
 mixin project-category-display(projects)
     div.portfolio-projects-container(class!=attributes.class)
         each project in projects
-            a.portfolio-single-project(href=`/portfolio/${project.slug}` data-aos="fade-up" data-aos-delay=900)
-                h4.portfolio-single-header.fade-up(data-aos="fade-up")= project.project_name
+            a.portfolio-single-project(href=`/portfolio/${project.slug}`)
+                h4.portfolio-single-header.fade-up= project.project_name
                 - const mobileURL = generateFileURL.mobileCover(project);
                 - const desktopURL = generateFileURL.desktopCover(project);
-                div.portfolio-projects-single-img-container.fade-up(data-aos="fade-up")
+                div.portfolio-projects-single-img-container.fade-up
                     picture.mobile
                         source(data-srcset=mobileURL media="(max-width: 700px)")
                         img.portfolio-single-image.lazyload(data-src=mobileURL alt=project.project_name title=project.project_name) 
-                div.portfolio-projects-single-img-container.fade-up(data-aos="fade-up")
+                div.portfolio-projects-single-img-container.fade-up
                     picture.desktop
                         source(data-srcset=desktopURL media="(min-width: 700px)")
                         img.portfolio-single-image.lazyload(data-src=desktopURL alt=project.project_name title=project.project_name)
@@ -32,10 +32,10 @@ block content
     div#portfolio-section
         //- See css for why we use extra container 
         div#portfolio-content-container 
-            h2#portfolio-header.fade-up(data-aos="fade-up") Drawn from my soul
-            h4#portfolio-subheader.fade-up-300(data-aos="fade-up" data-aos-delay=300) Every piece of work is my best one to date.
+            h2#portfolio-header.fade-up Drawn from my soul
+            h4#portfolio-subheader.fade-up-300 Every piece of work is my best one to date.
 
-            div#portfolio-tabs-container.fade-up-600(data-aos="fade-up" data-aos-delay=600) 
+            div#portfolio-tabs-container.fade-up-600 
                 input.portfolio-input-tab#branding(type="radio" name="portfolio-tabs" value="branding" checked)
                 label.portfolio-single-tab(for="branding")  Branding
                 
@@ -52,28 +52,4 @@ block content
             +project-category-display(campaignsProjects)(class="campaigns no-width hidden-fade")
             +project-category-display(videosProjects)(class="videos no-width hidden-fade")
 
-    script.
-        //- document.querySelectorAll('img')
-        //-     .forEach((img) =>
-        //-         img.addEventListener('load', () =>
-        //-         AOS.refresh()
-        //-     )
-        //- );
-        const h4s = Array.from(document.querySelectorAll('h4.portfolio-single-header') );
-        const imgs = Array.from(document.querySelectorAll('div.portfolio-projects-single-img-container') );
-        const elems = h4s.concat(imgs);
-        //- document.querySelectorAll('.portfolio-single-tab')
-        //-     .forEach(tab => {
-        //-         tab.addEventListener('click', () => {
-        //-             elems.forEach(elem => elem.classList.remove('aos-animate') );
-        //-             console.log(elems)
-        //-             console.log(Date.now())
-        //-             //- setTimeout(() => {
-        //-             elems.forEach(elem => elem.classList.add('aos-animate') );
-        //-             //- console.log(elems)
-        //-             console.log(Date.now())
-
-        //-             }, 310)
-        //-             //- TZ"Iyun gadol works only with timeout, and is different first time around
-        //-         })
-        //-     })
+//- see snippets.pug in ignore file for the attempted code that used to be here
