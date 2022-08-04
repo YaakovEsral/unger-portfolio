@@ -10,7 +10,7 @@ html
         script(src='/lazysizes/lazysizes.min.js')
         script(src="https://kit.fontawesome.com/f383a529e7.js" crossorigin="anonymous")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
-        link(rel="stylesheet" href="/aos/dist/aos.css")
+        //- link(rel="stylesheet" href="/aos/dist/aos.css")
         link(rel='stylesheet' href='/stylesheets/animations.css')
         script(src="/aos/dist/aos.js")
         link(rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png")
@@ -20,16 +20,21 @@ html
         meta(name="theme-color" content="#2e2d2c")
 
     body
+        //- script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.js")
+        //- script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.js")
+        script(src="/gsap/dist/gsap.js")
+        script(src="/gsap/dist/ScrollTrigger.js")  
+
         script(src="/javascripts/utils.js")
-        script.
-            window.addEventListener('load', 
-            AOS.init({
-            offset: 100,
-            duration: 600,
-            easing: 'ease',
-            delay: 100,
-            once: true
-            }) );
+        //- script.
+        //-     window.addEventListener('load', 
+        //-     AOS.init({
+        //-     offset: 0,
+        //-     duration: 600,
+        //-     easing: 'ease',
+        //-     delay: 100,
+        //-     once: true
+        //-     }) );
 
         script(src='/javascripts/mobile-nav.js' defer)
         nav#mobile-nav
@@ -92,10 +97,16 @@ html
                 div#footer-copyright-desktop &copy; #{year} Meir Unger &#183; All Rights Reserved
                 div#footer-creators-desktop Built by #[a(href="https://d7m.tg?utm_source=meirunger&utm_medium=web&utm_campaign=feb22" target="_blank") D7mtg]
 
+        script(src="/javascripts/animations.js")
         script.
-            document.querySelectorAll('img')
-                .forEach((img) =>
-                    img.addEventListener('load', () =>
-                    AOS.refresh()
-                )
-            );
+            //- document.querySelectorAll('img')
+            //-     .forEach((img) => {
+            //-         img.addEventListener('load', () => AOS.refresh() )
+            //-     });
+            //- setInterval(() => {
+            //-     AOS.refreshHard();
+            //-     console.log('refreshing')
+            //- }, 3000);
+        script(src="/rellax/rellax.min.js")
+        script.
+            const rellax = new Rellax('.rellax')

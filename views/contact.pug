@@ -6,17 +6,17 @@ block content
 
     div#contact-section
 
-        h2#contact-header(data-aos="fade-up") You have my attention
-        h4#contact-subheader(data-aos="fade-up" data-aos-delay=200) Now let's get theirs
+        h2#contact-header.fade-up(data-aos="fade-up") You have my attention
+        h4#contact-subheader.fade-up-200(data-aos="fade-up" data-aos-delay=200) Now let's get theirs
 
         form#contact-form
-            div#contact-form-inputs(data-aos="fade-up" data-aos-delay=400)
+            div#contact-form-inputs.fade-up-400(data-aos="fade-up" data-aos-delay=400)
                 input(type='text' name='firstName' id='firstName' placeholder='First Name' autocomplete="given-name" required)
                 input(type='text' name='lastName' id='lastName' placeholder='Last Name' autocomplete="family-name" required)
                 input(type='email' name='email' id='email' placeholder='Email')
                 textarea(name='message' id='message' placeholder='Message' required)
 
-            button#contact-form-submit(data-aos="fade-up" data-aos-delay=400 data-aos-offset=-400) Submit
+            button#contact-form-submit.fade-up-600(data-aos="fade-up" data-aos-delay=400 data-aos-offset=-400) Submit
         div#contact-form-response-container
             p#contact-form-success-message.hidden <i class="fas fa-check"></i> Success! We got your message.
             p#contact-form-failure-message.hidden An error occurred - try again later.

@@ -16,6 +16,7 @@
     "express": "~4.16.1",
     "express-flash": "0.0.2",
     "express-session": "^1.17.2",
+    "gsap": "^3.10.4",
     "http-errors": "~1.6.3",
     "image-size": "^1.0.0",
     "lazysizes": "^5.3.2",

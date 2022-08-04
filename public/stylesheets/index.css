@@ -21,6 +21,14 @@
 .hidden-fade {
   visibility: hidden;
   opacity: 0;
+  /* width: 0; */
+}
+
+*.no-width, *.no-width * {
+    height: 0 !important;
+    margin: 0 !important;
+    position: absolute;
+    left: -200%;
 }
 
 .desktop {
@@ -45,7 +53,7 @@ body {
   position: relative;
   padding-bottom: var(--footer-height);
   -moz-osx-font-smoothing: grayscale;
--webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,

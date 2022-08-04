@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/portfolio', portfolioRouter);
-app.use('/admin', checkAuthenticated, adminRouter);
+app.use('/admin', /* checkAuthenticated,  */adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

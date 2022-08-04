@@ -131,6 +131,11 @@ h4.portfolio-single-header {
 /* Container is here so we can get the zoom-in effect using overflow: hidden */
 div.portfolio-projects-single-img-container {
   overflow: hidden;
+  -webkit-transition: background-color 0.3s, color 0.3s;
+  -moz-transition: background-color 0.3s, color 0.3s;
+  -o-transition: background-color 0.3s, color 0.3s;
+  -ms-transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 img.portfolio-single-image {
@@ -140,6 +145,8 @@ img.portfolio-single-image {
   -o-transition: transform 0.35s ease-in;
   -ms-transition: transform 0.35s ease-in;
   transition: transform 0.35s ease-in;
+
+
   display: block;
 }
 

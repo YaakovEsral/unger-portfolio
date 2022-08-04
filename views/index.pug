@@ -9,14 +9,14 @@ block content
         img#home-left-dots(src="/svg/home-left-dots-desktop.svg")
         div#home-main-content-container
 
-            div#home-main-content-info
-                h1#home-main-info-header(data-aos="fade-up") Meir <br> Unger
-                h4#home-main-info-subheader(data-aos="fade-up" data-aos-delay=300) Creative Soul
-                p#home-main-info-tagline(data-aos="fade-up" data-aos-delay=300) I create visuals that sell it like it is. They help brands and products make sense.  And dollars.
+            div#home-main-content-info(data-rellax-percentage="0.5")
+                h1#home-main-info-header.fade-up(data-aos="fade-up") Meir <br> Unger
+                h4#home-main-info-subheader.fade-up-300(data-aos="fade-up" data-aos-delay=300) Creative Soul
+                p#home-main-info-tagline.fade-up-300(data-aos="fade-up" data-aos-delay=300) I create visuals that sell it like it is. They help brands and products make sense.  And dollars.
 
-                a#home-main-info-button(href="./portfolio" data-aos="fade-up" data-aos-delay=600) For Example
+                a#home-main-info-button.fade-up-600(href="./portfolio" data-aos="fade-up" data-aos-delay=600) For Example
 
-            img#home-profile-img(src="/images/profile.png" data-aos="fade-up")
+            img#home-profile-img.fade-up(src="/images/profile.png" data-aos="fade-up")
 
     div#home-projects-section
         div#home-projects-content-container 
@@ -24,7 +24,7 @@ block content
             h3#home-projects-section-header(data-aos="fade-up") Recently Wrapped 
 
             each project in parsedData
-                a.home-projects-single.container(href=`./portfolio/${project.slug}`)
+                a.home-projects-single.container.fade-up-scroll(href=`./portfolio/${project.slug}`)
                     //- div
                     - const mobileURL = generateFileURL.mobileCover(project);
                     - const desktopURL = generateFileURL.desktopCover(project);
@@ -39,4 +39,4 @@ block content
                     div.home-projects-single-img-container(data-aos="fade-up")
                         picture.desktop
                             source(data-srcset=desktopURL media="(min-width: 700px)")
-                            img.home-projects-single-image.lazyload(data-src=desktopURL alt=project.project_name title=project.project_name)
+                            img.home-projects-single-image(data-src=desktopURL src=desktopURL alt=project.project_name title=project.project_name)

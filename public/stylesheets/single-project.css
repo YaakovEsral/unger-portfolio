@@ -94,10 +94,15 @@ div#project-credits-popup p#credit {
   width: max-content;
 }
 
-*.single-project-inside-media,
-*.single-project-inside-media * {
-  width: 100%;
-}
+
+picture.single-project-inside-media img,
+div.single-project-inside-media video {
+    display: block;
+    width: 70vw;
+    height: 39.375vw;
+    object-fit: cover;
+    display: block;
+  }
 
 *.single-project-inside-media:not(:last-child) {
   margin-bottom: 16.62px;
