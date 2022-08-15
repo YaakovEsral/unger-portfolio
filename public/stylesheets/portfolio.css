@@ -12,6 +12,7 @@ div#portfolio-content-container {
   margin-bottom: 17.91px;
   margin-right: var(--site-right-margin-padding);
   margin-left: var(--site-left-margin-padding);
+  position: relative;
 }
 
 h2#portfolio-header {
@@ -106,12 +107,14 @@ input#videos:checked ~ div#tab-background {
 }
 
 div.portfolio-projects-container {
-  -webkit-transition: visibility 0.3s, opacity 0.3s;
+  /* -webkit-transition: visibility 0.3s, opacity 0.3s;
   -moz-transition: visibility 0.3s, opacity 0.3s;
   -o-transition: visibility 0.3s, opacity 0.3s;
   -ms-transition: visibility 0.3s, opacity 0.3s;
-  transition: visibility 0.3s, opacity 0.3s; /* Transition time should match timeout time in portfolio-types */
+  transition: visibility 0.3s, opacity 0.3s; Transition time should match timeout time in portfolio-types */
   margin-bottom: 17.91px;
+  /* position: absolute; */
+  top: 263px;
 }
 
 a.portfolio-single-project {

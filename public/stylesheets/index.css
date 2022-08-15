@@ -19,9 +19,14 @@
 }
 
 .hidden-fade {
-  visibility: hidden;
+  /* visibility: hidden; */
   opacity: 0;
   /* width: 0; */
+}
+
+.hidden-portfolio {
+    opacity: 0;
+    position: absolute;
 }
 
 *.no-width, *.no-width * {

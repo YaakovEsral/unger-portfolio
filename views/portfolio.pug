@@ -2,15 +2,15 @@ extends layout
 mixin project-category-display(projects)
     div.portfolio-projects-container(class!=attributes.class)
         each project in projects
-            a.portfolio-single-project(href=`/portfolio/${project.slug}`)
+            a.portfolio-single-project.fade-up-900(href=`/portfolio/${project.slug}`)
                 h4.portfolio-single-header.fade-up= project.project_name
                 - const mobileURL = generateFileURL.mobileCover(project);
                 - const desktopURL = generateFileURL.desktopCover(project);
-                div.portfolio-projects-single-img-container.fade-up
+                div.portfolio-projects-single-img-container
                     picture.mobile
                         source(data-srcset=mobileURL media="(max-width: 700px)")
                         img.portfolio-single-image.lazyload(data-src=mobileURL alt=project.project_name title=project.project_name) 
-                div.portfolio-projects-single-img-container.fade-up
+                div.portfolio-projects-single-img-container
                     picture.desktop
                         source(data-srcset=desktopURL media="(min-width: 700px)")
                         img.portfolio-single-image.lazyload(data-src=desktopURL alt=project.project_name title=project.project_name)
@@ -20,7 +20,7 @@ mixin project-category-display(projects)
 block content
     link(rel="stylesheet", href="/stylesheets/portfolio.css")
 
-    script(src="/javascripts/portfolio-types.js" defer)
+    //- script(src="/javascripts/portfolio-types.js" defer)
     -
         const parsedData = JSON.parse(data);
         //- console.log(parsedData)
@@ -49,7 +49,7 @@ block content
             
 
             +project-category-display(brandingProjects)(class="branding")
-            +project-category-display(campaignsProjects)(class="campaigns no-width hidden-fade")
-            +project-category-display(videosProjects)(class="videos no-width hidden-fade")
+            +project-category-display(campaignsProjects)(class="campaigns hidden-portfolio")
+            +project-category-display(videosProjects)(class="videos hidden-portfolio")
 
 //- see snippets.pug in ignore file for the attempted code that used to be here
